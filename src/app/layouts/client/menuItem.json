@@ -1,0 +1,111 @@
+[
+    {
+        "id" : 1,
+        "name": "HOME",
+        "url": "home",
+        "childs": []
+    },
+    {   
+        "id" : 2,
+        "name": "1ON1CALL",
+        "url": "1on1call",
+        "childs": []
+    },
+    {   
+        "id" : 3,
+        "name": "PROFILE",
+        "url": "profile",
+        "childs": []
+    },
+    {
+        "id" : 4,
+        "name": "PRIVATE MESSAGE",
+        "url": "private_message",
+        "childs": []
+    },
+    {
+        "id" : 5,
+        "name": "REQUEST FOR SERVICE",
+        "url": "request_for_service",
+        "childs": []
+    },
+    {
+        "id" : 6,
+        "name": "CROWD FUNDING",
+        "url": "crowd_funding",
+        "childs": []
+    },
+    {
+        "id" : 7,
+        "name": "PERSONAL",
+        "url": "#",
+        "childs": [
+            {
+                "id" : 1,
+                "name": "Profile",
+                "url": "profile",
+                "childs": []
+            },
+            {
+                "id" : 2,
+                "name": "Referral Program",
+                "url": "referal_program",
+                "childs": []
+            },
+            {
+                "id" : 3,
+                "name": "EStore Management",
+                "url": "estore_management",
+                "childs": []
+            },
+            {
+                "id" : 4,
+                "name": "Customer Support",
+                "url": "customer_support",
+                "childs": []
+            },
+            {
+                "id" : 5,
+                "name": "Purchase History",
+                "url": "purchase_history",
+                "childs": []
+            },
+            {
+                "id" : 6,
+                "name": "Security And Pricacy Settings",
+                "url": "security&privacy_settings",
+                "childs": []
+            },
+            {
+                "id" : 7,
+                "name": "Earning Statement",
+                "url": "earning_statement",
+                "childs": []
+            },
+            {
+                "id" : 8,
+                "name": "Subscribtion And Tip Management",
+                "url": "subscription_and_tip_management",
+                "childs": []
+            }
+
+        ]
+    },
+    {
+        "id" : 8,
+        "name": "SUBSCRIPTION & FAVORITES",
+        "url": "#",
+        "childs": [
+            {
+                "id" : 1,
+                "name": "Subscription",
+                "url": "subscribtions"
+            },
+            {
+                "id" : 2,
+                "name": "Favorites",
+                "url": "favorites"
+            }
+        ]
+    }
+]
