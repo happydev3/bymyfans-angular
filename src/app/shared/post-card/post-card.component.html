@@ -1,56 +1,51 @@
-<div class="card">
+<div class="card" *ngFor="let post of Posts">
     <div class="post-title d-flex align-items-center">
 
         <div class="profile-thumb">
-            <a href="#">
+            <a href="{{userPhotoUrl}}/{{post.get_user.profile_pic}}">
                 <figure class="profile-thumb-middle">
-                    <img src="../../../assets/client/images/p1.jpg" alt="profile picture">
+                    <img *ngIf="post.get_user.profile_pic === null" src="assets/client/images/normal.jpg" alt="profile picture">
+                    <img *ngIf="post.get_user.profile_pic !== null" src="{{userPhotoUrl}}/{{post.get_user.profile_pic}}" alt="profile picture">
                 </figure>
             </a>
         </div>
 
         <div class="posted-author">
-            <h6 class="author"><a href="">Jashon Murry</a></h6>
-            <span class="post-time">20 min ago</span>
+            <h3 class="author"><a href="">{{post.get_user.name}}</a></h3>
+            <span class="post-time">{{post.created_at}}</span>
         </div>
 
 
         <div class="post-settings-bar">
-            <span></span>
-            <span></span>
-            <span></span>
-            <div class="post-settings arrow-shape">
-                <ul>
-                    <li><button>copy link to adda</button></li>
-                    <li><button>edit post</button></li>
-                    <li><button>embed adda</button></li>
-                </ul>
-            </div>
+            <button mat-button [matMenuTriggerFor]="beforeMenu"><img src="assets/icons/menu-icon.png" class="menu-icon" (click)="postDetailOption()"></button>
+            <mat-menu #beforeMenu="matMenu" xPosition="before">
+                <button mat-menu-item>copy link to adda</button>
+                <button mat-menu-item>edit post</button>
+                <button mat-menu-item>embed adda</button>
+            </mat-menu>
         </div>
 
     </div>
 
     <div class="post-content">
         <p class="post-desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Aliquam luctus hendrerit metus, ut ullamcorper quaiquam luctus hendrerm finibus at.
-            Etiam id magna sit amet...
+            {{post.content}}
         </p>
-        <figure class="post-thumb img-popup">
-            <a href="">
-                <img src="../../../assets/client/images/pr.jpg" alt="post image">
+        <figure class="post-thumb img-popup" *ngIf="post.get_post_media.length != 0">
+            <a href="{{postPhotoUrl}}/{{post.get_post_media[0].file_name}}">
+                <img src="{{postPhotoUrl}}/{{post.get_post_media[0].file_name}}" alt="post image">
             </a>
         </figure>
         <div class="post-meta">
-            <button class="post-meta-like">
+            <button class="post-meta-like" *ngIf="post.get_post_likes.length != 0">
                 <i class="far fa-heart"></i>
-                <span>You and 201 people like this</span>
+                <span>{{post.get_post_likes.length}} people like this</span>
             </button>
             <ul class="comment-share-meta">
                 <li>
                     <button class="post-comment">
                         <i class="far fa-comments" aria-hidden="true"></i>
-                        <span>41</span>
+                        <span>{{post.get_post_comments.length}}</span>
                     </button>
                 </li>
                 <li>

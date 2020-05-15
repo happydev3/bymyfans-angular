@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of, Subscription, Subject } from "rxjs";
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-client',
@@ -8,7 +9,7 @@ import { Observable, of, Subscription, Subject } from "rxjs";
 })
 export class ClientComponent implements OnInit {
 
-  constructor() { }
+  constructor(public authService: AuthService) { }
 
   public menuItems: any = require('./menuItem.json');
   ngOnInit(): void {
@@ -19,5 +20,7 @@ export class ClientComponent implements OnInit {
     if(subMenu.style.display == 'none') subMenu.style.display = 'block';
     else if(subMenu.style.display == 'block') subMenu.style.display = 'none';
   }
-
+  logout() {
+    return this.authService.logout();
+  }
 }

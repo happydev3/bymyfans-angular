@@ -8,9 +8,9 @@ import { PostCardModule } from 'src/app/shared/post-card/post-card.module';
 @NgModule({
   declarations: [HomeComponent],
   imports: [
+    PostCardModule,
     CommonModule,
-    HomeRoutingModule,
-    PostCardModule
+    HomeRoutingModule
   ],
   providers: []
 })

@@ -1,22 +1,22 @@
 <div class="main_log_con">
   <div class="login-box single-page-form-card">
-    <img src="../../../assets/client/images/logoo.png" class="lkgo" />
+    <img src="assets/client/images/logoo.png" class="lkgo" />
     <p>Sign up to make money and interact with your fans!</p>
-    <form class="email-login" method="POST" action="http://new.ukmovedirect.co.uk/login">
+    <form class="email-login" [formGroup]="registerForm" (ngSubmit)="registerUser()">
       <div class="u-form-group">
-        <input id="email" placeholder="Enter Your Name" type="email" class="form-control" name="email" value=""
-          required="" autocomplete="email" autofocus="" />
+        <input id="name" placeholder="Enter Your Name" type="text" class="form-control" formControlName="name" name="name" value="" required=""/>
       </div>
       <div class="u-form-group">
-        <input id="email" placeholder="Enter Your Email" type="email" class="form-control" name="email" value=""
-          required="" autocomplete="email" autofocus="" />
+        <input id="email" placeholder="Enter Your Email" type="email" class="form-control" formControlName="email" name="email" value="" required=""/>
       </div>
       <div class="u-form-group">
-        <input placeholder="Enter Your Password" id="password" type="password" class="form-control" name="password"
-          required="" autocomplete="current-password" />
+        <input placeholder="Enter Your Password" id="password" type="password" class="form-control" formControlName="password" name="password" value="" required=""/>
       </div>
       <div class="u-form-group">
-        <button>Sign Up</button>
+        <input placeholder="Enter Your Confirm Password" id="password_confirmation" type="password" class="form-control" formControlName="password_confirmation" name="password_confirmation" value="" required="" />
+      </div>
+      <div class="u-form-group">
+        <button type="submit">Sign Up</button>
       </div>
 
       <div class="line-through">
@@ -29,7 +29,6 @@
       <div class="u-form-group">
         <a routerLink="/auth/login" class="forgot-password">Already a member? Login</a>
       </div>
-      <div class="u-form-group"></div>
     </form>
   </div>
 </div>
