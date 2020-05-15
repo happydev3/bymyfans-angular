@@ -1,0 +1,8 @@
+{
+  "/api/*": {
+    "target": "https://bvmwebsolutions.com/bemyfans/public",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

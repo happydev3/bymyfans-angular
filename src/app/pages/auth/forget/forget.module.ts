@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ForgetRoutingModule } from './forget-routing.module';
 import { ForgetComponent } from './forget.component';
-import { SocialIconModule } from 'src/app/shared/social-icon/social-icon.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -13,7 +13,7 @@ import { SocialIconModule } from 'src/app/shared/social-icon/social-icon.module'
   imports: [
     CommonModule,
     ForgetRoutingModule,
-    SocialIconModule
+    SharedModule
   ],
   providers: [
 

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RegisterRoutingModule } from './register-routing.module';
 import { RegisterComponent } from './register.component';
-import { SocialIconModule } from 'src/app/shared/social-icon/social-icon.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -13,9 +13,9 @@ import { SocialIconModule } from 'src/app/shared/social-icon/social-icon.module'
   imports: [
     CommonModule,
     RegisterRoutingModule ,
-    SocialIconModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ]
 })
 export class RegisterModule { }

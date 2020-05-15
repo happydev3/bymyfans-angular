@@ -2,7 +2,7 @@
     <div class="post-title d-flex align-items-center">
 
         <div class="profile-thumb">
-            <a href="{{userPhotoUrl}}/{{post.get_user.profile_pic}}">
+            <a href="">
                 <figure class="profile-thumb-middle">
                     <img *ngIf="post.get_user.profile_pic === null" src="assets/client/images/normal.jpg" alt="profile picture">
                     <img *ngIf="post.get_user.profile_pic !== null" src="{{userPhotoUrl}}/{{post.get_user.profile_pic}}" alt="profile picture">
@@ -17,7 +17,7 @@
 
 
         <div class="post-settings-bar">
-            <button mat-button [matMenuTriggerFor]="beforeMenu"><img src="assets/icons/menu-icon.png" class="menu-icon" (click)="postDetailOption()"></button>
+            <button mat-button [matMenuTriggerFor]="beforeMenu"><img src="assets/icons/menu-icon.png" class="menu-icon"></button>
             <mat-menu #beforeMenu="matMenu" xPosition="before">
                 <button mat-menu-item>copy link to adda</button>
                 <button mat-menu-item>edit post</button>
