@@ -8,7 +8,7 @@
     {   
         "id" : 2,
         "name": "1ON1CALL",
-        "url": "1on1call",
+        "url": "oneCall",
         "childs": []
     },
     {   
@@ -20,19 +20,19 @@
     {
         "id" : 4,
         "name": "PRIVATE MESSAGE",
-        "url": "private_message",
+        "url": "private-message",
         "childs": []
     },
     {
         "id" : 5,
         "name": "REQUEST FOR SERVICE",
-        "url": "request_for_service",
+        "url": "request-service",
         "childs": []
     },
     {
         "id" : 6,
         "name": "CROWD FUNDING",
-        "url": "crowd_funding",
+        "url": "crowd-funding",
         "childs": []
     },
     {
@@ -49,43 +49,43 @@
             {
                 "id" : 2,
                 "name": "Referral Program",
-                "url": "referal_program",
+                "url": "referral-program",
                 "childs": []
             },
             {
                 "id" : 3,
                 "name": "EStore Management",
-                "url": "estore_management",
+                "url": "estore-management",
                 "childs": []
             },
             {
                 "id" : 4,
                 "name": "Customer Support",
-                "url": "customer_support",
+                "url": "customer-support",
                 "childs": []
             },
             {
                 "id" : 5,
                 "name": "Purchase History",
-                "url": "purchase_history",
+                "url": "purchase-history",
                 "childs": []
             },
             {
                 "id" : 6,
                 "name": "Security And Pricacy Settings",
-                "url": "security&privacy_settings",
+                "url": "security&privacy-settings",
                 "childs": []
             },
             {
                 "id" : 7,
                 "name": "Earning Statement",
-                "url": "earning_statement",
+                "url": "earning-statement",
                 "childs": []
             },
             {
                 "id" : 8,
                 "name": "Subscribtion And Tip Management",
-                "url": "subscription_and_tip_management",
+                "url": "subscription-tip-management",
                 "childs": []
             }
 
@@ -98,8 +98,8 @@
         "childs": [
             {
                 "id" : 1,
-                "name": "Subscription",
-                "url": "subscribtions"
+                "name": "Subscriptions",
+                "url": "subscriptions"
             },
             {
                 "id" : 2,

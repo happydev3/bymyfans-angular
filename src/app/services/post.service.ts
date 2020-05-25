@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { AuthService } from './auth.service';
+import { TokenService } from './token.service';
 
 
 @Injectable({
@@ -11,24 +11,36 @@ import { AuthService } from './auth.service';
 })
 export class PostService {
 
+  public startpoint = 'https://bvmwebsolutions.com/bemyfans/public/';
+  public authHeader = this.tokenService.authHeader();
+
   constructor(
     private httpClient: HttpClient,
     public router: Router,
-    public authService: AuthService
+    public tokenService: TokenService
     ) { }
 
-  API_URL: string = `api/auth/post`
+  API_URL: string = this.startpoint + `api/auth/post`
 
-  authHeader() {
-    let token = this.authService.getAccessToken();
-    return new HttpHeaders().set('Authorization', 'Bearer ' + token);
-  }
   
-  getAllPost() {
-    console.log(this.authHeader());
-    return this.httpClient.get(`${this.API_URL}/all`, { headers: this.authHeader()}).pipe(
+  getAllPost(pagination): Observable<any> {
+    return this.httpClient.get(`${this.API_URL}/all?page=${pagination}`, { headers: this.authHeader}).pipe(
       map((res: any) => res),
       catchError(() => of('Error, get All post info'))
     )
+  }
+
+  
+
+  handleError(error: HttpErrorResponse) {
+    let msg = '';
+    if (error.error instanceof ErrorEvent) {
+      // client-side error
+      msg = error.error.message;
+    } else {
+      // server-side error
+      msg = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    return throwError(msg);
   }
 }

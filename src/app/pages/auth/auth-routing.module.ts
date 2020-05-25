@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthComponent } from './auth.component';
 
 
-const routes: Routes = [
+const authRoutes: Routes = [
   {
     path: '',
     component: AuthComponent,
@@ -24,14 +24,18 @@ const routes: Routes = [
       { 
         path: 'forget', 
         loadChildren: () => import('./forget/forget.module').then(m => m.ForgetModule) 
-      }
+      },
+      { 
+        path: 'reset-password/:token', 
+        loadChildren: () => import('./reset-password/reset-password.module').then(m => m.ResetPasswordModule) },
     ]
   },
+  
   
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(authRoutes)],
   exports: [RouterModule]
 })
 export class AuthRoutingModule { }

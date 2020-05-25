@@ -1,0 +1,44 @@
+<!-- Modal start -->
+    <div class="modal-dialog pay-de">
+        <div class="modal-content">
+
+            <div class="cls">
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button> -->
+            </div>
+
+            <div class="modal-body custom-scroll ps">
+
+                <div class="info-hd">
+                    <div class="profile-thumb">
+                        <a href="#">
+                            <figure class="profile-thumb-middle">
+                                <img [src]="this.data.profile_pic !== null ? profileUrl : 'assets/client/images/normal.jpg'" alt="profile picture">
+                            </figure>
+                        </a>
+                    </div>
+
+                    <div class="posted-author">
+                        <h6 class="author dee"><a href="">Jashon Murry</a></h6>
+                        <h3>Enter Tip Amount</h3>
+                    </div>
+
+                </div>
+
+
+                <div class="sdf">
+                    <input class="effect-1" type="text" placeholder="$ 0.00">
+                    <span class="focus-border"></span>
+                    <div class="b-chat__panel__error"> Minimum $5 USD </div>
+                </div>
+
+                <textarea name="share" class="effect-1 shr-ce" placeholder="Add a Message"></textarea>
+
+            </div>
+            <div class="modal-footer fvd">
+                <button type="button" class="post-share-btnn"><i class="far fa-credit-card"></i>Add A Payment Card</button>
+            </div>
+        </div>
+    </div>
+<!-- Modal end -->

@@ -1,19 +1,30 @@
 <div class="main_log_con">
-    <div class="login-box single-page-form-card">
-      <img src="../../../assets/client/images/logoo.png" class="lkgo" />
-      <p>did you forget your password? Please send me your email to reset your password.</p>
-      <form class="email-login" method="POST" action="http://new.ukmovedirect.co.uk/login">
+  <div class="login-box single-page-form-card">
+    <img src="assets/client/images/logoo.png" class="lkgo" />
+    <p>did you forget your password? Please send me your email to reset your password.</p>
+      <form name="resetRequestForm" [formGroup]="resetRequestForm" novalidate (ngSubmit)="resetRequest()">
+        <mat-form-field appearance="outline" class="fields-group auth-field">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email">
+          <mat-icon matSuffix class="secondary-text">mail</mat-icon>
+          <mat-error *ngIf="resetRequestForm.get('email').hasError('required')">
+              Email is required
+          </mat-error>
+          <mat-error
+              *ngIf="!resetRequestForm.get('email').hasError('required') &&
+                      resetRequestForm.get('email').hasError('email')">
+              Please enter a valid email address
+          </mat-error>
+        </mat-form-field>
         <div class="u-form-group">
-          <input id="email" placeholder="Enter Your Email" type="email" class="form-control" name="email" value=""
-            required="" autocomplete="email" autofocus="" />
-        </div>
-        <div class="u-form-group">
-          <button>Send Email</button>
+          <button mat-raised-button class="submit-button" aria-label="LOG IN"
+                  [disabled]="resetRequestForm.invalid">
+                  Send Email
+          </button>
         </div>
         <div class="social-login">
           <app-social-icon></app-social-icon>
         </div>
       </form>
-    </div>
   </div>
-  
+</div>

@@ -1,0 +1,5 @@
+<div class="card">
+    <ul class="user-menu">
+       <li [class]="currentUrl == '/' + item.url ? 'active' : ''" *ngFor="let item of personalHerderItems"><a href="{{item.url}}" >{{item.name}}</a></li>
+    </ul>
+ </div>

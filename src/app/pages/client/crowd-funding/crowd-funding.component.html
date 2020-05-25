@@ -1,0 +1,31 @@
+<section class="head-sec">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9">
+          <div class="section-headline">
+            <h3>Crowd Funding</h3>
+          </div>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="create-btn">
+            <a class="btnw round-btn" data-toggle="modal" data-target="#textboxd" (click)="openDialog()">
+                <i class="fas fa-plus-circle"></i>Create New
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="listings-container compact-list-layout margin-top-35 filter-element">
+            <app-element-crowd [fund] = "fund" *ngFor="let fund of crowdFunds"></app-element-crowd>
+        </div>
+      </div>
+
+      <div class="row pagination">
+        <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [maxSize]="2" [rotate]="true" [boundaryLinks]="true" id="paginate" (click)="pageChange($event)"></ngb-pagination>
+      </div>
+
+    </div>
+
+  </section>

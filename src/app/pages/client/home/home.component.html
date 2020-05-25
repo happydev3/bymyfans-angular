@@ -1,97 +1,25 @@
-<div class="main-wrapper pt-80">
+<div class="main-wrapper pt-80" *ngIf="!actionLoadingIndicator">
     <div class="container">
         <div class="row">
 
             <div class="col-lg-8 order-2 order-lg-1">
-                <app-post-card [posts]="posts"></app-post-card>
+                <app-post-card *ngFor="let post of posts" [post]="post"></app-post-card>
             </div>
 
             <div class="col-lg-4 order-2 order-lg-1">
 
-                <div class="card widget-item">
-                    <h4 class="widget-title">Most viewed</h4>
-                    <div class="widget-body">
-                        <ul class="like-page-list-wrapper">
-                            <li class="unorder-list">
-                                <!-- profile picture end -->
-                                <div class="profile-thumb">
-                                    <a href="#">
-                                        <figure class="profile-thumb-small">
-                                            <img src="../../../assets/client/images/p2.jpg" alt="profile picture">
-                                        </figure>
-                                    </a>
-                                </div>
-                                <!-- profile picture end -->
+                <app-top-view [topViews]="topViews"></app-top-view>
 
-                                <div class="unorder-list-info">
-                                    <h3 class="list-title"><a href="#">Ammeya Jakson</a></h3>
-                                    <p class="list-subtitle"><a href="#">10 mutual</a></p>
-                                </div>
-                                <button class="like-button">
-                                    <img class="heart" src="../../../assets/client/images/heart.png" alt="">
-                                    <img class="heart-color" src="../../../assets/client/images/heart-color.png" alt="">
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="card widget-item">
-                    <h4 class="widget-title">Most Subscribed</h4>
-                    <div class="widget-body">
-                        <ul class="like-page-list-wrapper">
-                            <li class="unorder-list">
-                                <div class="profile-thumb">
-                                    <a href="#">
-                                        <figure class="profile-thumb-small">
-                                            <img src="../../../assets/client/images/p2.jpg" alt="profile picture">
-                                        </figure>
-                                    </a>
-                                </div>
-                                <!-- profile picture end -->
-
-                                <div class="unorder-list-info">
-                                    <h3 class="list-title"><a href="#">Ammeya Jakson</a></h3>
-                                    <p class="list-subtitle"><a href="#">10 mutual</a></p>
-                                </div>
-                                <button class="like-button">
-                                    <img class="heart" src="../../../assets/client/images/heart.png" alt="">
-                                    <img class="heart-color" src="../../../assets/client/images/heart-color.png" alt="">
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="card widget-item">
-                    <h4 class="widget-title">Best Selling Item</h4>
-                    <div class="widget-body">
-                        <ul class="like-page-list-wrapper">
-                            <li class="unorder-list">
-                                <div class="profile-thumb">
-                                    <a href="#">
-                                        <figure class="profile-thumb-small">
-                                            <img src="../../../assets/client/images/p2.jpg" alt="profile picture">
-                                        </figure>
-                                    </a>
-                                </div>
-                                <!-- profile picture end -->
-
-                                <div class="unorder-list-info">
-                                    <h3 class="list-title"><a href="#">Ammeya Jakson</a></h3>
-                                    <p class="list-subtitle"><a href="#">10 mutual</a></p>
-                                </div>
-                                <button class="like-button">
-                                    <img class="heart" src="../../../assets/client/images/heart.png" alt="">
-                                    <img class="heart-color" src="../../../assets/client/images/heart-color.png" alt="">
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
+                <app-top-subscribe></app-top-subscribe>
+                
+                <app-best-selling></app-best-selling>
+                
             </div>
 
         </div>
+
+        <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [maxSize]="2" [rotate]="true" [boundaryLinks]="true" id="paginate" (click)="pageChange($event)"></ngb-pagination>
+
     </div>
+    
 </div>

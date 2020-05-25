@@ -27,16 +27,16 @@
 <header id="header" class="clearfix">
     <nav class="navbar navbar-default navbar-expand-lg">
         <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#tr-mainmenu" aria-controls="tr-mainmenu" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#tr-mainmenu" aria-controls="tr-mainmenu" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleMenuOpen()">
                 <span class="navbar-toggler-icon"><i class="fa fa-align-justify"></i></span>
             </button>
-            <div class="collapse navbar-collapse" id="tr-mainmenu">
+            <div class="collapse navbar-collapse" id="tr-mainmenu" [ngClass]="showMenu == true ? 'show' : ''">
                 <ul class="nav navbar-nav">
-                    <li class=" dropdown" *ngFor="let menuItem of menuItems">
+                    <li class=" dropdown" [class]="currentUrl == '/' + menuItem.url ? 'active' : ''" *ngFor="let menuItem of menuItems">
                         <a *ngIf="menuItem.childs.length == 0" href="{{menuItem.url}}">{{menuItem.name}}</a>
                         <a *ngIf="menuItem.childs.length != 0" (click)="subMenu(menuItem.id)" class="dropdown-toggle" data-toggle="dropdown">{{menuItem.name}}<span class="caret"></span></a>
                         <ul *ngIf="menuItem.childs.length != 0" class="dropdown-menu active" id="dropdown-menu{{menuItem.id}}" style="display: none">
-                            <li *ngFor="let subMenuItem of menuItem.childs"><a href="{{subMenuItem.url}}">{{subMenuItem.name}}</a></li>
+                            <li [class]="currentUrl == '/' + subMenuItem.url ? 'active' : ''" *ngFor="let subMenuItem of menuItem.childs"><a href="{{subMenuItem.url}}">{{subMenuItem.name}}</a></li>
                         </ul>
                     </li>
                 </ul>              

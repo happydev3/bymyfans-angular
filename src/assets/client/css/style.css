@@ -1,10 +1,11 @@
 html,
 body {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  color: #6f6f6f;
-  -webkit-font-smoothing: antialiased;
-  background: #ebf1f0;
+  font-family: "Lato", sans-serif !important;
+  background: rgb(235, 241, 240) !important;
+  font-weight: 400 !important;
+  color: #6f6f6f !important;
+  -webkit-font-smoothing: antialiased !important;
+  max-height: 100% !important;
 }
 
 h1,
@@ -863,7 +864,7 @@ div#demo {
 a.round-btn {
   text-transform: uppercase;
   border: 2px solid #02743a;
-  color: #02743a;
+  color: #02743a !important;
   padding: 14px 30px;
   border-radius: 115px;
   width: -webkit-fill-available;
@@ -874,6 +875,7 @@ a.round-btn {
 }
 
 a.round-btn:hover {
+  cursor: pointer;
   box-shadow: 0px 4px 12px #00000042;
 }
 
@@ -979,6 +981,10 @@ section.cover-sec:before {
   position: absolute;
   left: 158px;
   top: 47px;
+}
+
+.call-icon:hover {
+  cursor: pointer;
 }
 
 .call-icon i {
@@ -1579,6 +1585,7 @@ a.attachment-box:hover,
   color: #777;
   padding-right: 10%;
   margin-bottom: 15px;
+  font-size: 17px;
 }
 
 .section-headline {
@@ -1601,6 +1608,7 @@ span.categories {
   border-radius: 1000px;
   padding-bottom: 7px;
   color: #777;
+  font-size: 18px;
 }
 
 span.categoriess {
@@ -2854,12 +2862,13 @@ span.edit-tbtn {
   border: none;
   outline: none;
   color: #fff;
-  font-size: 20px;
+  font-size: 14px;
   letter-spacing: 1px;
   padding: 10px 0;
   text-transform: uppercase;
   border-radius: 35px;
   margin-top: 5px;
+  line-height: 25px !important;
 }
 
 .forgot-password {
@@ -2982,7 +2991,7 @@ span.edit-tbtn {
 
 .log-rs-sec {
   background: #fff;
-  padding: 30px 0px;
+  padding: 150px 0px;
 }
 
 .pnone_img {
@@ -3552,4 +3561,227 @@ input#from-date {
 /* Handle on hover */
 .people-list ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+/*shared custom css*/
+
+button:focus {
+  outline: none !important;
+}
+
+
+/*login remember*/
+
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background: rgb(14, 201, 157);
+}
+
+.auth-field {
+  width: 100% !important;
+}
+
+/* paginate*/
+.page-link {
+  color: #02743a !important;
+}
+.page-item.active .page-link {
+  background-color: #02743a !important;
+  border-color: #02743a !important;
+  color: white !important;
+}
+
+/*spinner*/
+#http-loader {
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 9999;
+}
+
+.loader-bg {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  filter: alpha(opacity=70);
+  opacity: .7;
+  background-color: #f1f1f1;
+}
+
+.colored-parent, .colored > div {
+  background-color: #333;
+}
+
+/*action-loading*/
+.action-loading {
+  width: 100%;
+  height: 100%;
+  background: white;
+  position: fixed;
+  z-index: 9999;
+}
+
+.loading-bar {
+  margin-left: 50%;
+  margin-top: 20%;
+}
+
+/*post-card*/
+.menu-icon {
+  width: 20px;
+}
+
+/*post-element*/
+.extra-post {
+  margin-left: 10%;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.comment-element {
+  border-style: groove;
+  border-radius: 5px;
+  padding: 10px;
+  color: black;
+}
+
+.comment-element .mat-form-field-wrapper {
+  padding-bottom: 0px;
+}
+
+.comments {
+  padding-left: 10px;
+}
+
+.comments-content {
+  padding-bottom: 2px;
+}
+
+.comment-user {
+  display: inline-flex;
+}
+
+.comment-user-profile {
+  border-radius: 12.5px;
+  width: 25px;
+}
+
+.comment-user-name {
+  margin-left: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 10px;
+  color: rgb(138, 223, 216);
+  font-weight: 500;
+}
+
+.comment-user-name:hover {
+  text-underline-position: below;
+}
+
+.comment-user-name.mat-chip.mat-standard-chip {
+  background-color: rgb(215, 231, 238);
+}
+
+.comment-content {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 10px;
+}
+
+.my-custom-class .tooltip-inner {
+  display: block !important;
+  background-color: rgb(215, 231, 238);
+  color: black;
+}
+
+.mat-input-element {
+  caret-color: #02743a !important;
+}
+
+.mat-form-field.mat-focused .mat-form-field-label{
+  color: #02743a !important;
+}
+
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color:  #02743a!important;
+}
+
+.comment-typing {
+  width: 100%;
+  margin-top: 30px;
+  text-align: center;
+}
+
+/* .my-custom-class .arrow::before {
+  background-color: darkgreen;
+}
+
+.my-custom-class .arrow::after {
+  background-color: darkgreen;
+} */
+
+/*requrest service*/
+.request-modal .mat-dialog-container{
+  padding: 0px !important;
+  overflow: hidden;
+}
+
+.modal-dialog {
+  margin: 0px !important;
+  font-family: "Lato", sans-serif !important;
+}
+
+.modal-dialog h2 {
+  margin: 0px !important;
+}
+
+.ser-listing-description {
+  font-size: 15px;
+}
+
+.pagination {
+  padding-top: 5px;
+}
+
+.filter-element {
+  width: 100%;
+}
+
+/* crowd funding list */
+
+
+/* profile */
+
+.show-more {
+  cursor: pointer;
+}
+
+.userInfo-about {
+  background: transparent !important;
+}
+
+.userInfo-about .mat-expansion-panel {
+  background: transparent !important;
+}
+
+.userInfo-about .mat-expansion-panel-header {
+  padding: 0px;
+}
+
+.userInfo-about .mat-expansion-panel {
+  box-shadow: none !important;
+}
+
+/*post element*/
+
+/*account-update*/
+.account-update {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }

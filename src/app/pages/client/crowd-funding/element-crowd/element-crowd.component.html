@@ -1,0 +1,33 @@
+ <!-- ser Listing -->
+ <a href="" class="ser-listing with-apply-button">
+
+    <!-- ser Listing Details -->
+    <div class="ser-listing-details">
+
+      <!-- Logo -->
+      <div class="ser-listing-company-logo">
+        <img src="assets/client/images/b.png" alt="">
+      </div>
+
+      <!-- Details -->
+      <div class="ser-listing-description">
+        <h3 class="ser-listing-title">{{fund.title}}</h3><span class="categories">Category</span>
+        <p>{{fund.description}}</p>
+
+        <!-- ser Listing Footer -->
+        <div class="ser-listing-footer">
+          <ul>
+            <li><i class="fas fa-money-bill"></i>{{fund.budget}}</li>
+            <li><i class="fas fa-clock"></i>{{fund.created_at | date:'medium'}}</li>
+
+            <li><i class="fas fa-map-marker-alt"></i>{{fund.location}}</li>
+            <li><i class="fas fa-users"></i> 28 Participants</li>
+            <li><i class="fas fa-hourglass-end" aria-hidden="true"></i>{{fund.expiry_date | date}}</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Apply Button -->
+      <span class="list-apply-button ripple-effect">View Now</span>
+    </div>
+  </a>

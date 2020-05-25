@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-social-icon',
-  templateUrl: './social-icon.component.html',
-  styleUrls: ['./social-icon.component.css']
+  templateUrl: './social-icon.component.html'
 })
 export class SocialIconComponent implements OnInit {
 

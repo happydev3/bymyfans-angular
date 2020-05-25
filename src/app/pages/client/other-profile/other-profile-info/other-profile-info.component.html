@@ -1,0 +1,90 @@
+<div class="profile-menu-area secondary-navigation-style">
+    <div class="container">
+
+        <div class="row align-items-center">                
+            <div class="col-lg-2 col-md-2">
+                <div class="profile-picture-box">
+                    <figure class="profile-picture">
+                        <a href="">
+                            <img *ngIf="userInfo.profile_pic" [src]="userInfo.profile_pic ?  userPhotoUrl : 'assets/client/images/av.jpg'" alt="profile picture">
+                            <i class="fas fa-circle"></i>
+                        </a>
+                    </figure>
+                </div>
+            </div>
+
+            <div class="col-lg-7 col-md-7">
+                <div class="b-profile__user__status">
+                    <p class="time">Online<i class="fas fa-check"></i></p>
+                    <div class="g-user-name m-lg-size m-verified"> {{ userInfo.name }} </div>
+                    <div class="g-user-username"><a href=""> {{ userInfo.name }} </a></div>
+                    <div class="call-icon" (click)="openCallModal()">
+
+                        <span data-toggle="tooltip" data-placement="top" title="1 to 1 Call">
+                            <i data-toggle="modal" data-target="#textbox8" class="fas fa-phone-square-alt" aria-hidden="true"></i>
+                        </span>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-3 d-none d-md-block">
+                <div class="profile-edit-panel">
+                    <i class="far fa-star" data-toggle="tooltip" data-placement="top" title="Add to Favourite"></i>
+                    <i class="far fa-share-square" data-toggle="tooltip" data-placement="top" title="Copy link to profile"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="info-ing">
+                    
+                    <mat-accordion class="userInfo-about">
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    <div class="loca-de show-more" data-toggle="collapse" data-target="#demo">
+                                        <i class="far fa-user"></i>Show more info
+                                    </div>
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            
+                                {{ userInfo.about }}
+                           
+                        </mat-expansion-panel>
+                    </mat-accordion>
+
+                    <div class="loca-de">
+                        <i class="fas fa-map-marker-alt"></i>{{ userInfo.location }}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="info-ing">
+
+                    <div class="b-frofile">
+                        <a class="round-btn">
+                            <i class="fas fa-file-invoice-dollar"></i>Subscription options
+                        </a>
+                    </div>
+
+                    <div class="b-frofile">
+                        <a class="round-btn" data-toggle="modal" data-target="#textbox2" (click)="openTipModal()">
+                            <i class="fas fa-dollar-sign"></i>Send a Tip
+                        </a>
+                    </div>
+
+                    <div class="b-frofile">
+                        <a href="estore.html" class="round-btn"><i class="fas fa-store"></i>Peresonal eStore</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

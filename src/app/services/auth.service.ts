@@ -25,25 +25,31 @@ export class AuthService {
 
   currentUser = {};
 
+  public startpoint = 'https://bvmwebsolutions.com/bemyfans/public/api';
+  
   constructor(private httpClient: HttpClient,public router: Router){}
 
   register(user): Observable<any> {
     console.log(user);
-    return this.httpClient.post(`api/auth/signup`, user).pipe(
+    return this.httpClient.post(`${this.startpoint}/auth/signup`, user).pipe(
       map((res: Response) => {
         return res || {}
       }),
-      catchError(this.handleError)
+      (error) => {
+        return error;
+      }
     )
   }
 
-  login(user) {
-    return this.httpClient.post<any>(`api/auth/login`, user)
-      .subscribe((res: any) => {
+  login(user): Observable<any> {
+    return this.httpClient.post<any>(`${this.startpoint}/auth/login`, user).pipe(
+      map((res: any) => {
         console.log(res);
-        localStorage.setItem('access_token', res.access_token)
-        this.router.navigate(['/home']);
+        return res || {}
+      }, (error) => {
+        return error;
       })
+    )    
   }
 
   logout() {
@@ -55,7 +61,7 @@ export class AuthService {
   getUserProfile(token): Observable<any> {
     let headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
     console.log(headers);
-    return this.httpClient.get(`api/auth/user`, { headers: headers }).pipe(
+    return this.httpClient.get(`${this.startpoint}/auth/user`, { headers: headers }).pipe(
       map((res: Response) => {
         return res || {}
       }),
@@ -67,6 +73,36 @@ export class AuthService {
     return localStorage.getItem('access_token');
   }
 
+  resetRequest(email): Observable<any> {
+    console.log(email);
+    return this.httpClient.post(`${this.startpoint}/password/create`, email).pipe(
+      map((res: Response) => {
+        console.log(res);
+        return res || {}
+      }),
+      catchError(this.handleError)
+    );
+  }
+
+  resetFind(token): Observable<any> {
+    return this.httpClient.get(`${this.startpoint}/password/find/` + token).pipe(
+      map((res: Response) => {
+        console.log(res);
+        return res || {}
+      }),
+      catchError(this.handleError)
+    )
+  }
+
+  resetPassword(resetForm): Observable<any> {
+    return this.httpClient.post(`${this.startpoint}/password/reset`, resetForm).pipe(
+      map((res: Response) => {
+        console.log(res);
+        return res || {}
+      }),
+      catchError(this.handleError)
+    )
+  }
 
   isLoggedIn(): boolean {
     let authToken = localStorage.getItem('access_token');

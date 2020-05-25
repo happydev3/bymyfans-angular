@@ -1,0 +1,76 @@
+<!-- Modal start -->
+<div class="request-md">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Request for Service</h2>
+        </div>
+        <form name="add_request_service_form" [formGroup]="add_request_service_form" (ngSubmit)="addRequestService()">
+          <div class="modal-body custom-scroll ps">
+            <div class="input-with-icon-left">
+              <input type="text" class="input-text with-border" formControlName="title" name="title" id="title" placeholder="Request Title" required>
+            </div>
+
+            <select class="form-control" formControlName="category_id" name="category_id">
+              <option [value]="category.id" *ngFor="let category of categories">{{ category.name }}</option>
+            </select>
+  
+  
+            <!-- <div class="input-with-icon">
+              <div id="autocomplete-container">
+                <input id="autocomplete-input" class="with-border" type="text" formControlName="title" placeholder="Enter Time" required>
+              </div>
+              <i class="fas fa-clock"></i>
+            </div> -->
+  
+            <div class="input-with-icon">
+              <div id="autocomplete-container">
+                <input id="autocomplete-input" class="with-border" type="text" formControlName="expiry_date" name="expiry_date" placeholder="Enter Expiry Date" required>
+              </div>
+              <i class="fas fa-hourglass-end"></i>
+            </div>
+  
+            <div class="input-with-icon">
+              <div id="autocomplete-container">
+                <input id="autocomplete-input" class="with-border" type="text" formControlName="location" name="location" placeholder="Enter Location" required>
+              </div>
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+            </div>
+  
+            <div class="input-with-icon">
+              <div id="autocomplete-container">
+                <input id="autocomplete-input" class="with-border" type="number" formControlName="budget" name="budget" placeholder="Budget Offering" required>
+              </div>
+              <i class="fas fa-dollar-sign"></i>
+            </div>
+  
+            <div class="req_des">
+              <textarea name="share" class="share-field-big custom-scroll ps" formControlName="description" name="description" placeholder="Request Description" required></textarea>
+            </div>
+  
+            <div class="uploadButton">
+              <input class="uploadButton-input" type="file" accept="image/*, application/pdf" id="upload-cv" formControlName="media_file" name="media_file">
+              <label class="uploadButton-button ripple-effect" for="upload-cv">Select File</label>
+              <span class="uploadButton-file-name">Attach files if necessary <br> Multimedia file or word, excel,
+                powerpoint, pdf etc</span>
+            </div>
+  
+            <div class="remember-forgot-password remember u-form-group" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center">
+                <mat-checkbox class="remember-me" aria-label="Remember Me" name="remember_me">
+                  Send the requset in private mode, directly to subscribed creators
+                </mat-checkbox>
+            </div>
+  
+          </div>
+          <div class="modal-footer">
+            <button mat-raised-button  class="submit-button post-share-btn" aria-label="Deposit & Publish" [disabled]="add_request_service_form.invalid">Deposit & Publish</button>
+            <!-- <button type="button" class="post-share-btn">Preview</button> -->
+            <!-- <button type="submit" class="post-share-btn" [disabled]="add_request_service_form.invalid">Deposit & Publish</button> -->
+          </div>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+    
+  <!-- Modal end -->

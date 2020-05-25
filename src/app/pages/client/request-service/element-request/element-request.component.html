@@ -1,0 +1,31 @@
+<a href="" class="ser-listing with-apply-button">
+
+    <!-- ser Listing Details -->
+    <div class="ser-listing-details">
+
+      <!-- Logo -->
+      <div class="ser-listing-company-logo">
+        <img src="assets/client/images/b.png" alt="">
+      </div>
+
+      <!-- Details -->
+      <div class="ser-listing-description">
+        <h3 class="ser-listing-title">{{request.title}}</h3><span class="categories">Category</span>
+        <p>{{request.description}}</p>
+
+        <!-- ser Listing Footer -->
+        <div class="ser-listing-footer">
+          <ul>
+            <li><i class="fas fa-money-bill"></i>{{request.budget}}</li>
+            <li><i class="fas fa-clock"></i>{{request.created_at | date:'medium'}}</li>
+            <li><i class="fas fa-map-marker-alt"></i>{{request.location}}</li>
+            <li><i class="fas fa-users"></i> 28 Bidders</li>
+            <li><i class="fas fa-hourglass-end"></i>{{request.expiry_date | date}}</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Apply Button -->
+      <span class="list-apply-button ripple-effect">View Now</span>
+    </div>
+</a>

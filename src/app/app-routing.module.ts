@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ClientComponent } from './layouts/client/client.component';
 import { AuthGuardService } from './services/auth-guard.service';
 
-const routes: Routes = [
+const appRoutes: Routes = [
   { 
     path: '', 
     component: ClientComponent,
@@ -22,7 +22,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
