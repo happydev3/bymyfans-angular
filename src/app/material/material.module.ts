@@ -14,6 +14,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { TextFieldModule } from '@angular/cdk/text-field';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -31,7 +33,9 @@ import { TextFieldModule } from '@angular/cdk/text-field';
     MatExpansionModule,
     MatDatepickerModule,
     MatTooltipModule,
-    TextFieldModule
+    TextFieldModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     MatMenuModule,
@@ -47,7 +51,9 @@ import { TextFieldModule } from '@angular/cdk/text-field';
     MatExpansionModule,
     MatDatepickerModule,
     MatTooltipModule,
-    TextFieldModule
+    TextFieldModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class MaterialModule { }

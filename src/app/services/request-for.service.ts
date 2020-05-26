@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, throwError, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { TokenService } from './token.service';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -41,8 +42,16 @@ export class RequestForService {
     )
   }
 
-  addRequestService(data): Observable<any> {
-    return this.httpClient.post(`${this.API_URL}/add`, data, {headers: this.authHeader}).pipe(
+  addRequestService(data: FormGroup, media: File): Observable<any> {
+    let formData = new FormData();
+    formData.append('title', data.value.title);
+    formData.append('category_id', data.value.category_id);
+    formData.append('expiry_date', data.value.expiry_date);
+    formData.append('location', data.value.location);
+    formData.append('budget', data.value.budget);
+    formData.append('description', data.value.description);
+    formData.append('media_file', media);
+    return this.httpClient.post(`${this.API_URL}/add`, formData, {headers: this.authHeader}).pipe(
       map((res: Response) => {
         console.log(res);
         return res || {}

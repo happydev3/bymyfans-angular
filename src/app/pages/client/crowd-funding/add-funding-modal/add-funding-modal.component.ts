@@ -15,6 +15,7 @@ export class AddFundingModalComponent implements OnInit {
 
   add_crowd_fund_form: FormGroup;
   public categories: Array<Category>;
+  public media_file: File;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -30,7 +31,7 @@ export class AddFundingModalComponent implements OnInit {
       location: '',
       budget: '',
       description: '',
-      media_file: ''
+      products: ''
     })
   }
 
@@ -43,19 +44,25 @@ export class AddFundingModalComponent implements OnInit {
       location:       ['', Validators.required],
       budget:         ['', Validators.required],
       description:    ['', Validators.required],
-      media_file:     [''],
+      products:       ['', Validators.required]
     });
   }
 
   public addCrowdFund(): void {
     this.loadingService.show();
-    let data = this.add_crowd_fund_form.value;
-    this.crowdFundService.addCrowdFund(data).subscribe((res) => {
+    let data = this.add_crowd_fund_form;
+    this.crowdFundService.addCrowdFund(data, this.media_file).subscribe((res) => {
       if(res.success == true) {
         console.log(res);
         this.loadingService.hide();
         location.reload();
       }
     })
+  }
+
+  onMediaSelected(event) {
+    if(event.target.files.length > 0) {
+      this.media_file = event.target.files[0];
+    }
   }
 }

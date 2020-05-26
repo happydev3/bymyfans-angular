@@ -19,4 +19,11 @@ export class TokenService {
     return new HttpHeaders().set('Authorization', 'Bearer ' + token);
   }
   
+  postHeader() {
+    let token = this.authService.getAccessToken();
+    let postHeader = new HttpHeaders();
+    postHeader.append('Authorization', 'Bearer ' + token);
+    postHeader.append('Content-Type', 'multipart/form-data');
+    return postHeader;
+  }
 }

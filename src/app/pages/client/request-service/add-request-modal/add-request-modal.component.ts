@@ -14,6 +14,7 @@ export class AddRequestModalComponent implements OnInit {
 
   add_request_service_form: FormGroup
   public categories: Array<Category>;
+  public media_file: any;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -29,7 +30,6 @@ export class AddRequestModalComponent implements OnInit {
       location: '',
       budget: '',
       description: '',
-      media_file: ''
     })
   }
 
@@ -42,20 +42,25 @@ export class AddRequestModalComponent implements OnInit {
       location:       ['', Validators.required],
       budget:         ['', Validators.required],
       description:    ['', Validators.required],
-      media_file:     [''],
     });
   }
 
   public addRequestService(): void {
     this.loadingService.show();
-    let data = this.add_request_service_form.value;
-    this.requestService.addRequestService(data).subscribe((res) => {
+    let data = this.add_request_service_form;
+    this.requestService.addRequestService(data, this.media_file).subscribe((res) => {
       if(res.success == true) {
         console.log(res);
         this.loadingService.hide();
         location.reload();
       }
     })
+  }
+
+  onMediaSelected(event) {
+    if(event.target.files.length > 0) {
+      this.media_file = event.target.files[0];
+    }
   }
 
 }

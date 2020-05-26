@@ -45,11 +45,11 @@
             </div>
 
   
-            <!-- <div class="input-with-icon">
+            <div class="input-with-icon">
               <div id="autocomplete-container">
-                <input id="autocomplete-input" class="with-border" type="text" formControlName="products" name="products" placeholder="Products/Deliverables">
+                <input id="autocomplete-input" class="with-border" type="text" formControlName="products" name="products" placeholder="Products/Deliverables" required>
               </div>
-            </div> -->
+            </div>
   
   
             <div class="req_des">
@@ -58,7 +58,7 @@
   
   
             <div class="uploadButton">
-              <input class="uploadButton-input" type="file" accept="image/*, application/pdf" id="upload-cv" formControlName="media_file" name="media_file">
+              <input class="uploadButton-input" type="file" accept="image/*, application/pdf" id="upload-cv"  (change)="onMediaSelected($event)">
               <label class="uploadButton-button ripple-effect" for="upload-cv">Select File</label>
               <span class="uploadButton-file-name">Attach files if necessary <br> Multimedia file or word, excel,
                 powerpoint, pdf etc</span>
@@ -72,7 +72,6 @@
   
           </div>
           <div class="modal-footer">
-            <!-- <button type="button" class="post-share-btn">Preview</button> -->
             <button mat-raised-button  class="submit-button post-share-btn" aria-label="Deposit & Publish" [disabled]="add_crowd_fund_form.invalid">Publish</button>
           </div>
         </form>

@@ -7,9 +7,10 @@ export class User  {
     location: String;
     mobile: Number;
     about: String;
-    profile_pic: String;
-    wall_pic: String;
-    email_verified_at: Time;
-    created_at: Time;
-    updated_at: Time;
+    profile_pic: File;
+    wall_pic: File;
+    email_verified_at: String;
+    taobao_wishlist_url: String;
+    created_at: String;
+    updated_at: String;
 }

@@ -31,16 +31,16 @@
             {{post.content}}
         </p>
 
-        <div *ngIf="post.get_post_media.length != 0">
+        <div>
             <figure class="post-thumb img-popup" *ngFor="let media of post.get_post_media">
-                <a href="{{postPhotoUrl}}/{{media.file_name}}" *ngIf="media.media_type == 'image'">
-                    <img src="{{postPhotoUrl}}/{{media.file_name}}" alt="post image">
+                <a href="{{postMediaUrl}}/{{media.file_name}}" *ngIf="media.media_type == 'image/jpeg'">
+                    <img src="{{postMediaUrl}}/{{media.file_name}}" alt="post image">
                 </a>
                 
-                <video *ngIf="media.media_type == 'video'" id="my_video_1" class="video-js vjs-default-skin" width="100%" height="" controls preload="none"
+                <video *ngIf="media.media_type == 'video/mp4'" id="my_video_1" class="video-js vjs-default-skin" width="100%" height="" controls preload="none"
                     poster=''
                     data-setup='{ "aspectRatio":"5:3", "playbackRates": [1, 1.5, 2] }'>
-                    <source src="{{postVideoUrl}}/{{media.file_name}}" type='video/mp4' />
+                    <source src="{{postMediaUrl}}/{{media.file_name}}" type='video/mp4' />
                 </video>
                
             </figure>

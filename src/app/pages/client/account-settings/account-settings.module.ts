@@ -12,7 +12,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     AccountSettingsRoutingModule,
     MaterialModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class AccountSettingsModule { }

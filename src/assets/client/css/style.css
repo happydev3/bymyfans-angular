@@ -103,6 +103,7 @@ img {
 .dropdown-menu > .active > a:hover {
   background-color: transparent;
   color: #0ec99d;
+  cursor: pointer;
 }
 
 .dropdown-menu {
@@ -2005,7 +2006,7 @@ select.with-border {
   margin-bottom: 30px;
 }
 
-a.edt-trq {
+.edt-trq {
   padding: 4px 14px;
   border: 1px solid;
   border-radius: 50px;
@@ -2017,7 +2018,7 @@ a.edt-trq {
   font-size: 14px;
 }
 
-a.edt-tr {
+.edt-tr {
   padding: 4px 14px;
   font-size: 14px;
   border: 1px solid;
@@ -2027,6 +2028,22 @@ a.edt-tr {
   text-align: center;
   background: #fff;
   margin-bottom: 0px;
+}
+
+.edit-prof .uploadButton .uploadButton-button {
+  color: #0ec99d !important;
+}
+
+.edit-prof .uploadButton .uploadButton-button:hover {
+  color: white !important;
+}
+
+.edit-prof .uploadButton .uploadButton-button {
+  color: #0ec99d !important;
+}
+
+.edit-prof .uploadButton .uploadButton-button:hover {
+  color: white !important;
 }
 
 .seas .cover-sec img {

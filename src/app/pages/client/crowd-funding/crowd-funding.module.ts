@@ -7,7 +7,6 @@ import { ElementCrowdComponent } from './element-crowd/element-crowd.component';
 import { AddFundingModalComponent } from './add-funding-modal/add-funding-modal.component';
 import { MaterialModule } from 'src/app/material/material.module';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,8 +19,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MaterialModule,
     SharedModule,
     CrowdFundingRoutingModule,
-    ReactiveFormsModule,
-    FormsModule
   ],
   entryComponents: [
     AddFundingModalComponent

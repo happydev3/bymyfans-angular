@@ -13,8 +13,8 @@ export class PostCardComponent implements OnInit {
   }
 
   public userPhotoUrl: String = 'https://bvmwebsolutions.com/bemyfans/public/uploads/profile-pic';
-  public postPhotoUrl: String = 'https://bvmwebsolutions.com/bemyfans/public/uploads/post-media';
-  public postVideoUrl: String = 'https://bvmwebsolutions.com/bemyfans/public/uploads/post-video'
+  public postMediaUrl: String = 'https://bvmwebsolutions.com/bemyfans/public/uploads/post-media';
+  // public postVideoUrl: String = 'https://bvmwebsolutions.com/bemyfans/public/uploads/post-video'
   public profileUrl: string; 
   
 
@@ -23,9 +23,8 @@ export class PostCardComponent implements OnInit {
 
   @Input() post: any;
 
-  
-
   ngOnInit(): void {
+    console.log(this.post);
     this.profileUrl = this.userPhotoUrl + '/' + this.post.get_user.profile_pic;
   }
 

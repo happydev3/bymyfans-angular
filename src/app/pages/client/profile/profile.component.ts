@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingService } from 'src/app/services/loading.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ProfileService } from 'src/app/services/profile.service';
+import { TopView } from 'src/app/model/topView';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-profile',
@@ -23,15 +25,20 @@ export class ProfileComponent implements OnInit {
   public Currentpage: number;
   public page = 1;
 
+  public topViews: Array<TopView>;
+  public userWallUrl: String;
 
   constructor(
     private loadingService: LoadingService,
     public profileService: ProfileService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
     this.getProfile(this.currentPage);
+    this.getTopViews();
+    
   }
 
   public getProfile(currentPage): void {
@@ -55,7 +62,18 @@ export class ProfileComponent implements OnInit {
         this.total_favorites = res.data.total_favorites;
         this.post_media_image = res.data.post_media_image;
         this.post_media_video = res.data.post_media_video;
+        this.userWallUrl = 'https://bvmwebsolutions.com/bemyfans/public/uploads/profile-wall-pic/' + this.userInfo.wall_pic;
         this.loadingService.hide();
+      }
+    })
+  }
+
+  public getTopViews(): void {
+    this.loadingService.show();
+    this.sharedService.getTopViews().subscribe((res) => {
+      if (res.success) {
+        this.topViews = res.data;
+        console.log(this.topViews);
       }
     })
   }

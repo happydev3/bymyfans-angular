@@ -5,7 +5,6 @@ import { ForgetRoutingModule } from './forget-routing.module';
 import { ForgetComponent } from './forget.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MaterialModule } from 'src/app/material/material.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,10 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ForgetRoutingModule,
-    ReactiveFormsModule,
     SharedModule,
     MaterialModule,
-    FormsModule
   ],
   providers: [
 

@@ -15,6 +15,7 @@ export class ProfileUserinfoComponent implements OnInit {
 
 
   public userPhotoUrl: String;
+  
 
   constructor(
     public dialog: MatDialog

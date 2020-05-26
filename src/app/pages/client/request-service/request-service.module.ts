@@ -6,7 +6,6 @@ import { MaterialModule } from 'src/app/material/material.module';
 import { AddRequestModalComponent } from './add-request-modal/add-request-modal.component';
 import { ElementRequestComponent } from './element-request/element-request.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,8 +18,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MaterialModule,
     RequestServiceRoutingModule,
     SharedModule,
-    ReactiveFormsModule,
-    FormsModule
   ],
   exports: [
     AddRequestModalComponent

@@ -15,7 +15,6 @@
               <option [value]="category.id" *ngFor="let category of categories">{{ category.name }}</option>
             </select>
   
-  
             <!-- <div class="input-with-icon">
               <div id="autocomplete-container">
                 <input id="autocomplete-input" class="with-border" type="text" formControlName="title" placeholder="Enter Time" required>
@@ -49,7 +48,7 @@
             </div>
   
             <div class="uploadButton">
-              <input class="uploadButton-input" type="file" accept="image/*, application/pdf" id="upload-cv" formControlName="media_file" name="media_file">
+              <input class="uploadButton-input" type="file" accept="image/*, application/pdf" id="upload-cv" (change)="onMediaSelected($event)">
               <label class="uploadButton-button ripple-effect" for="upload-cv">Select File</label>
               <span class="uploadButton-file-name">Attach files if necessary <br> Multimedia file or word, excel,
                 powerpoint, pdf etc</span>
@@ -64,8 +63,6 @@
           </div>
           <div class="modal-footer">
             <button mat-raised-button  class="submit-button post-share-btn" aria-label="Deposit & Publish" [disabled]="add_request_service_form.invalid">Deposit & Publish</button>
-            <!-- <button type="button" class="post-share-btn">Preview</button> -->
-            <!-- <button type="submit" class="post-share-btn" [disabled]="add_request_service_form.invalid">Deposit & Publish</button> -->
           </div>
         </form>
         
