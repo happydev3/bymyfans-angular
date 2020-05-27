@@ -30,7 +30,15 @@ export class PostService {
     )
   }
 
-  
+  addPost(postInfo): Observable<any> {
+    return this.httpClient.post(`${this.API_URL}/add`, postInfo, {headers: this.authHeader}).pipe(
+      map((res: Response) => {
+        console.log(res);
+        return res || {}
+      }),
+      catchError(this.handleError)
+    )
+  }
 
   handleError(error: HttpErrorResponse) {
     let msg = '';

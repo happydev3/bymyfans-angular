@@ -1,7 +1,7 @@
 <div class="ser-listing-details">
 
     <div class="ser-listing-company-logo pro-ic">
-        <img src="assets/client/images/shirt.png" alt="">
+        <img [src]="sales_order && sales_order.image ? productPhotoUrl : 'assets/client/images/shirt.png'" alt="">
     </div>
     
     <div class="ser-listing-description">

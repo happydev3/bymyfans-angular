@@ -4,6 +4,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ProfileService } from 'src/app/services/profile.service';
 import { User } from 'src/app/model/user';
 import { SharedService } from 'src/app/services/shared.service';
+import { PostModalComponent } from 'src/app/shared/post-modal/post-modal.component';
 
 @Component({
   selector: 'app-profile',
@@ -86,6 +87,18 @@ export class ProfileComponent implements OnInit {
         this.topSubscribers = res.data;
         console.log(this.topSubscribers);
       }
+    })
+  }
+
+
+  openPostModal() {
+    let config = new MatDialogConfig();
+    config.panelClass = 'request-modal';
+    config.disableClose = false;
+    config.autoFocus = true;
+    const dialogRef = this.dialog.open(PostModalComponent, config);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
     })
   }
 

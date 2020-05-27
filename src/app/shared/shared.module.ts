@@ -18,6 +18,8 @@ import { TopSubscribeComponent } from './top-subscribe/top-subscribe.component';
 import { BestSellingComponent } from './best-selling/best-selling.component';
 import { ItemManagementComponent } from './item-management/item-management.component';
 import { SalesOrderComponent } from './sales-order/sales-order.component';
+import { PostModalComponent } from './post-modal/post-modal.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { SalesOrderComponent } from './sales-order/sales-order.component';
     BestSellingComponent,
     ItemManagementComponent,
     SalesOrderComponent,
+    PostModalComponent,
+    AddProductComponent,
   ],
   imports: [
     // BrowserModule,
@@ -57,11 +61,15 @@ import { SalesOrderComponent } from './sales-order/sales-order.component';
     BestSellingComponent,
     ItemManagementComponent,
     SalesOrderComponent,
-    NgbModule
+    NgbModule,
+    PostModalComponent,
+    AddProductComponent
   ],
   entryComponents: [
     CallModalComponent,
     TipModalComponent,
+    PostModalComponent,
+    AddProductComponent
   ]
 })
 export class SharedModule { }

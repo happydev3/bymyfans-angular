@@ -14,7 +14,6 @@
             <span class="post-time">{{post.created_at | date:'medium'}}</span>
         </div>
 
-
         <div class="post-settings-bar">
             <img src="assets/icons/menu-icon.png" class="menu-icon" [matMenuTriggerFor]="beforeMenu">
             <mat-menu #beforeMenu="matMenu" xPosition="before">
@@ -27,6 +26,7 @@
     </div>
 
     <div class="post-content">
+
         <p class="post-desc">
             {{post.content}}
         </p>
@@ -79,6 +79,7 @@
                     </button>
                 </li>
             </ul>
+
         </div>
     </div>
     <mat-divider></mat-divider>
@@ -94,7 +95,7 @@
         </button>
     </div>
     <!-- <mat-divider></mat-divider> -->
-    <div class="comment-element">
+    <div class="comment-element" *ngIf="post.comments_open == '1'">
         <ul class="comments">
             <li *ngFor="let comment of post.get_post_comments" class="comments-content">
                 <img class="comment-user-profile" *ngIf="comment.get_user.profile_pic !== null" src="{{userPhotoUrl}}/{{comment.get_user.profile_pic}}">

@@ -1,0 +1,50 @@
+<div class="modal-dialog" style="width: 500px;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">New Post</h5>
+        </div>
+        <form name="post_form" [formGroup]="post_form" (ngSubmit)="addPost()">
+            <div class="modal-body custom-scroll ps">
+
+                    <textarea name="content" class="share-field-big custom-scroll ps" placeholder="Compose New Post" formControlName="content"></textarea>
+
+                    <div class="form-group">
+                        <div class="remember-forgot-password remember" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center">
+                            <mat-checkbox class="remember-me" aria-label="estore_link" formControlName="estore_link" name="estore_link">
+                                Link to personal eStore
+                            </mat-checkbox>
+                        </div>
+                    </div>
+                    
+        
+                    <div class="form-group">
+                        <div class="remember-forgot-password remember" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center">
+                            <mat-checkbox class="remember-me" aria-label="comments_open" formControlName="comments_open" name="comments_open">
+                                Make the comments open
+                            </mat-checkbox>
+                        </div>
+                    </div>
+                    
+        
+                    <div class="form-group">
+                        <div class="remember-forgot-password remember" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center">
+                            <mat-checkbox class="remember-me" aria-label="public" formControlName="public" name="public">
+                                Make the post public
+                            </mat-checkbox>
+                        </div>
+                    </div>
+
+            </div>
+            <div class="modal-footer">
+                <ul>
+                    <li><i class="far fa-image"></i></li>
+                    <li><i class="fas fa-video"></i></li>
+                    <li><i class="fas fa-music"></i></li>
+                    <li><i class="fas fa-poll"></i></li>
+                </ul>
+                <button mat-raised-button  class="submit-button post-share-btn" aria-label="Deposit & Publish" [disabled]="post_form.invalid">Publish</button>
+            </div>
+        </form>
+    </div>
+</div>
+                            

@@ -7,10 +7,11 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ItemManagementComponent implements OnInit {
 
   @Input() item: any;
+  public productPhotoUrl: String;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.productPhotoUrl = 'https://bvmwebsolutions.com/bemyfans/public/uploads/products/' + this.item.image; 
   }
-
 }

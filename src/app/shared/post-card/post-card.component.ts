@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'app-post-card',
@@ -18,12 +19,12 @@ export class PostCardComponent implements OnInit {
   
 
   constructor(
+    private loadingService: LoadingService,
   ) {}
 
   @Input() post: any;
 
   ngOnInit(): void {
-    console.log(this.post);
     this.profileUrl = this.userPhotoUrl + '/' + this.post.get_user.profile_pic;
   }
 
