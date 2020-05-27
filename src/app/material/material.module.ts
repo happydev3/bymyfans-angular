@@ -15,7 +15,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-
+import { MatTabsModule } from '@angular/material/tabs';
 @NgModule({
   declarations: [],
   imports: [
@@ -35,7 +35,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MatTooltipModule,
     TextFieldModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatTabsModule
   ],
   exports: [
     MatMenuModule,
@@ -53,7 +54,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MatTooltipModule,
     TextFieldModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatTabsModule
   ]
 })
 export class MaterialModule { }

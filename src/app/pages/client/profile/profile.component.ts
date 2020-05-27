@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingService } from 'src/app/services/loading.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ProfileService } from 'src/app/services/profile.service';
-import { TopView } from 'src/app/model/topView';
+import { User } from 'src/app/model/user';
 import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
@@ -25,7 +25,8 @@ export class ProfileComponent implements OnInit {
   public Currentpage: number;
   public page = 1;
 
-  public topViews: Array<TopView>;
+  public topViews: Array<User>;
+  public topSubscribers: Array<User>;
   public userWallUrl: String;
 
   constructor(
@@ -38,7 +39,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.getProfile(this.currentPage);
     this.getTopViews();
-    
+    this.getTopSubscribers();
   }
 
   public getProfile(currentPage): void {
@@ -63,8 +64,8 @@ export class ProfileComponent implements OnInit {
         this.post_media_image = res.data.post_media_image;
         this.post_media_video = res.data.post_media_video;
         this.userWallUrl = 'https://bvmwebsolutions.com/bemyfans/public/uploads/profile-wall-pic/' + this.userInfo.wall_pic;
-        this.loadingService.hide();
       }
+      this.loadingService.hide();
     })
   }
 
@@ -74,6 +75,16 @@ export class ProfileComponent implements OnInit {
       if (res.success) {
         this.topViews = res.data;
         console.log(this.topViews);
+      }
+    })
+  }
+
+  public getTopSubscribers(): void {
+    this.loadingService.show();
+    this.sharedService.getTopSubscribers().subscribe((res) => {
+      if (res.success) {
+        this.topSubscribers = res.data;
+        console.log(this.topSubscribers);
       }
     })
   }

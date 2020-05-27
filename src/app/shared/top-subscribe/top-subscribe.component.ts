@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { User } from 'src/app/model/user';
 
 @Component({
   selector: 'app-top-subscribe',
@@ -6,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopSubscribeComponent implements OnInit {
 
+  @Input() topSubscribers: Array<User>;
+  public userPhotoUrl: String = 'https://bvmwebsolutions.com/bemyfans/public/uploads/profile-pic';
+
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.topSubscribers);
   }
 
 }

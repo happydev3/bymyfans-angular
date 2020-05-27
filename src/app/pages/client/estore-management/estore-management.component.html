@@ -1,1 +1,45 @@
-<p>estore-management works!</p>
+<section class="head-sec ssaoa">
+  <div class="container">
+
+      <div class="col-lg-12 order-2 order-lg-1">
+        <div class="card seas">
+
+          <mat-tab-group mat-align-tabs="start" class="estore-management">
+
+              <mat-tab label="Sales Order">
+                <div class="item-management">
+                  <div class="ser-listing with-apply-button">
+                    <app-sales-order [sales_order]="order" *ngFor="let order of estoreManagementItems"></app-sales-order>
+                  </div>
+                </div>
+              </mat-tab>
+              
+              <mat-tab label="Item Management">
+                <div class="item-management">
+                    <div style="display: flex;">
+
+                      <div class="section-headline" style="margin-left: 10px; width: 70%;">
+                        <h3>Item Management</h3>
+                      </div>
+            
+                      <div class="create-btn estore-create" style="margin-right: 10px; width: 30%;">
+                        <a href="" class="btnw round-btn">
+                            <i class="fas fa-plus-circle" aria-hidden="true"></i>
+                            Add Product
+                        </a>
+                      </div>
+
+                    </div>
+                </div>
+                <div class="ser-listing with-apply-button">
+                  <app-item-management [item]="item" *ngFor="let item of estoreManagementItems"></app-item-management>
+                </div>
+              </mat-tab>
+              
+          </mat-tab-group>
+        </div>
+      </div>
+
+      
+  </div>
+</section>

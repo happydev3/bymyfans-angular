@@ -14,7 +14,6 @@ export class PostCardComponent implements OnInit {
 
   public userPhotoUrl: String = 'https://bvmwebsolutions.com/bemyfans/public/uploads/profile-pic';
   public postMediaUrl: String = 'https://bvmwebsolutions.com/bemyfans/public/uploads/post-media';
-  // public postVideoUrl: String = 'https://bvmwebsolutions.com/bemyfans/public/uploads/post-video'
   public profileUrl: string; 
   
 

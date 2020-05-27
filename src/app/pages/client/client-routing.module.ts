@@ -55,6 +55,14 @@ const clientRoutes: Routes = [
   { 
     path: 'estore-management', 
     loadChildren: () => import('./estore-management/estore-management.module').then(m => m.EstoreManagementModule)
+  },
+  { 
+    path: 'user-estore-management/:id', 
+    loadChildren: () => import('./other-estore-management/other-estore-management.module').then(m => m.OtherEstoreManagementModule) 
+  },
+  { 
+    path: 'security-privacy', 
+    loadChildren: () => import('./security-privacy/security-privacy.module').then(m => m.SecurityPrivacyModule) 
   }
 ];
 

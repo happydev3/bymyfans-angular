@@ -16,6 +16,8 @@ import { PersonalHeaderComponent } from './personal-header/personal-header.compo
 import { TopViewComponent } from './top-view/top-view.component';
 import { TopSubscribeComponent } from './top-subscribe/top-subscribe.component';
 import { BestSellingComponent } from './best-selling/best-selling.component';
+import { ItemManagementComponent } from './item-management/item-management.component';
+import { SalesOrderComponent } from './sales-order/sales-order.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { BestSellingComponent } from './best-selling/best-selling.component';
     TopViewComponent,
     TopSubscribeComponent,
     BestSellingComponent,
+    ItemManagementComponent,
+    SalesOrderComponent,
   ],
   imports: [
     // BrowserModule,
@@ -51,6 +55,8 @@ import { BestSellingComponent } from './best-selling/best-selling.component';
     TopViewComponent,
     TopSubscribeComponent,
     BestSellingComponent,
+    ItemManagementComponent,
+    SalesOrderComponent,
     NgbModule
   ],
   entryComponents: [

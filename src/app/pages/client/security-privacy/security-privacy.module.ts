@@ -1,21 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { EstoreManagementRoutingModule } from './estore-management-routing.module';
-import { EstoreManagementComponent } from './estore-management.component';
+import { SecurityPrivacyRoutingModule } from './security-privacy-routing.module';
+import { SecurityPrivacyComponent } from './security-privacy.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MaterialModule } from 'src/app/material/material.module';
 
-
 @NgModule({
-  declarations: [
-    EstoreManagementComponent,
-  ],
+  declarations: [SecurityPrivacyComponent],
   imports: [
     CommonModule,
     SharedModule,
     MaterialModule,
-    EstoreManagementRoutingModule
+    SecurityPrivacyRoutingModule
   ]
 })
-export class EstoreManagementModule { }
+export class SecurityPrivacyModule { }

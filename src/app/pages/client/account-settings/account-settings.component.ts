@@ -12,8 +12,8 @@ import { ThrowStmt } from '@angular/compiler';
 export class AccountSettingsComponent implements OnInit {
 
   edit_account: FormGroup;
-  public userPhotoUrl: String = 'https://bvmwebsolutions.com/bemyfans/public/uploads/profile-pic';
-  public userWallUrl: String = 'https://bvmwebsolutions.com/bemyfans/public/uploads/profile-wall-pic';
+  public userPhotoUrl: String;
+  public userWallUrl: String;
   public currentPage: number = 1;
   public userInfo: User;
   public about: string;
@@ -58,6 +58,8 @@ export class AccountSettingsComponent implements OnInit {
     this.profileService.getProfile(currentPage).subscribe((res) => {
       if(res.success == true) {
         this.userInfo = res.data.user_info;
+        this.userPhotoUrl = 'https://bvmwebsolutions.com/bemyfans/public/uploads/profile-pic/' + res.data.user_info.profile_pic;
+        this.userWallUrl = 'https://bvmwebsolutions.com/bemyfans/public/uploads/profile-wall-pic/' + res.data.user_info.wall_pic;
         console.log(this.userInfo);
         this.loadingService.hide();
       }
@@ -72,6 +74,8 @@ export class AccountSettingsComponent implements OnInit {
         if(res.success == true) {
           console.log(res);
           this.userInfo = res.data;
+          this.userPhotoUrl = 'https://bvmwebsolutions.com/bemyfans/public/uploads/profile-pic/' + res.data.profile_pic;
+          this.userWallUrl = 'https://bvmwebsolutions.com/bemyfans/public/uploads/profile-wall-pic/' + res.data.wall_pic;
           this.loadingService.hide();
         }
     })

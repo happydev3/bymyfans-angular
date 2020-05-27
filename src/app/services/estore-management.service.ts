@@ -4,40 +4,41 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, throwError, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { TokenService } from './token.service';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SharedService {
+export class EstoreManagementService {
 
-  public startpoint = 'https://bvmwebsolutions.com/bemyfans/public/';
+  public startpoint = 'https://bvmwebsolutions.com/bemyfans/public/api/auth';
   public authHeader = this.tokenService.authHeader();
 
   constructor(
     private httpClient: HttpClient,
     public router: Router,
-    public tokenService: TokenService
+    public tokenService: TokenService,
   ) { }
 
-  API_URL: string = this.startpoint + `api/auth`;
-
-  getTopViews(): Observable<any> {
-    return this.httpClient.get(`${this.API_URL}/top_viewer_profiles`, { headers: this.authHeader}).pipe(
+  getEstoreManagementItems(pagination): Observable<any> {
+    return this.httpClient.get(`${this.startpoint}/my-estore?page=${pagination}`, {headers: this.authHeader}).pipe(
       map((res: Response) => {
+        console.log(res);
         return res || {}
       }),
       catchError(this.handleError)
     )
   }
 
-  getTopSubscribers(): Observable<any> {
-    return this.httpClient.get(`${this.API_URL}/top_subscribers_profiles`, { headers: this.authHeader}).pipe(
+  getOtherEstoreManagementItems(pagination, userId): Observable<any> {
+    return this.httpClient.get(`${this.startpoint}/estore/${userId}?${pagination}`, {headers: this.authHeader}).pipe(
       map((res: Response) => {
+        console.log(res);
         return res || {}
       }),
       catchError(this.handleError)
     )
-  }
+  } 
 
   handleError(error: HttpErrorResponse) {
     let msg = '';
@@ -50,5 +51,4 @@ export class SharedService {
     }
     return throwError(msg);
   }
-
 }

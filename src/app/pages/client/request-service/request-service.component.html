@@ -23,7 +23,7 @@
           </div>
         </div>
 
-        <div class="row pagination">
+        <div class="row pagination" *ngIf="requestServices && requestServices.length > 9">
           <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [maxSize]="2" [rotate]="true" [boundaryLinks]="true" id="paginate" (click)="pageChange($event)"></ngb-pagination>
         </div>
         

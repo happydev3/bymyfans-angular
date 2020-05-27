@@ -3,7 +3,7 @@ import { PostService } from 'src/app/services/post.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { LoadingService } from 'src/app/services/loading.service';
 import { pagination } from 'src/app/model/paginate';
-import { TopView } from 'src/app/model/topView';
+import { User } from 'src/app/model/user';
 import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
@@ -21,7 +21,8 @@ export class HomeComponent implements OnInit {
   public last_Page: number;
   public Currentpage: number;
 
-  public topViews: Array<TopView>;
+  public topViews: Array<User>;
+  public topSubscribers: Array<User>;
 
   constructor(
     public authService: AuthService,
@@ -34,6 +35,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getAllPost(this.currentPage);
     this.getTopViews();
+    this.getTopSubscribers();
   }
 
   ngAfterContentInit() {
@@ -44,13 +46,13 @@ export class HomeComponent implements OnInit {
     this.loadingService.show();
     this.postService.getAllPost(currentPage).subscribe((res) => {
       if (res.success) {
-        this.loadingService.hide();
         this.posts = res.data.data;
         this.actionLoadingIndicator = false;
         this.collectionSize = res.data.last_page * res.data.per_page;
         this.last_Page = res.data.last_page;
         this.Currentpage = res.data.current_page;
       }
+      this.loadingService.hide();
     })
   }
 
@@ -60,6 +62,16 @@ export class HomeComponent implements OnInit {
       if (res.success) {
         this.topViews = res.data;
         console.log(this.topViews);
+      }
+    })
+  }
+
+  public getTopSubscribers(): void {
+    this.loadingService.show();
+    this.sharedService.getTopSubscribers().subscribe((res) => {
+      if (res.success) {
+        this.topSubscribers = res.data;
+        console.log(this.topSubscribers);
       }
     })
   }

@@ -3,7 +3,7 @@
     <div class="widget-body">
         <ul class="like-page-list-wrapper">
             <li class="unorder-list" *ngFor="let item of topViews">
-                <!-- profile picture end -->
+                
                 <div class="profile-thumb">
                     <a href="other-profile/{{item.id}}">
                         <figure class="profile-thumb-small">
@@ -18,10 +18,12 @@
                     <h3 class="list-title"><a href="other-profile/{{item.id}}">{{item.name}}</a></h3>
                     <p class="list-subtitle">{{item.get_views_count}} mutual</p>
                 </div>
+
                 <button class="like-button">
                     <img class="heart" src="assets/client/images/heart.png" alt="">
                     <img class="heart-color" src="assets/client/images/heart-color.png" alt="">
                 </button>
+
             </li>
         </ul>
     </div>

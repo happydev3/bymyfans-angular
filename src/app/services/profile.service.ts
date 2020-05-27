@@ -51,6 +51,16 @@ export class ProfileService {
     )
   }
 
+  editSecurityPrivacy(accountInfo): Observable<any> {
+    return this.httpClient.post(`${this.startpoint}/security_privacy/setting`, accountInfo, {headers: this.authHeader}).pipe(
+      map((res: Response) => {
+        console.log(res);
+        return res || {}
+      }),
+      catchError(this.handleError)
+    )
+  }
+
   handleError(error: HttpErrorResponse) {
     let msg = '';
     if (error.error instanceof ErrorEvent) {

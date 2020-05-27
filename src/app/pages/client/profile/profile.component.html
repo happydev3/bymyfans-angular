@@ -68,64 +68,15 @@
                 
                 <app-top-view [topViews]="topViews"></app-top-view>
 
-                <div class="card widget-item">
-                    <h4 class="widget-title">Most Subscribed</h4>
-                    <div class="widget-body">
-                        <ul class="like-page-list-wrapper">
-                            <li class="unorder-list">
-                                <div class="profile-thumb">
-                                    <a href="#">
-                                        <figure class="profile-thumb-small">
-                                            <img src="assets/client/images/p2.jpg" alt="profile picture">
-                                        </figure>
-                                    </a>
-                                </div>
-                                <!-- profile picture end -->
+                <app-top-subscribe *ngIf="topSubscribers" [topSubscribers]="topSubscribers"></app-top-subscribe>
 
-                                <div class="unorder-list-info">
-                                    <h3 class="list-title"><a href="#">Ammeya Jakson</a></h3>
-                                    <p class="list-subtitle"><a href="#">10 mutual</a></p>
-                                </div>
-                                <button class="like-button">
-                                    <img class="heart" src="assets/client/images/heart.png" alt="">
-                                    <img class="heart-color" src="assets/client/images/heart-color.png" alt="">
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="card widget-item">
-                    <h4 class="widget-title">Best Selling Item</h4>
-                    <div class="widget-body">
-                        <ul class="like-page-list-wrapper">
-                            <li class="unorder-list">
-                                <div class="profile-thumb">
-                                    <a href="#">
-                                        <figure class="profile-thumb-small">
-                                            <img src="assets/client/images/p2.jpg" alt="profile picture">
-                                        </figure>
-                                    </a>
-                                </div>
-                                <!-- profile picture end -->
-
-                                <div class="unorder-list-info">
-                                    <h3 class="list-title"><a href="#">Ammeya Jakson</a></h3>
-                                    <p class="list-subtitle"><a href="#">10 mutual</a></p>
-                                </div>
-                                <button class="like-button">
-                                    <img class="heart" src="assets/client/images/heart.png" alt="">
-                                    <img class="heart-color" src="assets/client/images/heart-color.png" alt="">
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                <app-best-selling></app-best-selling>
+                
             </div>
 
         </div>
 
-        <div class="row pagination">
+        <div class="row pagination" *ngIf="posts && posts.length > 9">
             <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [maxSize]="2" [rotate]="true" [boundaryLinks]="true" id="paginate" (click)="pageChange($event)"></ngb-pagination>
         </div>
 

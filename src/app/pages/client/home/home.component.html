@@ -8,9 +8,9 @@
 
             <div class="col-lg-4 order-2 order-lg-1">
 
-                <app-top-view [topViews]="topViews"></app-top-view>
+                <app-top-view *ngIf="topViews" [topViews]="topViews"></app-top-view>
 
-                <app-top-subscribe></app-top-subscribe>
+                <app-top-subscribe *ngIf="topSubscribers" [topSubscribers]="topSubscribers"></app-top-subscribe>
                 
                 <app-best-selling></app-best-selling>
                 

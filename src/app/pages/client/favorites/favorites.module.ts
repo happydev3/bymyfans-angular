@@ -5,10 +5,11 @@ import { FavoritesRoutingModule } from './favorites-routing.module';
 import { FavoritesComponent } from './favorites.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MaterialModule } from 'src/app/material/material.module';
+import { FavoriteElementComponent } from './favorite-element/favorite-element.component';
 
 
 @NgModule({
-  declarations: [FavoritesComponent],
+  declarations: [FavoritesComponent, FavoriteElementComponent],
   imports: [
     CommonModule,
     FavoritesRoutingModule,

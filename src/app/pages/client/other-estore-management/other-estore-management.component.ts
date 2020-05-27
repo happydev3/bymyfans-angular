@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingService } from 'src/app/services/loading.service';
 import { EstoreManagementService } from 'src/app/services/estore-management.service';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
-  selector: 'app-estore-management',
-  templateUrl: './estore-management.component.html'
+  selector: 'app-other-estore-management',
+  templateUrl: './other-estore-management.component.html'
 })
-export class EstoreManagementComponent implements OnInit {
+export class OtherEstoreManagementComponent implements OnInit {
 
   public page = 1;
   public collectionSize: number;
@@ -15,20 +17,22 @@ export class EstoreManagementComponent implements OnInit {
   public Currentpage: number;
 
   public estoreManagementItems: any;
+  public userId: string;
 
   constructor(
     private loadingService: LoadingService,
+    private activatedRoute: ActivatedRoute,
     private estoreManagementService: EstoreManagementService
   ) { }
 
   ngOnInit(): void {
-    this.getEstoreManagementItems(this.currentPage);
+    this.userId = btoa(this.activatedRoute.snapshot.paramMap.get('id'));
+    this.getOtherEstoreManagementItems(this.currentPage, this.userId);
   }
 
-
-  public getEstoreManagementItems(currentPage): void{
+  public getOtherEstoreManagementItems(currentPage, userId): void{
     this.loadingService.show();
-    this.estoreManagementService.getEstoreManagementItems(currentPage).subscribe((res) => {
+    this.estoreManagementService.getOtherEstoreManagementItems(currentPage, userId).subscribe((res) => {
       if(res.success == true) {
         this.estoreManagementItems = res.data.data;
       }
@@ -63,7 +67,7 @@ export class EstoreManagementComponent implements OnInit {
         this.currentPage = page;
         break;
     }
-    this.getEstoreManagementItems(this.currentPage);
+    this.getOtherEstoreManagementItems(this.currentPage, this.userId);
   }
-  
+
 }

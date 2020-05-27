@@ -38,8 +38,8 @@ export class CrowdFundingComponent implements OnInit {
         this.last_Page = res.data.last_page;
         this.Currentpage = res.data.current_page;
         this.crowdFunds = res.data.data;
-        this.loadingService.hide();
       }
+      this.loadingService.hide();
     })
   }
 

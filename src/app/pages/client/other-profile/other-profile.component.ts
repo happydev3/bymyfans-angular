@@ -24,6 +24,8 @@ export class OtherProfileComponent implements OnInit {
   public Currentpage: number;
   public page = 1;
 
+  public userWallUrl: String;
+
   constructor(
     private loadingService: LoadingService,
     public router: Router,
@@ -32,14 +34,15 @@ export class OtherProfileComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.userId = this.activatedRoute.snapshot.paramMap.get('id');
-    this.getUserProfile(this.currentPage);
+    this.userId = btoa(this.activatedRoute.snapshot.paramMap.get('id'));
+    console.log(this.userId);
+    this.getUserProfile(this.currentPage, this.userId);
   }
 
-  public getUserProfile(currentPage): void {
+  public getUserProfile(currentPage,userId): void {
     let tempArr = [];
     this.loadingService.show();
-    this.otherProfileService.getUserProfile(currentPage).subscribe((res) => {
+    this.otherProfileService.getUserProfile(currentPage, userId).subscribe((res) => {
       if(res.success == true) {
         if(res.data.post.data) {
           this.isPost = true;
@@ -57,8 +60,11 @@ export class OtherProfileComponent implements OnInit {
         this.total_favorites = res.data.total_favorites;
         this.post_media_image = res.data.post_media_image;
         this.post_media_video = res.data.post_media_video;
-        this.loadingService.hide();
+        if(this.userInfo.wall_pic) {
+          this.userWallUrl = 'https://bvmwebsolutions.com/bemyfans/public/uploads/profile-wall-pic/' + this.userInfo.wall_pic;
+        } 
       }
+      this.loadingService.hide();
     })
   }
 
@@ -88,7 +94,7 @@ export class OtherProfileComponent implements OnInit {
         this.currentPage = page;
         break;
     }
-    this.getUserProfile(this.currentPage);
+    this.getUserProfile(this.currentPage, this.userId);
   }
 
 }

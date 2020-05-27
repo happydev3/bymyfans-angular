@@ -8,30 +8,19 @@ import { TokenService } from './token.service';
 @Injectable({
   providedIn: 'root'
 })
-export class SharedService {
+export class SubscriptionsService {
 
-  public startpoint = 'https://bvmwebsolutions.com/bemyfans/public/';
+  public startpoint = 'https://bvmwebsolutions.com/bemyfans/public/api/auth';
   public authHeader = this.tokenService.authHeader();
 
   constructor(
     private httpClient: HttpClient,
     public router: Router,
-    public tokenService: TokenService
+    public tokenService: TokenService,
   ) { }
 
-  API_URL: string = this.startpoint + `api/auth`;
-
-  getTopViews(): Observable<any> {
-    return this.httpClient.get(`${this.API_URL}/top_viewer_profiles`, { headers: this.authHeader}).pipe(
-      map((res: Response) => {
-        return res || {}
-      }),
-      catchError(this.handleError)
-    )
-  }
-
-  getTopSubscribers(): Observable<any> {
-    return this.httpClient.get(`${this.API_URL}/top_subscribers_profiles`, { headers: this.authHeader}).pipe(
+  getSubscriptions(pagination): Observable<any> {
+    return this.httpClient.get(`${this.startpoint}/my-subscriptions?page=${pagination}`, {headers: this.authHeader}).pipe(
       map((res: Response) => {
         return res || {}
       }),
@@ -50,5 +39,4 @@ export class SharedService {
     }
     return throwError(msg);
   }
-
 }
