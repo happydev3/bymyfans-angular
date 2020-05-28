@@ -123,15 +123,6 @@
                     </div>
                   </li>
 
-                  <li>
-                    <div class="message-data">
-                      <span class="message-data-name"><i class="fa fa-circle online"></i> Vincent</span>
-                      <span class="message-data-time">10:20 AM, Today</span>
-                    </div>
-                    <div class="message my-message">
-                      Actually everything was fine. I'm very excited to show this to our team.
-                    </div>
-                  </li>
 
                   <li>
                     <div class="message-data">
@@ -148,13 +139,23 @@
               </div> <!-- end chat-history -->
 
               <div class="chat-message clearfix">
-                <textarea name="message-to-send" id="message-to-send" placeholder="Type your message" rows="3"></textarea>
-                  <i class="fas fa-paperclip"></i> &nbsp;&nbsp;&nbsp;
-                  <i class="fas fa-dollar-sign"></i>
+
+                <div style="display: flex;">
+                  <i-feather name="smile" style="color: green; margin-top: 10px;" (click)="toggleEmojiPicker()"></i-feather>
+                  <textarea name="message-to-send" id="message-to-send" placeholder="Type your message" rows="3"></textarea>
+                </div>
+
+                <emoji-mart [style]="{ position: 'absolute', bottom: '160px', right: '205px' }" class="emoji-mart" set="apple" (emojiSelect)="addEmoji($event)" *ngIf="showEmojiPicker" title="Pick your emoji…"></emoji-mart>
+                
+                <i class="fas fa-paperclip"></i> &nbsp;&nbsp;&nbsp;
+                <i class="fas fa-dollar-sign"></i>
                 <button>Send</button>
-              </div> <!-- end chat-message -->
-            </div> <!-- end chat -->
-          </div> <!-- end container -->
+
+              </div>
+
+            </div> 
+
+          </div> 
 
           <script id="message-template" type="text/x-handlebars-template">
             <li class="clearfix">
@@ -179,32 +180,8 @@
               </div>
             </li>
           </script>
-
-
-
-
-
-
-
-
-
         </div>
-
       </div>
-
-
-
-
     </div>
-
-
-
-
-
-
-
-
-
-
   </div>
 </div>

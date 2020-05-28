@@ -16,6 +16,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSelectModule } from '@angular/material/select';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -36,7 +39,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     TextFieldModule,
     ReactiveFormsModule,
     FormsModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSnackBarModule,
+    MatSelectModule
   ],
   exports: [
     MatMenuModule,
@@ -55,7 +60,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     TextFieldModule,
     ReactiveFormsModule,
     FormsModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSnackBarModule,
+    MatSelectModule
   ]
 })
 export class MaterialModule { }

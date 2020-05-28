@@ -4,6 +4,11 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from 'src/app/services/auth.service';
 import { Action } from '@ngrx/store';
 import { LoadingService } from 'src/app/services/loading.service';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -13,25 +18,29 @@ import { LoadingService } from 'src/app/services/loading.service';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
   public actionLoadingIndicator = false;
 
   constructor(
     public formBuilder: FormBuilder,
     public authService: AuthService,
     public router: Router,
-    public loadingService: LoadingService
+    public loadingService: LoadingService,
+    private _snackBar: MatSnackBar
   ) {
     this.loginForm= this.formBuilder.group({
       email: [''],
       password: [''],
-      remember_me: null
+      remember_me: [false]
     })
   }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
         email   : ['', [Validators.required, Validators.email]],
-        password: ['', Validators.required]
+        password: ['', Validators.required],
+        remember_me: [false]
     });
 
     let isloggedIn = this.authService.isLoggedIn();
@@ -45,12 +54,23 @@ export class LoginComponent implements OnInit {
     console.log(this.loginForm.value);
     this.authService.login(this.loginForm.value).subscribe((res) => {
       if(res.access_token) {
-        this.loadingService.hide();
         localStorage.setItem('access_token', res.access_token)
         this.router.navigate(['/home']);
+      } else if(res.success == false) {
+        this.openSnackBar(res.message);
       }
+      this.loadingService.hide();
     },(error) => {
       this.actionLoadingIndicator = false;
+      this.loadingService.hide();
     })
+  }
+
+  openSnackBar(message) {
+    this._snackBar.open(message, '', {
+      duration: 1000,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+    });
   }
 }

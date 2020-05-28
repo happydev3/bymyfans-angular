@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { LoadingService } from 'src/app/services/loading.service';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-post-card',
@@ -20,11 +21,13 @@ export class PostCardComponent implements OnInit {
 
   constructor(
     private loadingService: LoadingService,
+    public postService: PostService
   ) {}
 
   @Input() post: any;
 
   ngOnInit(): void {
+    console.log(this.post);
     this.profileUrl = this.userPhotoUrl + '/' + this.post.get_user.profile_pic;
   }
 
@@ -32,7 +35,20 @@ export class PostCardComponent implements OnInit {
     console.log('click');
   }
 
-  openLikeToolTip() {
-    
+  public postComment(event, postId): void {
+    console.log('click', event, postId);
+    this.postService.postComment(event.target.value, postId).subscribe((res) => {
+      if(res.success == true) {
+        location.reload();
+      }
+    })
+  }
+
+  public like(postId): void {
+    this.postService.addLike(postId, 1).subscribe((res) => {
+      if(res.success == true) {
+        console.log(res);
+      }
+    })
   }
 }

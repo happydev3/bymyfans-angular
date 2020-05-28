@@ -82,9 +82,10 @@
 
         </div>
     </div>
+
     <mat-divider></mat-divider>
     <div class="extra-post">
-        <button mat-icon-button>
+        <button mat-icon-button (click)="like(post.id)">
             <mat-icon>favorite</mat-icon> Like
         </button>
         <button mat-icon-button>
@@ -94,15 +95,15 @@
             <i class="far fa-share-square"></i> Share
         </button>
     </div>
-    <!-- <mat-divider></mat-divider> -->
-    <div class="comment-element" *ngIf="post.comments_open == '1'">
+
+    <div class="comment-element"  *ngIf="post.comments_open == '1'"> 
         <ul class="comments">
             <li *ngFor="let comment of post.get_post_comments" class="comments-content">
                 <img class="comment-user-profile" *ngIf="comment.get_user.profile_pic !== null" src="{{userPhotoUrl}}/{{comment.get_user.profile_pic}}">
                 <img class="comment-user-profile" *ngIf="comment.get_user.profile_pic === null" src="assets/client/images/normal.jpg">
                 <div class="comment-user">
                     <mat-chip class="comment-user-name">
-                        <a href="other-profile/{{comment.user_id}}"><span style="font-weight: 600;">{{comment.get_user.name}}</span></a>
+                        <span style="font-weight: 600;"><a href="other-profile/{{comment.user_id}}">{{comment.get_user.name}}</a> &nbsp; &nbsp; &nbsp;{{comment.updated_at | date: 'medium'}}</span>
                         <div class="comment-content">{{comment.comments}}</div>
                     </mat-chip>
                 </div>
@@ -113,7 +114,9 @@
                       cdkTextareaAutosize
                       #autosize="cdkTextareaAutosize"
                       cdkAutosizeMinRows="1"
-                      cdkAutosizeMaxRows="10">
+                      cdkAutosizeMaxRows="10"
+                      name="comment_content"
+                      (keyup.enter)="postComment($event, post.id)">
             </textarea>
             <mat-label>Press Enter to comment.</mat-label>
         </mat-form-field>

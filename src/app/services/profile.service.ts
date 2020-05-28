@@ -43,6 +43,7 @@ export class ProfileService {
     formData.append('mobile', accountInfo.value.mobile);
     formData.append('profile_pic', profile);
     formData.append('wall_pic', wall);
+    console.log(formData)
     return this.httpClient.post(`${this.startpoint}/my-account/setting`, formData, { headers: this.authHeader }).pipe(
       map((res: Response) => {
         return res || {};

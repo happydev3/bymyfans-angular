@@ -5,6 +5,11 @@ import { takeUntil } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { LoadingService } from 'src/app/services/loading.service';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -14,6 +19,8 @@ import { LoadingService } from 'src/app/services/loading.service';
 export class RegisterComponent implements OnInit, OnDestroy {
 
   registerForm: FormGroup;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
   private _unsubscribeAll: Subject<any>;
 
   public actionLoadingIndicator = false;
@@ -21,7 +28,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
     public formBuilder: FormBuilder,
     public authService: AuthService,
     public router: Router,
-    public loadingService: LoadingService
+    public loadingService: LoadingService,
+    private _snackBar: MatSnackBar
   ) {
     this.registerForm = this.formBuilder.group({
       name: '',
@@ -62,13 +70,22 @@ export class RegisterComponent implements OnInit, OnDestroy {
     this.loadingService.show();
     this.authService.register(this.registerForm.value).subscribe((res) => {
       if(res.access_token && res.message == "Successfully created user!") {
-        this.loadingService.hide();
-        this.registerForm.reset()
+        this.registerForm.reset();
+        this.openSnackBar();
         this.router.navigate(['auth/login']);
       }
+      this.loadingService.hide();
     }, (error) => {
       this.loadingService.hide();
     })
+  }
+
+  openSnackBar() {
+    this._snackBar.open('Registered successfully!', 'End now', {
+      duration: 500,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+    });
   }
 }
 

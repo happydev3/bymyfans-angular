@@ -60,7 +60,7 @@ export class OtherProfileComponent implements OnInit {
         this.total_favorites = res.data.total_favorites;
         this.post_media_image = res.data.post_media_image;
         this.post_media_video = res.data.post_media_video;
-        if(this.userInfo.wall_pic) {
+        if(this.userInfo.wall_pic !==null ) {
           this.userWallUrl = 'https://bvmwebsolutions.com/bemyfans/public/uploads/profile-wall-pic/' + this.userInfo.wall_pic;
         } 
       }

@@ -7,6 +7,9 @@ import { LoadingService } from 'src/app/services/loading.service';
 })
 export class PrivateMessageComponent implements OnInit {
 
+  public showEmojiPicker = false;
+  public message: string;
+
   constructor(
     public loadingService: LoadingService
   ) { }
@@ -14,4 +17,16 @@ export class PrivateMessageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  toggleEmojiPicker() {
+    console.log('click');
+    this.showEmojiPicker = !this.showEmojiPicker;
+  }
+
+  addEmoji(event) {
+    const { message } = this;
+    const text = `${message}${event.emoji.native}`;
+
+    this.message = text;
+    this.showEmojiPicker = false;
+  }
 }

@@ -43,7 +43,7 @@ export class AuthService {
 
   login(user): Observable<any> {
     return this.httpClient.post<any>(`${this.startpoint}/auth/login`, user).pipe(
-      map((res: any) => {
+      map((res: Response) => {
         console.log(res);
         return res || {}
       }, (error) => {

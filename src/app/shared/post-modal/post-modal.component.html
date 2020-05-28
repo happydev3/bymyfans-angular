@@ -36,6 +36,12 @@
 
             </div>
             <div class="modal-footer">
+                <div class="uploadButton">
+                    <input class="uploadButton-input" type="file" accept="image/*, application/pdf" id="upload-cv"  (change)="onMediaSelected($event)" multiple>
+                    <label class="uploadButton-button ripple-effect" for="upload-cv">Select File</label>
+                    <span class="uploadButton-file-name">Attach files if necessary <br> Multimedia file or word, excel,
+                      powerpoint, pdf etc</span>
+                </div>
                 <ul>
                     <li><i class="far fa-image"></i></li>
                     <li><i class="fas fa-video"></i></li>

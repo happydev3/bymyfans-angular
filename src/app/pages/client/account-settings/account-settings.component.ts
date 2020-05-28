@@ -55,29 +55,37 @@ export class AccountSettingsComponent implements OnInit {
 
   public getProfile(currentPage): void {
     this.loadingService.show();
-    this.profileService.getProfile(currentPage).subscribe((res) => {
-      if(res.success == true) {
-        this.userInfo = res.data.user_info;
-        this.userPhotoUrl = 'https://bvmwebsolutions.com/bemyfans/public/uploads/profile-pic/' + res.data.user_info.profile_pic;
-        this.userWallUrl = 'https://bvmwebsolutions.com/bemyfans/public/uploads/profile-wall-pic/' + res.data.user_info.wall_pic;
-        console.log(this.userInfo);
-        this.loadingService.hide();
-      }
+    this.profileService.getProfile(currentPage)
+      .subscribe((res) => {
+        if(res.success == true) {
+          this.userInfo = res.data.user_info;
+          if(res.data.user_info.profile_pic != null) {
+            this.userPhotoUrl = 'https://bvmwebsolutions.com/bemyfans/public/uploads/profile-pic/' + res.data.user_info.profile_pic;
+          }
+          if(res.data.user_info.wall_pic) {
+            this.userWallUrl = 'https://bvmwebsolutions.com/bemyfans/public/uploads/profile-wall-pic/' + res.data.user_info.wall_pic;
+          }
+          console.log(this.userInfo);
+          this.loadingService.hide();
+        }
     })
   }
 
   public editAccount(): void {
     this.loadingService.show();
-    console.log("here is the uplaod image data", this.edit_account.value, this.profile_pic, this.wall_pic)
     this.profileService.editAccount(this.edit_account, this.profile_pic, this.wall_pic)
       .subscribe((res) => {
         if(res.success == true) {
           console.log(res);
           this.userInfo = res.data;
-          this.userPhotoUrl = 'https://bvmwebsolutions.com/bemyfans/public/uploads/profile-pic/' + res.data.profile_pic;
-          this.userWallUrl = 'https://bvmwebsolutions.com/bemyfans/public/uploads/profile-wall-pic/' + res.data.wall_pic;
-          this.loadingService.hide();
+          if(res.data.profile_pic != null) {
+            this.userPhotoUrl = 'https://bvmwebsolutions.com/bemyfans/public/uploads/profile-pic/' + res.data.profile_pic;
+          }
+          if(res.data.wall_pic != null) {
+            this.userWallUrl = 'https://bvmwebsolutions.com/bemyfans/public/uploads/profile-wall-pic/' + res.data.wall_pic;
+          }
         }
+        this.loadingService.hide();
     })
   }
 

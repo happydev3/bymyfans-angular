@@ -22,7 +22,9 @@ export class OtherProfileInfoComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.userInfo.profile_pic) {
-      this.userPhotoUrl = 'https://bvmwebsolutions.com/bemyfans/public/uploads/profile-pic/' + this.userInfo.profile_pic;
+      if(this.userInfo.profile_pic !== null) {
+        this.userPhotoUrl = 'https://bvmwebsolutions.com/bemyfans/public/uploads/profile-pic/' + this.userInfo.profile_pic;
+      }
     }
   }
 

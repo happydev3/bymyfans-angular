@@ -3680,6 +3680,7 @@ button:focus {
 
 .comments-content {
   padding-bottom: 2px;
+  display: flex;
 }
 
 .comment-user {
@@ -3689,6 +3690,7 @@ button:focus {
 .comment-user-profile {
   border-radius: 12.5px;
   width: 25px;
+  height: 25px;
 }
 
 .comment-user-name {
@@ -3823,4 +3825,10 @@ button:focus {
 
 .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
   background-color: #02743a;
+}
+
+/*layout*/
+
+.language-flag {
+  width: 30px;
 }

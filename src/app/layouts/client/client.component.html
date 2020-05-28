@@ -44,10 +44,11 @@
             
             <div class="nav-right">
                 <div class="dropdown language-dropdown">
-                    <a data-toggle="dropdown" href="#" aria-expanded="false"><img src="assets/client/images/en.png"><span class="change-text">English</span></a>
-                    <ul class="dropdown-menu language-change">
-                        <li><a href="#"><img src="assets/client/images/ch.png">Chinese</a></li>
-                    </ul>
+                    <button mat-button [matMenuTriggerFor]="lang">Menu</button>
+                    <mat-menu #lang="matMenu">
+                        <button mat-menu-item><img class="language-flag" src="assets/client/images/ch.png"><span class="change-text">&nbsp; Chinese</span></button>
+                        <button mat-menu-item><img class="language-flag" src="assets/client/images/en.png"><span class="change-text">&nbsp; English</span></button>
+                    </mat-menu>
                 </div>
             </div>
         </div>

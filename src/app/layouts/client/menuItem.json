@@ -38,6 +38,7 @@
     {
         "id" : 7,
         "name": "PERSONAL",
+        "title": "personal",
         "url": "#",
         "childs": [
             {
@@ -94,6 +95,7 @@
     {
         "id" : 8,
         "name": "SUBSCRIPTION & FAVORITES",
+        "title": "subscription_favorites",
         "url": "#",
         "childs": [
             {

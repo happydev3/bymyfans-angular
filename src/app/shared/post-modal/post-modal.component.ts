@@ -10,6 +10,7 @@ import { PostService } from 'src/app/services/post.service';
 export class PostModalComponent implements OnInit {
 
   post_form: FormGroup;
+  public media_files: Array<File>;
 
   constructor(
     private loadingService: LoadingService,
@@ -21,7 +22,6 @@ export class PostModalComponent implements OnInit {
       estore_link: false,
       comments_open: false,
       public: false,
-      media: null
     })
    }
 
@@ -31,13 +31,14 @@ export class PostModalComponent implements OnInit {
       estore_link: [false, Validators.required],
       comments_open: [false, Validators.required],
       public: [false, Validators.required],
-      media: [null],
     })
   }
 
   public addPost(): void {
     this.loadingService.show();
-    this.postService.addPost(this.post_form.value).subscribe((res) => {
+    console.log(this.post_form, this.media_files);
+    let postInfo = this.post_form;
+    this.postService.addPost(postInfo, this.media_files).subscribe((res) => {
       console.log(res);
       if(res.success == true) {
         location.reload();
@@ -46,4 +47,10 @@ export class PostModalComponent implements OnInit {
     })
   }
 
+  onMediaSelected(event) {
+    if(event.target.files.length > 0) {
+      this.media_files = event.target.files;
+      console.log(this.media_files);
+    }
+  }
 }

@@ -59,8 +59,8 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
     this.loadingService.show();
     this.authService.resetFind(token).subscribe((res) => {
       this.email = res.email;
-      this.loadingService.hide();
     })
+    this.loadingService.hide();
   }
 
   public resetPassword(): void {

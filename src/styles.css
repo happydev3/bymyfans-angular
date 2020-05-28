@@ -1,7 +1,7 @@
 @import url("./assets/client/css/bootstrap.min.css");
 @import url("./assets/client/css/style.css");
 
-html, body { height: 100%; }
+html, body { height: 100%; top: 0px;}
 body { 
     margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
 }
