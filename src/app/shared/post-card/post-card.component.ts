@@ -21,8 +21,9 @@ export class PostCardComponent implements OnInit {
 
   constructor(
     private loadingService: LoadingService,
-    public postService: PostService
-  ) {}
+    public postService: PostService,
+  ) {
+  }
 
   @Input() post: any;
 

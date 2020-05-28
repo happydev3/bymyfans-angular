@@ -43,13 +43,13 @@
     },
     {
         "id" : 8,
-        "name": "Subscribtion And Tip Management",
+        "name": "Subscription And Tip Management",
         "url": "subscription-tip-management",
         "childs": []
     },
     {
         "id" : 9,
-        "name": "Subscription",
+        "name": "Subscriptions",
         "url": "subscriptions",
         "childs": []
     },

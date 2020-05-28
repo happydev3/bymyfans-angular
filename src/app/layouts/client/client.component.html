@@ -12,12 +12,12 @@
                         <form class="navbar-form navbar-right hidden-sm">
                             <div class="form-group">
                                 <i class="fa fa-search"></i>
-                                <input type="text" class="form-control" placeholder="Search friends, photos, videos">
+                                <input type="text" class="form-control" placeholder="{{'Search friends, photos, videos' | translate}}">
                             </div>
                         </form>
                     </div>
                     <div class="log-btn">
-                        <a (click)="logout()" class="small btn btn-primary px-4 py-2 rounded-0 logout"><i class="fas fa-user" aria-hidden="true"></i>Logout</a>
+                        <a (click)="logout()" class="small btn btn-primary px-4 py-2 rounded-0 logout"><i class="fas fa-user" aria-hidden="true"></i>{{ 'logout' | translate}}</a>
                     </div>
                 </div>
             </div>
@@ -33,10 +33,10 @@
             <div class="collapse navbar-collapse" id="tr-mainmenu" [ngClass]="showMenu == true ? 'show' : ''">
                 <ul class="nav navbar-nav">
                     <li class=" dropdown" [class]="currentUrl == '/' + menuItem.url ? 'active' : ''" *ngFor="let menuItem of menuItems">
-                        <a *ngIf="menuItem.childs.length == 0" href="{{menuItem.url}}">{{menuItem.name}}</a>
-                        <a *ngIf="menuItem.childs.length != 0" (click)="subMenu(menuItem.id)" class="dropdown-toggle" data-toggle="dropdown">{{menuItem.name}}<span class="caret"></span></a>
+                        <a *ngIf="menuItem.childs.length == 0" href="{{menuItem.url}}">{{menuItem.name | translate}}</a>
+                        <a *ngIf="menuItem.childs.length != 0" (click)="subMenu(menuItem.id)" class="dropdown-toggle" data-toggle="dropdown">{{menuItem.name | translate}}<span class="caret"></span></a>
                         <ul *ngIf="menuItem.childs.length != 0" class="dropdown-menu active" id="dropdown-menu{{menuItem.id}}" style="display: none">
-                            <li [class]="currentUrl == '/' + subMenuItem.url ? 'active' : ''" *ngFor="let subMenuItem of menuItem.childs"><a href="{{subMenuItem.url}}">{{subMenuItem.name}}</a></li>
+                            <li [class]="currentUrl == '/' + subMenuItem.url ? 'active' : ''" *ngFor="let subMenuItem of menuItem.childs"><a href="{{subMenuItem.url}}">{{subMenuItem.name | translate}}</a></li>
                         </ul>
                     </li>
                 </ul>              
@@ -44,10 +44,9 @@
             
             <div class="nav-right">
                 <div class="dropdown language-dropdown">
-                    <button mat-button [matMenuTriggerFor]="lang">Menu</button>
-                    <mat-menu #lang="matMenu">
-                        <button mat-menu-item><img class="language-flag" src="assets/client/images/ch.png"><span class="change-text">&nbsp; Chinese</span></button>
-                        <button mat-menu-item><img class="language-flag" src="assets/client/images/en.png"><span class="change-text">&nbsp; English</span></button>
+                    <button mat-button [matMenuTriggerFor]="language"><img class="language-flag" [src]="'assets/client/images/' + selectedLanguage.flag + '.png'" ><span class="change-text">&nbsp; {{ selectedLanguage.title | translate }}</span></button>
+                    <mat-menu #language="matMenu">
+                        <button mat-menu-item *ngFor="let lang of languages" (click)="useLanguage(lang)"><img class="language-flag" [src]="'assets/client/images/' + lang.flag + '.png'" ><span class="change-text">&nbsp; {{ lang.title | translate }}</span></button>
                     </mat-menu>
                 </div>
             </div>

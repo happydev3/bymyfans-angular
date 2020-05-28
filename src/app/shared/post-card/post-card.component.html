@@ -18,7 +18,7 @@
             <img src="assets/icons/menu-icon.png" class="menu-icon" [matMenuTriggerFor]="beforeMenu">
             <mat-menu #beforeMenu="matMenu" xPosition="before">
                 <button mat-menu-item>copy link to adda</button>
-                <button mat-menu-item>edit post</button>
+                <button mat-menu-item>{{'edit post' | translate}}</button>
                 <button mat-menu-item>embed adda</button>
             </mat-menu>
         </div>
@@ -62,20 +62,20 @@
 
             <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon" [ngbTooltip]="tipLike"  placement="bottom" tooltipClass="my-custom-class">
                 <mat-icon>favorite</mat-icon>
-                <span style="color: black;"> {{post.get_post_likes.length}} people like this</span>
+                <span style="color: black;"> {{post.get_post_likes.length}} {{'people like this' | translate}}</span>
             </button>
 
             <ul class="comment-share-meta">
                 <li>
                     <button class="post-comment" [ngbTooltip]="commentLike"  placement="bottom" tooltipClass="my-custom-class">
                         <i class="far fa-comments" aria-hidden="true"></i>
-                        <span>{{post.get_post_comments.length}} comments </span>
+                        <span>{{post.get_post_comments.length}} {{'comments' | translate}} </span>
                     </button>
                 </li>
                 <li>
                     <button class="post-share">
                         <i class="far fa-share-square"></i>
-                        <span>7 shares</span>
+                        <span>7 {{'shares' | translate}}</span>
                     </button>
                 </li>
             </ul>
@@ -86,13 +86,13 @@
     <mat-divider></mat-divider>
     <div class="extra-post">
         <button mat-icon-button (click)="like(post.id)">
-            <mat-icon>favorite</mat-icon> Like
+            <mat-icon>favorite</mat-icon> {{'like' | translate}}
         </button>
         <button mat-icon-button>
-            <i class="far fa-comments" aria-hidden="true"></i> Comment
+            <i class="far fa-comments" aria-hidden="true"></i> {{'comment' | translate}}
         </button>
         <button mat-icon-button>
-            <i class="far fa-share-square"></i> Share
+            <i class="far fa-share-square"></i> {{'share' | translate}}
         </button>
     </div>
 
@@ -118,7 +118,7 @@
                       name="comment_content"
                       (keyup.enter)="postComment($event, post.id)">
             </textarea>
-            <mat-label>Press Enter to comment.</mat-label>
+            <mat-label>{{'Press Enter to comment' | translate}}.</mat-label>
         </mat-form-field>
     </div>
 </div>

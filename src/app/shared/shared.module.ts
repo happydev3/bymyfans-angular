@@ -10,6 +10,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MaterialModule } from '../material/material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+
 import { CallModalComponent } from './call-modal/call-modal.component';
 import { TipModalComponent } from './tip-modal/tip-modal.component';
 import { PersonalHeaderComponent } from './personal-header/personal-header.component';
@@ -45,7 +49,8 @@ import { AddProductComponent } from './add-product/add-product.component';
     CommonModule,
     AtomSpinnerModule,
     NgbModule,
-    MaterialModule
+    MaterialModule,
+    TranslateModule
   ],
   exports: [
     SocialIconComponent,
@@ -62,6 +67,7 @@ import { AddProductComponent } from './add-product/add-product.component';
     ItemManagementComponent,
     SalesOrderComponent,
     NgbModule,
+    TranslateModule,
     PostModalComponent,
     AddProductComponent
   ],

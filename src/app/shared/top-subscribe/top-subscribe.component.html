@@ -1,5 +1,5 @@
 <div class="card widget-item">
-    <h4 class="widget-title">Most Subscribed</h4>
+    <h4 class="widget-title">{{'Most Subscribed' | translate}}</h4>
     <div class="widget-body">
         <ul class="like-page-list-wrapper">
             <li class="unorder-list" *ngFor="let item of topSubscribers">
@@ -16,7 +16,7 @@
 
                 <div class="unorder-list-info">
                     <h3 class="list-title"><a href="other-profile/{{item.id}}">{{item.name}}</a></h3>
-                    <p class="list-subtitle">{{item.top_subscribed_count}} mutual</p>
+                    <p class="list-subtitle">{{item.top_subscribed_count}} {{'Mutual' | translate}}</p>
                 </div>
 
                 <button class="like-button">

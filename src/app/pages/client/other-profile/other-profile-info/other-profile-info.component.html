@@ -15,7 +15,7 @@
 
             <div class="col-lg-7 col-md-7">
                 <div class="b-profile__user__status">
-                    <p class="time">Online<i class="fas fa-check"></i></p>
+                    <p class="time">{{'Online' | translate}}<i class="fas fa-check"></i></p>
                     <div class="g-user-name m-lg-size m-verified"> {{ userInfo.name }} </div>
                     <div class="g-user-username"><a href=""> {{ userInfo.email }} </a></div>
                     <div class="call-icon" (click)="openCallModal()">
@@ -45,7 +45,7 @@
                             <mat-expansion-panel-header>
                                 <mat-panel-title>
                                     <div class="loca-de show-more" data-toggle="collapse" data-target="#demo">
-                                        <i class="far fa-user"></i>Show more info
+                                        <i class="far fa-user"></i>{{'Show more info' | translate}}
                                     </div>
                                 </mat-panel-title>
                             </mat-expansion-panel-header>
@@ -69,18 +69,18 @@
 
                     <div class="b-frofile">
                         <a class="round-btn">
-                            <i class="fas fa-file-invoice-dollar"></i>Subscription options
+                            <i class="fas fa-file-invoice-dollar"></i>{{'Subscription options' | translate}}
                         </a>
                     </div>
 
                     <div class="b-frofile">
                         <a class="round-btn" data-toggle="modal" data-target="#textbox2" (click)="openTipModal()">
-                            <i class="fas fa-dollar-sign"></i>Send a Tip
+                            <i class="fas fa-dollar-sign"></i>{{'Send a Tip' |  translate}}
                         </a>
                     </div>
 
                     <div class="b-frofile">
-                        <a href="user-estore-management/{{userInfo.id}}" class="round-btn"><i class="fas fa-store"></i>Peresonal eStore</a>
+                        <a href="user-estore-management/{{userInfo.id}}" class="round-btn"><i class="fas fa-store"></i>{{'Personal eStore' | translate}}</a>
                     </div>
 
                 </div>

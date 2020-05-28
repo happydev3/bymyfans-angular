@@ -85,7 +85,7 @@
             },
             {
                 "id" : 8,
-                "name": "Subscribtion And Tip Management",
+                "name": "Subscription And Tip Management",
                 "url": "subscription-tip-management",
                 "childs": []
             }

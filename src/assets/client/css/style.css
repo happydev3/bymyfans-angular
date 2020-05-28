@@ -146,6 +146,10 @@ ul.dropdown-menu.show li {
   padding: 15px 0;
 }
 
+.language-dropdown .mat-button {
+  padding: 0px !important;
+}
+
 .language-dropdown a {
   font-size: 16px;
   color: #252525;
