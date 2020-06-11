@@ -1,0 +1,36 @@
+<div class="request-md">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h3 class="modal-title">{{'Make a Bid' | translate}}</h3>
+            </div>
+
+            <form name="add_crowd_fund_form" [formGroup]="bid_form" (ngSubmit)="makeBid()">
+                <div class="modal-body custom-scroll ps">
+                    
+                    <input type=hidden formControlName="services_id" name="services_id" id="services_id" [(ngModel)]="data">
+
+                    <div class="input-with-icon-left">
+                        <input type="number" class="input-text with-border" formControlName="bid_amount" name="bid_amount" id="bid_amount" placeholder="{{'Budget' | translate}}" required="">
+                    </div>
+        
+                    
+                    <div class="input-with-icon-left">
+                        <input type="number" class="input-text with-border" formControlName="days" name="days" id="days" placeholder="{{'Timeline' | translate}}" required="">
+                    </div>
+                    
+                
+                    <div class="req_des">
+                        <textarea name="share" class="share-field-big custom-scroll ps" formControlName="description" name="description" placeholder="{{'Description' | translate}}"></textarea> 
+                    </div>
+        
+                </div>
+                <div class="modal-footer">
+                    <button mat-raised-button  class="submit-button post-share-btn" [disabled]="bid_form.invalid">{{'Confirm Bid' | translate}}</button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</div>

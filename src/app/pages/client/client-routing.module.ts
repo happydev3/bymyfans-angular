@@ -63,6 +63,30 @@ const clientRoutes: Routes = [
   { 
     path: 'security-privacy', 
     loadChildren: () => import('./security-privacy/security-privacy.module').then(m => m.SecurityPrivacyModule) 
+  },
+  { 
+    path: 'customer-support', 
+    loadChildren: () => import('./customer-support/customer-support.module').then(m => m.CustomerSupportModule) 
+  },
+  { 
+    path: 'purchase-history', 
+    loadChildren: () => import('./purchase-history/purchase-history.module').then(m => m.PurchaseHistoryModule) 
+  },
+  { 
+    path: 'earning-statement', 
+    loadChildren: () => import('./earning-statement/earning-statement.module').then(m => m.EarningStatementModule) 
+  },
+  { 
+    path: 'subscription-tip-management', 
+    loadChildren: () => import('./subscription-tip-management/subscription-tip-management.module').then(m => m.SubscriptionTipManagementModule) 
+  },
+  { 
+    path: 'single-request-service/:id', 
+    loadChildren: () => import('./single-request-service/single-request-service.module').then(m => m.SingleRequestServiceModule) 
+  },
+  { 
+    path: 'block-users', 
+    loadChildren: () => import('./block-users/block-users.module').then(m => m.BlockUsersModule) 
   }
 ];
 

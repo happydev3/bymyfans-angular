@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from 'src/app/services/post.service';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthenticationService } from 'src/app/services/auth.service';
 import { LoadingService } from 'src/app/services/loading.service';
 import { pagination } from 'src/app/model/paginate';
 import { User } from 'src/app/model/user';
@@ -25,13 +25,14 @@ export class HomeComponent implements OnInit {
   public topSubscribers: Array<User>;
 
   constructor(
-    public authService: AuthService,
+    public authService: AuthenticationService,
     public postService: PostService,
     private loadingService: LoadingService,
     public sharedService: SharedService
   ) { }
 
   public actionLoadingIndicator = true;
+  
   ngOnInit(): void {
     this.getAllPost(this.currentPage);
     this.getTopViews();

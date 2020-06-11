@@ -13,19 +13,28 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="part-hdng dea">
-                                <h3 class="page-sec-hfn">Favorites</h3>
-                                <a href="" class="btn-dem"><i class="fas fa-plus"></i>Create Group</a>
+                                <h3 class="page-sec-hfn">{{'Favorites' | translate}}</h3>
+                                <a class="btn-dem" (click)="createGroup()"><i class="fas fa-plus"></i>{{'Create Group' | translate}}</a>
                                 <select class="form-control">
-                                    <option>Sort by</option>
-                                    <option>Highest Contribution</option>
-                                    <option>Most Recent Contribution</option>
+                                    <option>{{'Sort by' | translate}}</option>
+                                    <option>{{'Highest Contribution' | translate}}</option>
+                                    <option>{{'Most Recent Contribution' | translate}}</option>
                                 </select>
                             </div>
                         </div>
                     </div>
+                    <div>
+                        
+                        <div class="not-exist" *ngIf="isExist == false">
+                            <h2>There is no Favorite list!</h2>
+                        </div>
 
-                    <app-favorite-element [favorite]="favorite" *ngFor="let favorite of favorites"></app-favorite-element>
-
+                        <div *ngIf="isExist == true">
+                            <app-favorite-element [favorite]="favorite" *ngFor="let favorite of favorites"></app-favorite-element>
+                        </div>
+                        
+                    </div>
+                    
                 </div>
             </div>
         </div>

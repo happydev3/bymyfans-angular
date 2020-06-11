@@ -2,111 +2,110 @@
     {
         "id" : 1,
         "name": "HOME",
-        "url": "home",
+        "url": "/home",
         "childs": []
     },
     {   
         "id" : 2,
         "name": "1ON1CALL",
-        "url": "oneCall",
+        "url": "/oneCall",
         "childs": []
     },
     {   
         "id" : 3,
         "name": "PROFILE",
-        "url": "profile",
+        "url": "/profile",
         "childs": []
     },
     {
         "id" : 4,
         "name": "PRIVATE MESSAGE",
-        "url": "private-message",
+        "url": "/private-message",
         "childs": []
     },
     {
         "id" : 5,
         "name": "REQUEST FOR SERVICE",
-        "url": "request-service",
+        "url": "/request-service",
         "childs": []
     },
     {
         "id" : 6,
         "name": "CROWD FUNDING",
-        "url": "crowd-funding",
+        "url": "/crowd-funding",
         "childs": []
     },
     {
         "id" : 7,
         "name": "PERSONAL",
-        "title": "personal",
+        "title": "/personal",
         "url": "#",
         "childs": [
             {
                 "id" : 1,
-                "name": "Profile",
-                "url": "profile",
+                "name": "Account Settings",
+                "url": "/account-settings",
                 "childs": []
             },
             {
                 "id" : 2,
                 "name": "Referral Program",
-                "url": "referral-program",
+                "url": "/referral-program",
                 "childs": []
             },
             {
                 "id" : 3,
                 "name": "EStore Management",
-                "url": "estore-management",
+                "url": "/estore-management",
                 "childs": []
             },
             {
                 "id" : 4,
                 "name": "Customer Support",
-                "url": "customer-support",
+                "url": "/customer-support",
                 "childs": []
             },
             {
                 "id" : 5,
                 "name": "Purchase History",
-                "url": "purchase-history",
+                "url": "/purchase-history",
                 "childs": []
             },
             {
                 "id" : 6,
                 "name": "Security And Pricacy Settings",
-                "url": "security-privacy",
+                "url": "/security-privacy",
                 "childs": []
             },
             {
                 "id" : 7,
                 "name": "Earning Statement",
-                "url": "earning-statement",
+                "url": "/earning-statement",
                 "childs": []
             },
             {
                 "id" : 8,
                 "name": "Subscription And Tip Management",
-                "url": "subscription-tip-management",
+                "url": "/subscription-tip-management",
                 "childs": []
             }
-
         ]
     },
     {
         "id" : 8,
         "name": "SUBSCRIPTION & FAVORITES",
-        "title": "subscription_favorites",
+        "title": "/subscription_favorites",
         "url": "#",
         "childs": [
             {
                 "id" : 1,
                 "name": "Subscriptions",
-                "url": "subscriptions"
+                "url": "/subscriptions"
             },
             {
                 "id" : 2,
                 "name": "Favorites",
-                "url": "favorites"
+                "url": "/favorites"
             }
         ]
     }

@@ -6,6 +6,7 @@ import { catchError, map } from 'rxjs/operators';
 import { TokenService } from './token.service';
 import { FormGroup } from '@angular/forms';
 import { ScrollStrategyOptions } from '@angular/cdk/overlay';
+import { FileUploader } from 'ng2-file-upload';
 
 
 @Injectable({
@@ -34,22 +35,38 @@ export class PostService {
 
   addPost(postInfo: FormGroup, mediaFiles: Array<File>): Observable<any> {
     let formData: any = new FormData();
-    let estore_link: number = 0;
-    let comments_open: number = 0;
-    let checkPublic: number = 0;
-    if(postInfo.value.estore_link == true) estore_link = 1;
-    if(postInfo.value.comments_open == true) comments_open = 1;
-    if(postInfo.value.public == true) checkPublic = 1;
     formData.append('content', postInfo.value.content);
-    formData.append('estore_link', estore_link);
-    formData.append('comments_open', comments_open);
-    formData.append('public', checkPublic);
-    formData.append('media', mediaFiles);
+    formData.append('estore_link', postInfo.value.estore_link == true ? 1 : 0);
+    formData.append('comments_open', postInfo.value.comments_open == true ? 1 : 0);
+    formData.append('public', postInfo.value.public == true ? 1 : 0);
+    formData.append('for_favorites', postInfo.value.for_favorites == true ? 1 : 0);
+    for (let i = 0; i < mediaFiles.length; i++) {
+      formData.append('media[]', mediaFiles[i], mediaFiles[i].name);
+    }
     return this.httpClient.post(`${this.API_URL}/add`, formData, {headers: this.authHeader}).pipe(
       map((res: Response) => {
-        console.log(res);
         return res || {}
       }),
+      catchError(this.handleError)
+    )
+  }
+
+  editPost(postInfo: FormGroup, mediaFiles: Array<File>, postID: number): Observable<any> {
+    let formData: any = new FormData();
+    formData.append('post_id', postID);
+    formData.append('content', postInfo.value.content);
+    formData.append('estore_link', postInfo.value.estore_link == true ? 1 : 0);
+    formData.append('comments_open', postInfo.value.comments_open == true ? 1 : 0);
+    formData.append('for_favorites', postInfo.value.for_favorites == true ? 1 : 0);
+    formData.append('public', postInfo.value.public == true ? 1 : 0);
+    for (let i = 0; i < mediaFiles.length; i++) {
+      formData.append('media[]', mediaFiles[i], mediaFiles[i].name);
+    }
+    return this.httpClient.post(`${this.API_URL}/add`, formData, {headers: this.authHeader})
+    .pipe(
+        map((res: Response) => {
+          return res || {}
+        }),
       catchError(this.handleError)
     )
   }
@@ -57,13 +74,13 @@ export class PostService {
   addLike(postId: number, like: number): Observable<any> {
     console.log(postId, like);
     let formData: any = new FormData();
-    formData.append('post_Id', postId);
+    formData.append('post_id', postId);
     formData.append('like', like);
-    return this.httpClient.post(`${this.API_URL}/like`, formData, {headers: this.authHeader}).pipe(
-      map((res: Response) => {
-        console.log(res);
-        return res || {}
-      }),
+    return this.httpClient.post(`${this.API_URL}/like`, formData, {headers: this.authHeader})
+    .pipe(
+        map((res: Response) => {
+          return res || {}
+        }),
       catchError(this.handleError)
     )
   }
@@ -72,15 +89,38 @@ export class PostService {
     let formData: any = new FormData();
     formData.append('comments', comment);
     formData.append('post_id', postId);
-    return this.httpClient.post(`${this.API_URL}/comment`, formData, {headers: this.authHeader}).pipe(
-      map((res: Response) => {
-        console.log(res);
-        return res || {}
-      }),
+    return this.httpClient.post(`${this.API_URL}/comment`, formData, {headers: this.authHeader})
+    .pipe(
+        map((res: Response) => {
+          return res || {}
+        }),
       catchError(this.handleError)
     )
   }
 
+  deletePost(postID): Observable<any> {
+    return this.httpClient.post(`${this.API_URL}/delete`, {post_id :postID}, {headers: this.authHeader})
+    .pipe(
+        map((res: Response) => {
+          return res || {}
+        }),
+      catchError(this.handleError)
+    )
+  }
+
+  deleteComment(commentID: number, postID: number): Observable<any> {
+    let formData: any = new FormData();
+    formData.append('comments_id', commentID);
+    formData.append('post_id', postID);
+    return this.httpClient.post(`${this.API_URL}/comment/delete`, formData, {headers: this.authHeader})
+    .pipe(
+        map((res: Response) => {
+          return res || {}
+        }),
+      catchError(this.handleError)
+    )
+  }
+ 
   handleError(error: HttpErrorResponse) {
     let msg = '';
     if (error.error instanceof ErrorEvent) {

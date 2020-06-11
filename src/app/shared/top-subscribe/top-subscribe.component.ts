@@ -13,7 +13,6 @@ export class TopSubscribeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.topSubscribers);
   }
 
 }

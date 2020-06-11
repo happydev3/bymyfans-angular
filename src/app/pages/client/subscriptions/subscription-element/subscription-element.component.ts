@@ -18,7 +18,6 @@ export class SubscriptionElementComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.subscription);
     if(this.subscription.get_profile_info.profile_pic) {
       this.userPhotoUrl = 'https://bvmwebsolutions.com/bemyfans/public/uploads/profile-pic/' + this.subscription.get_profile_info.profile_pic;
     }

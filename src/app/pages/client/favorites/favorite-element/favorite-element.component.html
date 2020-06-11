@@ -1,6 +1,23 @@
 <div class="row sus-dv">
     <div class="col-lg-12">
 
+        <div class="" *ngIf="favorite.category_id === null && favorite.favorites_category === null">
+            <form name="add_group_form" [formGroup]="add_group_form" (ngSubmit)="AddUserGroup()">
+                <input type="hidden" formControlName="user_id" name="user_id" [(ngModel)]="favorite.get_user.id"/>
+                <mat-form-field>
+                    <mat-label>{{'category' | translate}}</mat-label>
+                    <mat-select formControlName="category_id" name="category_id">
+                        <mat-option *ngFor="let category of myCategories" [value]="category.id">{{category.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                &nbsp;
+                <button mat-raised-button  class="submit-button post-share-btn" [disabled]="add_group_form.invalid">{{'Add to Group' | translate}}</button>
+            </form>
+        </div>
+        <div class="" *ngIf="favorite.category_id !== null && favorite.favorites_category !== null">
+            <h3>{{favorite.favorites_category.name}}</h3>
+        </div>
+
         <section class="cover-sec">
             <img [src]="favorite && favorite.get_user.wall_pic !== null ? userWallUrl : 'assets/client/images/115007.png'" alt="">
         </section>
@@ -12,7 +29,7 @@
                     <div class="col-lg-2 col-md-2">
                         <div class="profile-picture-box">
                             <figure class="profile-picture">
-                                <a href="other-profile/{{favorite.get_user.id}}">
+                                <a [routerLink]="'/other-profile/' + favorite.get_user.id">
                                     <img [src]="favorite && favorite.get_user.profile_pic !== null ? userPhotoUrl : 'assets/client/images/normal.jpg'" alt="profile picture">
                                     <i class="fas fa-circle" aria-hidden="true"></i>
                                 </a>
@@ -22,9 +39,9 @@
                     <div class="col-lg-7 col-md-7">
 
                         <div class="b-profile__user__status">
-                            <p class="time">Online<i class="fas fa-check" aria-hidden="true"></i></p>
+                            <p class="time">{{'Online' | translate}}<i class="fas fa-check" aria-hidden="true"></i></p>
                             <div class="g-user-name m-lg-size m-verified"> {{favorite.get_user.name }}</div>
-                            <div class="g-user-username"><a href="other-profile/{{favorite.get_user.id}}"> {{favorite.get_user.email}}}</a></div>
+                            <div class="g-user-username"><a [routerLink]="'/other-profile/' + favorite.get_user.id"> {{favorite.get_user.email}}}</a></div>
                             <div class="call-icon" (click)="openCallModal()">
 
                                 <span data-toggle="tooltip" data-placement="top" title="1 to 1 Call">
@@ -38,10 +55,9 @@
                     <div class="col-lg-3 col-md-3 d-none d-md-block">
 
                         <div class="profile-edit-panel">
-                            <i class="far fa-star" data-toggle="tooltip" data-placement="top" title="Add to Favourite" aria-hidden="true"></i>
-                            <span class="sr-only">Add to Favourite</span>
-                            <i class="far fa-share-square" data-toggle="tooltip" data-placement="top" title="Copy link to profile" aria-hidden="true"></i>
-                            <span class="sr-only">Copy link to profile</span>
+                            <!-- <i class="far fa-star" data-toggle="tooltip" data-placement="top" title="{{'Add to Group' | translate}}" aria-hidden="true"></i> -->
+                            <i class="far fa-share-square" data-toggle="tooltip" data-placement="top" title="{{'Copy link to profile' | translate}}" aria-hidden="true"></i>
+                            <span class="sr-only">{{'复制链接到个人资料' | translate}}</span>
                         </div>
 
                     </div>
@@ -56,7 +72,7 @@
                                     <mat-expansion-panel-header>
                                         <mat-panel-title>
                                             <div class="loca-de show-more" data-toggle="collapse" data-target="#demo">
-                                                <i class="far fa-user"></i>Show more info
+                                                <i class="far fa-user"></i>{{'Show more info' | translate}}
                                             </div>
                                         </mat-panel-title>
                                     </mat-expansion-panel-header>
@@ -77,20 +93,20 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="info-ing">
-
-                            <div class="b-frofile">
-                                <a class="round-btn"><i class="fas fa-file-invoice-dollar" aria-hidden="true"></i>Subscription options</a>
+                        <div class="info-ing profile-options">
+                            <div class="row profile-info">
+                                <div class="col-lg-4 b-frofile">
+                                    <a class="round-btn"><i class="fas fa-file-invoice-dollar" aria-hidden="true"></i>{{'Subscription options' | translate}}</a>
+                                </div>
+    
+                                <div class="col-lg-4 b-frofile">
+                                    <a class="round-btn" (click)="openTipModal()"><i class="fas fa-dollar-sign" aria-hidden="true"></i>{{'Send a Tip' | translate}}</a>
+                                </div>
+    
+                                <div class="col-lg-4 b-frofile">
+                                    <a [routerLink]="'/user-estore-management/' + favorite.get_user.id" class="round-btn"><i class="fas fa-store" aria-hidden="true"></i>{{'Personal eStore' | translate}}</a>
+                                </div>
                             </div>
-
-                            <div class="b-frofile">
-                                <a class="round-btn" (click)="openTipModal()"><i class="fas fa-dollar-sign" aria-hidden="true"></i>Send a Tip</a>
-                            </div>
-
-                            <div class="b-frofile">
-                                <a href="" class="round-btn"><i class="fas fa-store" aria-hidden="true"></i>Peresonal eStore</a>
-                            </div>
-
                         </div>
                     </div>
 

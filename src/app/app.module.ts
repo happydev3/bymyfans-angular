@@ -13,6 +13,8 @@ import { ClientComponent } from './layouts/client/client.component';
 import { SharedModule } from './shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MaterialModule } from './material/material.module';
+import { SocialLoginModule } from 'angularx-social-login';
+import { ActionLoadingComponent } from './shared/action-loading/action-loading.component';
 
 export function TranslationLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -22,6 +24,7 @@ export function TranslationLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     ClientComponent,
+    ActionLoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,9 @@ export function TranslationLoaderFactory(http: HttpClient) {
       loader: {provide: TranslateLoader, useFactory: TranslationLoaderFactory, deps: [HttpClient]}
     }),
     SharedModule,
-    NgbModule
+    SocialLoginModule,
+
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

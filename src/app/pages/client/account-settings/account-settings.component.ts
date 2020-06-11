@@ -43,11 +43,11 @@ export class AccountSettingsComponent implements OnInit {
   ngOnInit(): void {
     this.edit_account = this.formBuilder.group({
       name: ['', Validators.required],
-      about: ['', Validators.required],
-      location: ['', Validators.required],
+      about: [''],
+      location: [''],
       taobao_wishlist_url: [''],
       email: ['', Validators.required],
-      mobile: ['', Validators.required],
+      mobile: [''],
     });
     this.getProfile(this.currentPage)
   }

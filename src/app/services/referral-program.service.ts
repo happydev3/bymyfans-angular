@@ -24,7 +24,6 @@ export class ReferralProgramService {
   referral_page(): Observable<any> {
     return this.httpClient.get(this.API_URL, {headers: this.authHeader}).pipe(
       map((res: Response) => {
-        console.log(res);
         return res || {}
       }),
       catchError(this.handleError)

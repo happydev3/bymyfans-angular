@@ -5,7 +5,7 @@
             <div class="col-lg-2 col-md-2">
                 <div class="profile-picture-box">
                     <figure class="profile-picture">
-                        <a href="">
+                        <a [routerLink]="'/other-profile/' + userInfo.id">
                             <img [src]="userInfo.profile_pic ?  userPhotoUrl : 'assets/client/images/normal.jpg'" alt="profile picture">
                             <i class="fas fa-circle"></i>
                         </a>
@@ -17,7 +17,7 @@
                 <div class="b-profile__user__status">
                     <p class="time">{{'Online' | translate}}<i class="fas fa-check"></i></p>
                     <div class="g-user-name m-lg-size m-verified"> {{ userInfo.name }} </div>
-                    <div class="g-user-username"><a href=""> {{ userInfo.email }} </a></div>
+                    <div class="g-user-username">{{ userInfo.email }}</div>
                     <div class="call-icon" (click)="openCallModal()">
 
                         <span data-toggle="tooltip" data-placement="top" title="1 to 1 Call">
@@ -29,9 +29,17 @@
             </div>
 
             <div class="col-lg-3 col-md-3 d-none d-md-block">
+
+                <div class="dropdown language-dropdown et-fe">
+                    <a data-toggle="dropdown" aria-expanded="false" [matMenuTriggerFor]="commentMenu"> <i class="fas fa-ellipsis-h"></i> </a>
+                    <mat-menu #commentMenu="matMenu" xPosition="after">
+                        <button mat-menu-item (click)="addBlocklist(userInfo.id)">{{'Add to blocklist' | translate}}</button>
+                    </mat-menu>
+                </div>
+
                 <div class="profile-edit-panel">
-                    <i class="far fa-star" data-toggle="tooltip" data-placement="top" title="Add to Favourite"></i>
-                    <i class="far fa-share-square" data-toggle="tooltip" data-placement="top" title="Copy link to profile"></i>
+                    <i class="far fa-star favorite" data-toggle="tooltip" data-placement="top" title="{{'Add to Favourite' | translate}}" (click)="addFavorite(userInfo.id)"></i>
+                    <i class="far fa-share-square copylink" data-toggle="tooltip" data-placement="top" title="{{'Copy link to profile' | translate}}"></i>
                 </div>
             </div>
         </div>
@@ -67,20 +75,22 @@
             <div class="col-lg-12">
                 <div class="info-ing">
 
-                    <div class="b-frofile">
-                        <a class="round-btn">
-                            <i class="fas fa-file-invoice-dollar"></i>{{'Subscription options' | translate}}
-                        </a>
-                    </div>
-
-                    <div class="b-frofile">
-                        <a class="round-btn" data-toggle="modal" data-target="#textbox2" (click)="openTipModal()">
-                            <i class="fas fa-dollar-sign"></i>{{'Send a Tip' |  translate}}
-                        </a>
-                    </div>
-
-                    <div class="b-frofile">
-                        <a href="user-estore-management/{{userInfo.id}}" class="round-btn"><i class="fas fa-store"></i>{{'Personal eStore' | translate}}</a>
+                    <div class="row profile-info">
+                        <div class="col-lg-4 b-frofile">
+                            <a class="round-btn">
+                                <i class="fas fa-file-invoice-dollar"></i>{{'Subscription options' | translate}}
+                            </a>
+                        </div>
+    
+                        <div class="col-lg-4 b-frofile">
+                            <a class="round-btn" data-toggle="modal" data-target="#textbox2" (click)="openTipModal()">
+                                <i class="fas fa-dollar-sign"></i>{{'Send a Tip' |  translate}}
+                            </a>
+                        </div>
+    
+                        <div class="col-lg-4 b-frofile">
+                            <a [routerLink]="'/user-estore-management/' + userInfo.id" class="round-btn"><i class="fas fa-store"></i>{{'Personal eStore' | translate}}</a>
+                        </div>
                     </div>
 
                 </div>

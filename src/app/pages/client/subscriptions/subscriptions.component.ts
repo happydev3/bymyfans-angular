@@ -17,6 +17,7 @@ export class SubscriptionsComponent implements OnInit {
   public Currentpage: number;
 
   public subscriptions: any;
+  public isExist: boolean = true;
 
   constructor(
     private loadingService: LoadingService,
@@ -34,9 +35,13 @@ export class SubscriptionsComponent implements OnInit {
       console.log(res);
       if(res.success == true) {
         console.log(res);
-        this.subscriptions = res.data.data;
+        if(res.data.data.length > 0) {
+          this.subscriptions = res.data.data;
+        } else {
+          this.isExist = false;
+        }
       } else if(res.success == false && res.message == 'subscription not found') {
-        this.subscriptions = [];
+        this.isExist = false;
       }
       this.loadingService.hide();
     })

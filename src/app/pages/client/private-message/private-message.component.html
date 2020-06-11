@@ -139,18 +139,18 @@
               </div> <!-- end chat-history -->
 
               <div class="chat-message clearfix">
-
-                <div style="display: flex;">
-                  <i-feather name="smile" style="color: green; margin-top: 10px;" (click)="toggleEmojiPicker()"></i-feather>
-                  <textarea name="message-to-send" id="message-to-send" placeholder="Type your message" rows="3"></textarea>
-                </div>
-
-                <emoji-mart [style]="{ position: 'absolute', bottom: '160px', right: '205px' }" class="emoji-mart" set="apple" (emojiSelect)="addEmoji($event)" *ngIf="showEmojiPicker" title="Pick your emoji…"></emoji-mart>
-                
-                <i class="fas fa-paperclip"></i> &nbsp;&nbsp;&nbsp;
-                <i class="fas fa-dollar-sign"></i>
-                <button>Send</button>
-
+                <form name="private_message"> 
+                  <div style="display: flex;">
+                    <i-feather name="smile" style="color: green; margin-top: 10px;" (click)="toggleEmojiPicker()"></i-feather>
+                    <textarea name="message-to-send" id="message-to-send" placeholder="Type your message" rows="3" ></textarea>
+                  </div>
+  
+                  <emoji-mart [style]="{ position: 'absolute', bottom: '160px', right: '205px' }" class="emoji-mart" set="apple" (emojiSelect)="addEmoji($event)" *ngIf="showEmojiPicker" title="Pick your emoji…"></emoji-mart>
+                  
+                  <i class="fas fa-paperclip"></i> &nbsp;&nbsp;&nbsp;
+                  <i class="fas fa-dollar-sign"></i>
+                  <button>Send</button>
+                </form>
               </div>
 
             </div> 

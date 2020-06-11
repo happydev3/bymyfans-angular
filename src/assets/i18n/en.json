@@ -31,6 +31,8 @@
     "share" : "Share",
     "Press Enter to comment" : "Press Enter to Comment",
     "edit post" : "edit post",
+    "repost post to admins" : "repost post to admins",
+    "delete post" : "delete post",
     "Most Viewed" : "Most Viewed",
     "Mutual" : "Mutual",
     "Most Subscribed" : "Most Subscribed",
@@ -50,5 +52,128 @@
     "Compose new post" : "Compose new post",
 
     "Create New" : "Create New",
-    "View Now" : "View Now"
+    "View Now" : "View Now",
+
+    "Request Title" : "Request Title",
+
+    "Refer Friends & Earn Credit" : "Refer Friends & Earn Credit",
+    "Referral Page description" : "Introduce a friend to Be my fan and you'll be credited 5% to your account",
+    "Share referral link with friends" : "Share referral link with friends",
+    "Copy Link" : "Copy Link",
+    "Scan QR Code to referral" : "Scan QR Code to referral",
+
+    "Update cover image" : "Update cover image",
+    "Update profile photo" : "Update profile photo",
+    "Profile Details" : "Profile Details",
+    "Username" : "Username",
+    "About Yourself" : "About Yourself",
+    "Location" : "Location",
+    "Taobao Wishlist URL" : "Taobao Wishlist URL",
+    "Email" : "Email",
+    "Phone" : "Phone",
+    "Save/Update" : "Save/Update",
+
+    "Security and Privacy Settings" : "Security and Privacy Settings",
+    "Hide Profile" : "Hide Profile",
+    "Off" : "Off",
+    "On" : "On",
+    "Blacklist users" : "Blacklist users",
+    "Manage Shipping Address" : "Manage Shipping Address",
+    "Private message notification" : "Private message notification",
+    "Accept 1on1 call from others" : "Accept 1on1 call from others",
+    "Set the online status to invisible" : "Set the online status to invisible",
+    "Edit" : "Edit",
+
+    "Sales Order" : "Sales Order",
+    "Item Management" : "Item Management",
+    "Add Product" : "Add Product",
+    "Delivered" : "Delivered",
+
+    "Create Group" : "Create Group",
+    "Sort by" : "Sort by",
+    "Highest Contribution" : "Highest Contribution",
+    "Most Recent Contribution" : "Most Recent Contribution",
+
+    "Add to Favourite" : "Add to Favourite",
+    "Copy link to profile" : "Copy link to profile",
+
+    "New Post" : "New Post",
+    "Link to personal eStore" : "Link to personal eStore",
+    "Make the comments open" : "Make the comments open",
+    "Make the post public" : "Make the post public",
+    "Select File" : "Select File",
+    "Attach files if necessary" : "Attach files if necessary",
+    "Multimedia file or word, excel, powerpoint, pdf etc" : "Multimedia file or word, excel, powerpoint, pdf etc",
+    "Publish" : "Publish",
+
+    "Enter Expiry Date" : "Enter Expiry Date",
+    "Enter Location" : "Enter Location",
+    "Budget Offering" : "Budget Offering",
+    "Request Description" : "Request Description",
+    "Deposit & Publish" : "Deposit & Publish",
+    "Send the requset in private mode, directly to subscribed creators" : "Send the requset in private mode, directly to subscribed creators",
+
+    "Expected Amount" : "Expected Amount",
+    "Products/Deliverables" : "Products/Deliverables",
+
+    "Call Description" : "Charges for this call will be applicable as lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+    "Call Now" : "Call Now",
+
+    "Enter Tip Amount" : "Enter Tip Amount",
+    "Add A Payment Card" : "Add A Payment Card",
+    "Minimum $5 USD" : "Minimum $5 USD",
+    "Add a Message" : "Add a Message",
+
+    "Request Name" : "Request Name",
+    "shipping days" : "shipping days",
+    "Shipping Charges" : "Shipping Charges",
+
+    "delete" : "delete",
+
+    "Email/Chat" : "Email/Chat",
+    "Complaint" : "Complaint",
+    "Refund Request" : "Refund Request",
+    "Contact Customer support via email or chat" : "Contact Customer support via email or chat",
+    "File any complaint here easily on a click" : "File any complaint here easily on a click",
+    "File a Refund Request here easily on a click" : "File a Refund Request here easily on a click",
+    "Click here" : "Click here",
+
+    "Select period" : "Select period",
+    "From" : "From",
+    "To" : "To",
+    "Earned from" : "Earned from",
+    "Overall Earning" : "Overall Earning",
+
+    "Subscription package" : "Subscription package",
+    "Tipping Option" : "Tipping Option",
+
+    "Cancel" : "Cancel",
+    "loading" : "loading",
+
+    "Create group" : "Create group",
+    "category" : "category",
+
+    "Add to Group" : "Add to Group",
+    
+    "Request Service Single" : "Request Service Single",
+    "chat" : "chat",
+    "Award" : "Award",
+    "Request Summary" : "Request Summary",
+    "When" : "When",
+
+    "Share with Whom Favorited" : "Share with Whom Favorited",
+
+    "About" : "About",
+    "Contact us" : "Contact us",
+    "Terms & Conditions" : "Terms & Conditions",
+    "Privacy Policy" : "Privacy Policy",
+    "All Rights Reserved" : "All Rights Reserved",
+
+    "Block Users List" : "Block Users List",
+
+    "Make a Bid" : "Make a Bid",
+    "Budget" : "Budget",
+    "Timeline" : "Timeline",
+    "Confirm Bid" : "Confirm Bid",
+    "Description" : "Description"
 }

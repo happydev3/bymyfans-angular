@@ -1,0 +1,25 @@
+<div class="card">
+    <div class="job-listing-details">
+
+      <div class="job-listing-company-logo">
+        <img src="{{userPhotoUrl}}/{{bidder.get_user.profile_pic}}" alt="">
+      </div>
+
+      <div class="job-listing-description">
+        <h4 class="job-listing-company">{{bidder.get_user.name}}</h4>
+        <h3 class="job-listing-title">${{bidder.bid_amount}}</h3>
+      </div>
+
+      <div class="bid_awr">
+        <a href="" class="chat-btn"><i class="far fa-comment-alt"></i>{{'chat' | translate}}</a>
+        <a href="" class="awar-btn"><i class="fas fa-award"></i>{{'Award' | translate}}</a>
+      </div>
+
+    </div>
+
+    <div class="post-content">
+      <div class="job-listing-footer">
+        <p>{{bidder.description}}</p>
+      </div>
+    </div>
+</div>

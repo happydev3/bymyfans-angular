@@ -1,6 +1,6 @@
-import { Component, OnInit, Injectable, Inject } from '@angular/core';
+import { Component, OnInit, Injectable, Inject, SimpleChanges } from '@angular/core';
 import { Observable, of, Subscription, Subject } from "rxjs";
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthenticationService } from 'src/app/services/auth.service';
 import { DOCUMENT } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -20,7 +20,6 @@ export class ClientComponent implements OnInit {
   public toggleMenu;
   public showMenu: boolean = false;
   public currentUrl: string;
-  public isActive: boolean;
   public languages: any;
   public selectedLanguage: any = {
     id   : 'ch',
@@ -29,7 +28,7 @@ export class ClientComponent implements OnInit {
   };
 
   constructor(
-    public authService: AuthService,
+    public authService: AuthenticationService,
     @Inject(DOCUMENT) private document: Document,
     private router : Router,
     private translate: TranslateService,
@@ -56,13 +55,6 @@ export class ClientComponent implements OnInit {
     } else {
       this.translate.setDefaultLang('ch');
     }
-    this.currentUrl = this.router.url;
-  }
-  
-  subMenu(id) {
-    var subMenu = document.getElementById('dropdown-menu' + id);
-    if(subMenu.style.display == 'none') subMenu.style.display = 'block';
-    else if(subMenu.style.display == 'block') subMenu.style.display = 'none';
   }
 
   logout() {
@@ -79,6 +71,6 @@ export class ClientComponent implements OnInit {
 
   public useLanguage(lang: any): void {
     this.selectedLanguage = lang;
-    this.translate.use(lang.id);
+    this.translate.setDefaultLang(lang.id);
   }
 }

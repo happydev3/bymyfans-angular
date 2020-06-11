@@ -3,7 +3,7 @@ import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn,
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthenticationService } from 'src/app/services/auth.service';
 import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
@@ -22,7 +22,7 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
     public formBuilder: FormBuilder,
     public router: Router,
     public loadingService: LoadingService,
-    public authService: AuthService,
+    public authService: AuthenticationService,
     private activatedRoute: ActivatedRoute
   ) { 
     this.resetForm = this.formBuilder.group({

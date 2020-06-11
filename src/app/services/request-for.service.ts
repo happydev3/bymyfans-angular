@@ -25,7 +25,6 @@ export class RequestForService {
   getRequestService(pagination): Observable<any> {
     return this.httpClient.get(`${this.API_URL}/list?page=${pagination}`, {headers: this.authHeader}).pipe(
       map((res: Response) => {
-        console.log(res);
         return res || {}
       }),
       catchError(this.handleError)
@@ -35,7 +34,6 @@ export class RequestForService {
   getServiceCategory(): Observable<any> {
     return this.httpClient.get(`${this.startpoint}/service-category/list`, {headers: this.authHeader}).pipe(
       map((res: Response) => {
-        console.log(res);
         return res || {}
       }),
       catchError(this.handleError)
@@ -53,7 +51,29 @@ export class RequestForService {
     formData.append('media_file', media);
     return this.httpClient.post(`${this.API_URL}/add`, formData, {headers: this.authHeader}).pipe(
       map((res: Response) => {
-        console.log(res);
+        return res || {}
+      }),
+      catchError(this.handleError)
+    )
+  }
+
+  getSingleService(requestID: string): Observable<any> {
+    return this.httpClient.get(`${this.API_URL}/single/${requestID}`, {headers: this.authHeader}).pipe(
+      map((res: Response) => {
+        return res || {}
+      }),
+      catchError(this.handleError)
+    )
+  }
+
+  makeBid(bid_form: FormGroup): Observable<any> {
+    let formData = new FormData();
+    formData.append('services_id', bid_form.value.services_id);
+    formData.append('bid_amount', bid_form.value.bid_amount);
+    formData.append('days', bid_form.value.days);
+    formData.append('description', bid_form.value.description);
+    return this.httpClient.post(`${this.API_URL}/place/bid`, formData, {headers: this.authHeader}).pipe(
+      map((res: Response) => {
         return res || {}
       }),
       catchError(this.handleError)

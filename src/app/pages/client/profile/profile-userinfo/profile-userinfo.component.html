@@ -5,8 +5,8 @@
             <div class="col-lg-2 col-md-2">
                 <div class="profile-picture-box">
                     <figure class="profile-picture">
-                        <a href="">
-                            <img  [src]="userInfo.profile_pic ?  userPhotoUrl : 'assets/client/images/normal.jpg'" alt="profile picture">
+                        <a [routerLink]="'/profile'">
+                            <img [src]="userInfo.profile_pic ?  userPhotoUrl : 'assets/client/images/normal.jpg'" alt="profile picture">
                             <i class="fas fa-circle"></i>
                         </a>
                     </figure>
@@ -17,7 +17,7 @@
                 <div class="b-profile__user__status">
                     <p class="time">{{'Online' | translate}}<i class="fas fa-check"></i></p>
                     <div class="g-user-name m-lg-size m-verified"> {{ userInfo.name }} </div>
-                    <div class="g-user-username"><a href=""> {{ userInfo.name }} </a></div>
+                    <div class="g-user-username"> {{ userInfo.name }} </div>
                     <div class="call-icon" (click)="openCallModal()">
 
                         <span data-toggle="tooltip" data-placement="top" title="1 to 1 Call">
@@ -28,12 +28,12 @@
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-3 d-none d-md-block">
+            <!-- <div class="col-lg-3 col-md-3 d-none d-md-block">
                 <div class="profile-edit-panel">
                     <i class="far fa-star" data-toggle="tooltip" data-placement="top" title="Add to Favourite"></i>
                     <i class="far fa-share-square" data-toggle="tooltip" data-placement="top" title="Copy link to profile"></i>
                 </div>
-            </div>
+            </div> -->
         </div>
 
         <div class="row">
@@ -65,24 +65,26 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <div class="info-ing">
+                <div class="info-ing profile-options">
+                    <div class="row profile-info">
 
-                    <div class="b-frofile">
-                        <a class="round-btn">
-                            <i class="fas fa-file-invoice-dollar"></i>{{'Subscription options' | translate}}
-                        </a>
+                        <div class="col-lg-4 b-frofile">
+                            <a class="round-btn" (click)="openSubscription()">
+                                <i class="fas fa-file-invoice-dollar"></i>{{'Subscription options' | translate}}
+                            </a>
+                        </div>
+    
+                        <div class="col-lg-4 b-frofile">
+                            <a class="round-btn" data-toggle="modal" data-target="#textbox2" (click)="openTipModal()">
+                                <i class="fas fa-dollar-sign"></i>{{'Send a Tip' |  translate}}
+                            </a>
+                        </div>
+    
+                        <div class="col-lg-4 b-frofile">
+                            <a [routerLink]="'/estore-management'" class="round-btn"><i class="fas fa-store"></i>{{'Personal eStore' | translate}}</a>
+                        </div>
+
                     </div>
-
-                    <div class="b-frofile">
-                        <a class="round-btn" data-toggle="modal" data-target="#textbox2" (click)="openTipModal()">
-                            <i class="fas fa-dollar-sign"></i>{{'Send a Tip' |  translate}}
-                        </a>
-                    </div>
-
-                    <div class="b-frofile">
-                        <a href="estore-management" class="round-btn"><i class="fas fa-store"></i>{{'Personal eStore' | translate}}</a>
-                    </div>
-
                 </div>
             </div>
         </div>

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingService } from 'src/app/services/loading.service';
 import { ProfileService } from 'src/app/services/profile.service';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { User } from 'src/app/model/user';
+import { ManageShippingAddressComponent } from './manage-shipping-address/manage-shipping-address.component';
 
 @Component({
   selector: 'app-security-privacy',
@@ -22,6 +24,7 @@ export class SecurityPrivacyComponent implements OnInit {
   constructor(
     private loadingService: LoadingService,
     public profileService: ProfileService,
+    public dialog: MatDialog,
     public formBuilder: FormBuilder
   ) {
     this.security_privacy_form = this.formBuilder.group({
@@ -71,6 +74,18 @@ export class SecurityPrivacyComponent implements OnInit {
         if(this.userInfo.status_to_invisible == "1") this.status_to_invisible = true;
       }
       this.loadingService.hide();
+    })
+  }
+
+  editShippingAddress() {
+    let config = new MatDialogConfig();
+    config.panelClass = 'custom-modal';
+    config.disableClose = false;
+    config.autoFocus = true;
+    config.data = this.userInfo.id;
+    const dialogRef = this.dialog.open(ManageShippingAddressComponent, config);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
     })
   }
 }

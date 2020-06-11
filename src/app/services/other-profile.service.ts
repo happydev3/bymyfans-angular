@@ -25,7 +25,6 @@ export class OtherProfileService {
     console.log(userId);
     return this.httpClient.get(`${this.API_URL}/${userId}?page=${pagination}`, {headers: this.authHeader}).pipe(
       map((res: Response) => {
-        console.log(res);
         return res || {}
       }),
       catchError(this.handleError)

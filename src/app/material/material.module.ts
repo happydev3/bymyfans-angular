@@ -41,7 +41,7 @@ import { MatSelectModule } from '@angular/material/select';
     FormsModule,
     MatTabsModule,
     MatSnackBarModule,
-    MatSelectModule
+    MatSelectModule,
   ],
   exports: [
     MatMenuModule,

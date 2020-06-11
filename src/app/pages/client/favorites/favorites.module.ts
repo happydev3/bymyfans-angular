@@ -6,10 +6,11 @@ import { FavoritesComponent } from './favorites.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MaterialModule } from 'src/app/material/material.module';
 import { FavoriteElementComponent } from './favorite-element/favorite-element.component';
+import { CreateGroupComponent } from './create-group/create-group.component';
 
 
 @NgModule({
-  declarations: [FavoritesComponent, FavoriteElementComponent],
+  declarations: [FavoritesComponent, FavoriteElementComponent, CreateGroupComponent],
   imports: [
     CommonModule,
     FavoritesRoutingModule,

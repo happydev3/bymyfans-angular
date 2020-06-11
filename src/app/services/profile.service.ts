@@ -26,7 +26,6 @@ export class ProfileService {
   getProfile(pagination): Observable<any> {
     return this.httpClient.get(`${this.API_URL}?page=${pagination}`, { headers: this.authHeader }).pipe(
       map((res: Response) => {
-        console.log(res);
         return res || {}
       }),
       catchError(this.handleError)
@@ -55,7 +54,46 @@ export class ProfileService {
   editSecurityPrivacy(accountInfo): Observable<any> {
     return this.httpClient.post(`${this.startpoint}/security_privacy/setting`, accountInfo, {headers: this.authHeader}).pipe(
       map((res: Response) => {
-        console.log(res);
+        return res || {}
+      }),
+      catchError(this.handleError)
+    )
+  }
+
+  BlockedUsers(): Observable<any> {
+    return this.httpClient.get(`${this.startpoint}/blocked_users_list`, { headers: this.authHeader }).pipe(
+      map((res: Response) => {
+        return res || {}
+      }),
+      catchError(this.handleError)
+    )
+  }
+
+  editShipping(shipping_form: FormGroup): Observable<any> {
+    let formData = new FormData();
+    formData.append('user_id', shipping_form.value.user_id);
+    formData.append('ship_to_name', shipping_form.value.ship_to_name);
+    formData.append('address_1', shipping_form.value.address_1);
+    formData.append('address_2', shipping_form.value.address_2);
+    formData.append('city', shipping_form.value.city);
+    formData.append('state', shipping_form.value.state);
+    formData.append('country', shipping_form.value.country);
+    formData.append('zip_code', shipping_form.value.zip_code);
+    return this.httpClient.post(`${this.startpoint}/manage_shipping_address`, formData, {headers: this.authHeader}).pipe(
+      map((res: Response) => {
+        return res || {}
+      }),
+      catchError(this.handleError)
+    )
+  }
+
+  createPlan(subscrpition_form: FormGroup): Observable<any> {
+    console.log(subscrpition_form.value)
+    let formData = new FormData();
+    formData.append('amount', subscrpition_form.value.amount);
+    formData.append('validity', subscrpition_form.value.validity);
+    return this.httpClient.post(`${this.startpoint}/create-subscriptions-plan`, formData, {headers: this.authHeader}).pipe(
+      map((res: Response) => {
         return res || {}
       }),
       catchError(this.handleError)

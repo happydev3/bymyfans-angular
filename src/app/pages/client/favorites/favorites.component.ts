@@ -3,7 +3,7 @@ import { CallModalComponent } from 'src/app/shared/call-modal/call-modal.compone
 import { LoadingService } from 'src/app/services/loading.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { FavoritesService } from 'src/app/services/favorites.service';
-
+import { CreateGroupComponent } from './create-group/create-group.component';
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.component.html'
@@ -17,6 +17,7 @@ export class FavoritesComponent implements OnInit {
   public Currentpage: number;
 
   public favorites: any;
+  public isExist: boolean = true;
 
   constructor(
     private loadingService: LoadingService,
@@ -32,7 +33,12 @@ export class FavoritesComponent implements OnInit {
     this.loadingService.show();
     this.favoriteService.getFavorites(currentPage).subscribe((res) => {
       if(res.success == true) {
+        if(res.data.data.length > 0) {
         this.favorites = res.data.data;
+        console.log(this.favorites);
+        } else {
+          this.isExist = false;
+        }
       }
       this.loadingService.hide();
     })
@@ -68,4 +74,14 @@ export class FavoritesComponent implements OnInit {
     this.getFavorites(this.currentPage);
   }
 
+  createGroup(){
+    let config = new MatDialogConfig();
+    config.panelClass = 'custom-modal';
+    config.disableClose = false;
+    config.autoFocus = true;
+    const dialogRef = this.dialog.open(CreateGroupComponent, config);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    })
+  }
 }

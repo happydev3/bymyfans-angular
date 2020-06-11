@@ -2,7 +2,7 @@
     <div class="post-title d-flex align-items-center">
 
         <div class="profile-thumb">
-            <a href="other-profile/{{post.user_id}}">
+            <a [routerLink]="'/other-profile/' + post.user_id">
                 <figure class="profile-thumb-middle">
                     <img [src]="post.get_user.profile_pic !== null ? profileUrl : 'assets/client/images/normal.jpg'" alt="profile picture">
                 </figure>
@@ -10,16 +10,16 @@
         </div>
 
         <div class="posted-author">
-            <h3 class="author"><a href="other-profile/{{post.user_id}}">{{post.get_user.name}}</a></h3>
+            <h3 class="author"><a [routerLink]="'/other-profile/' + post.user_id">{{post.get_user.name}}</a></h3>
             <span class="post-time">{{post.created_at | date:'medium'}}</span>
         </div>
 
         <div class="post-settings-bar">
             <img src="assets/icons/menu-icon.png" class="menu-icon" [matMenuTriggerFor]="beforeMenu">
             <mat-menu #beforeMenu="matMenu" xPosition="before">
-                <button mat-menu-item>copy link to adda</button>
-                <button mat-menu-item>{{'edit post' | translate}}</button>
-                <button mat-menu-item>embed adda</button>
+                <button mat-menu-item (click)="deletePost(post.id)" *ngIf="userID == post.user_id">{{'delete post' | translate}}</button>
+                <button mat-menu-item (click)="editPostModal(post.id)" *ngIf="userID == post.get_user.id">{{'edit post' | translate}}</button>
+                <button mat-menu-item *ngIf="userID != post.get_user.id">{{'repost post to admins' | translate}}</button>
             </mat-menu>
         </div>
 
@@ -32,16 +32,23 @@
         </p>
 
         <div>
-            <figure class="post-thumb img-popup" *ngFor="let media of post.get_post_media">
-                <a href="{{postMediaUrl}}/{{media.file_name}}" *ngIf="media.media_type == 'image/jpeg'">
+            <figure class="post-thumb img-popup" >
+                <!-- <a href="{{postMediaUrl}}/{{media.file_name}}" *ngIf="media.media_type == 'image/jpeg'">
                     <img src="{{postMediaUrl}}/{{media.file_name}}" alt="post image">
-                </a>
-                
-                <video *ngIf="media.media_type == 'video/mp4'" id="my_video_1" class="video-js vjs-default-skin" width="100%" height="" controls preload="none"
-                    poster=''
-                    data-setup='{ "aspectRatio":"5:3", "playbackRates": [1, 1.5, 2] }'>
-                    <source src="{{postMediaUrl}}/{{media.file_name}}" type='video/mp4' />
-                </video>
+                </a> -->
+
+                <ngb-carousel>
+                    <ng-template ngbSlide *ngFor="let media of post.get_post_media">
+                      <div class="picsum-img-wrapper"  *ngIf="media.media_type == 'image/jpeg'">
+                        <img src="{{postMediaUrl}}/{{media.file_name}}" alt="Random first slide">
+                      </div>
+                      <video *ngIf="media.media_type == 'video/mp4'" id="my_video_1" class="video-js vjs-default-skin" width="100%" height="" controls preload="none"
+                            poster='https://i.ibb.co/QDRG9nS/5042-banner-5.jpg'
+                            data-setup='{ "aspectRatio":"5:3", "playbackRates": [1, 1.5, 2] }'>
+                            <source src="{{postMediaUrl}}/{{media.file_name}}" type='video/mp4'/>
+                      </video>
+                    </ng-template>
+                </ngb-carousel>
                
             </figure>
         </div>
@@ -60,25 +67,29 @@
                 </ul>
             </ng-template>
 
-            <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon" [ngbTooltip]="tipLike"  placement="bottom" tooltipClass="my-custom-class">
-                <mat-icon>favorite</mat-icon>
-                <span style="color: black;"> {{post.get_post_likes.length}} {{'people like this' | translate}}</span>
-            </button>
+            <div class="post-action">
 
-            <ul class="comment-share-meta">
-                <li>
-                    <button class="post-comment" [ngbTooltip]="commentLike"  placement="bottom" tooltipClass="my-custom-class">
-                        <i class="far fa-comments" aria-hidden="true"></i>
-                        <span>{{post.get_post_comments.length}} {{'comments' | translate}} </span>
-                    </button>
-                </li>
-                <li>
-                    <button class="post-share">
-                        <i class="far fa-share-square"></i>
-                        <span>7 {{'shares' | translate}}</span>
-                    </button>
-                </li>
-            </ul>
+                <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon" [ngbTooltip]="tipLike"  placement="bottom" tooltipClass="my-custom-class">
+                    <mat-icon>favorite</mat-icon>
+                    <span style="color: black;"> {{post.get_post_likes.length}} {{'people like this' | translate}}</span>
+                </button>
+
+                <ul class="comment-share-meta">
+                    <li>
+                        <button class="post-comment" [ngbTooltip]="commentLike"  placement="bottom" tooltipClass="my-custom-class">
+                            <i class="far fa-comments" aria-hidden="true"></i>
+                            <span>{{post.get_post_comments.length}} {{'comments' | translate}} </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="post-share">
+                            <i class="far fa-share-square"></i>
+                            <span>7 {{'shares' | translate}}</span>
+                        </button>
+                    </li>
+                </ul>
+
+            </div>
 
         </div>
     </div>
@@ -98,14 +109,20 @@
 
     <div class="comment-element"  *ngIf="post.comments_open == '1'"> 
         <ul class="comments">
-            <li *ngFor="let comment of post.get_post_comments" class="comments-content">
+            <li *ngFor="let comment of post.get_post_comments" class="comments-content" (mouseenter)="isOwnner = true" (mouseleave)="isOwnner = false">
                 <img class="comment-user-profile" *ngIf="comment.get_user.profile_pic !== null" src="{{userPhotoUrl}}/{{comment.get_user.profile_pic}}">
                 <img class="comment-user-profile" *ngIf="comment.get_user.profile_pic === null" src="assets/client/images/normal.jpg">
                 <div class="comment-user">
                     <mat-chip class="comment-user-name">
-                        <span style="font-weight: 600;"><a href="other-profile/{{comment.user_id}}">{{comment.get_user.name}}</a> &nbsp; &nbsp; &nbsp;{{comment.updated_at | date: 'medium'}}</span>
+                        <span style="font-weight: 600;"><a [routerLink]="'/other-profile/' + comment.user_id">{{comment.get_user.name}}</a> &nbsp; &nbsp; &nbsp;{{comment.updated_at | date: 'medium'}}</span>
                         <div class="comment-content">{{comment.comments}}</div>
                     </mat-chip>
+                    <div *ngIf="userID == comment.get_user.id">
+                        <img src="assets/icons/comment-menu.png" class="menu-icon" [matMenuTriggerFor]="commentMenu">
+                        <mat-menu #commentMenu="matMenu" xPosition="after">
+                            <button mat-menu-item (click)="deleteComment(comment.id, post.id)">{{'delete' | translate}}</button>
+                        </mat-menu>
+                    </div>
                 </div>
             </li>
         </ul>

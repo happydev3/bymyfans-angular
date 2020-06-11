@@ -68,6 +68,7 @@ export class OtherProfileComponent implements OnInit {
     })
   }
 
+  
   pageChange(event) {
     const current = event.target.textContent;
     const page = current.replace("(current)", "");

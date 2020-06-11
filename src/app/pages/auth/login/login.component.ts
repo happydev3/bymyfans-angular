@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthenticationService } from 'src/app/services/auth.service';
 import { Action } from '@ngrx/store';
 import { LoadingService } from 'src/app/services/loading.service';
 import {
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     public formBuilder: FormBuilder,
-    public authService: AuthService,
+    public authService: AuthenticationService,
     public router: Router,
     public loadingService: LoadingService,
     private _snackBar: MatSnackBar

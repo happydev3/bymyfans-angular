@@ -12,7 +12,7 @@
             <div class="row">
               <div class="col-lg-12">
                 <div class="part-hdng dea">
-                  <h2 class="page-sec-hfn">Security and Privacy Settings</h2>
+                  <h2 class="page-sec-hfn">{{'Security and Privacy Settings' | translate}}</h2>
                   <span class="ellip"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></span>
 
                 </div>
@@ -23,77 +23,77 @@
                 <div class="col-lg-12">
                     <form name="security_privacy_form" [formGroup]="security_privacy_form" (ngSubmit)="editSecurityPrivacy()">
                         <div class="profi-box">
-                            <h4>Hide Profile</h4>
+                            <h4>{{'Hide Profile' | translate}}</h4>
                             <div class="switc">
                             <input id="hide_profile" type="checkbox" class="checkbox" formControlName="hide_profile" name="hide_profile" [(ngModel)]="hide_profile"/>
                             <label for="hide_profile" class="switch">
                                 <span class="switch__circle">
                                 <span class="switch__circle-inner"></span>
                                 </span>
-                                <span class="switch__left">Off</span>
-                                <span class="switch__right">On</span>
+                                <span class="switch__left">{{'Off' | translate}}</span>
+                                <span class="switch__right">{{'On' | translate}}</span>
                             </label>
                             </div>
                         </div>
 
                         <div class="profi-box">
-                            <h4>Blacklist users</h4>
+                            <h4>{{'Blacklist users' | translate}}</h4>
                             <div class="switc tg">
-                            <a class="edt-bbt" href="security-privacy"> <i class="fas fa-pencil-alt"></i>Edit</a>
+                            <a [routerLink]="'/block-users'" class="edt-bbt" style="color: black;"> <i class="fas fa-pencil-alt"></i>{{'Edit' | translate}}</a>
                             </div>
                         </div>
 
                         <div class="profi-box">
-                            <h4>Manage Shipping Address</h4>
+                            <h4>{{'Manage Shipping Address' | translate}}</h4>
                             <div class="switc tg">
-                            <a class="edt-bbt" href="security-privacy"> <i class="fas fa-pencil-alt"></i>Edit</a>
+                            <a class="edt-bbt" style="color: black;" (click)="editShippingAddress()"> <i class="fas fa-pencil-alt"></i>{{'Edit' | translate}}</a>
                             </div>
                         </div>
 
                         <div class="profi-box">
-                            <h4>Private message notification</h4>
+                            <h4>{{'Private message notification' | translate}}</h4>
                             <div class="switc">
                             <input id="private_message_notification" type="checkbox" class="checkbox" formControlName="private_message_notification" name="private_message_notification" [(ngModel)]="private_message_notification"/>
                             <label for="private_message_notification" class="switch">
                                 <span class="switch__circle">
                                 <span class="switch__circle-inner"></span>
                                 </span>
-                                <span class="switch__left">Off</span>
-                                <span class="switch__right">On</span>
+                                <span class="switch__left">{{'Off' | translate}}</span>
+                                <span class="switch__right">{{'On' | translate}}</span>
                             </label>
                             </div>
                         </div>
 
                         <div class="profi-box">
-                            <h4>Accept 1on1 call from others</h4>
+                            <h4>{{'Accept 1on1 call from others' | translate}}</h4>
                             <div class="switc">
                             <input id="accept_call_from_others" type="checkbox" class="checkbox" formControlName="accept_call_from_others" name="accept_call_from_others" [(ngModel)]="accept_call_from_others"/>
                             <label for="accept_call_from_others" class="switch">
                                 <span class="switch__circle">
                                 <span class="switch__circle-inner"></span>
                                 </span>
-                                <span class="switch__left">Off</span>
-                                <span class="switch__right">On</span>
+                                <span class="switch__left">{{'Off' | translate}}</span>
+                                <span class="switch__right">{{'On' | translate}}</span>
                             </label>
                             </div>
                         </div>
 
                         <div class="profi-box">
-                            <h4>Set the online status to invisible</h4>
+                            <h4>{{'Set the online status to invisible' | translate}}</h4>
                             <div class="switc">
                             <input id="status_to_invisible" type="checkbox" class="checkbox" formControlName="status_to_invisible" name="status_to_invisible" [(ngModel)]="status_to_invisible"/>
                             <label for="status_to_invisible" class="switch">
                                 <span class="switch__circle">
                                 <span class="switch__circle-inner"></span>
                                 </span>
-                                <span class="switch__left">Off</span>
-                                <span class="switch__right">On</span>
+                                <span class="switch__left">{{'Off' | translate}}</span>
+                                <span class="switch__right">{{'On' | translate}}</span>
                             </label>
                             </div>
                         </div>
 
                         <div class="account-update">
-                            <button mat-raised-button  class="submit-button post-share-btn" aria-label="Deposit & Publish" [disabled]="security_privacy_form.invalid">Save/Update</button>
+                            <button mat-raised-button  class="submit-button post-share-btn" aria-label="Deposit & Publish" [disabled]="security_privacy_form.invalid">{{'Save/Update' | translate}}</button>
                         </div>
                     </form>
                 </div>

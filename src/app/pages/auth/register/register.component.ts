@@ -3,7 +3,7 @@ import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn,
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthenticationService } from 'src/app/services/auth.service';
 import { LoadingService } from 'src/app/services/loading.service';
 import {
   MatSnackBar,
@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   public actionLoadingIndicator = false;
   constructor(
     public formBuilder: FormBuilder,
-    public authService: AuthService,
+    public authService: AuthenticationService,
     public router: Router,
     public loadingService: LoadingService,
     private _snackBar: MatSnackBar

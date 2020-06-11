@@ -3,49 +3,49 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h2 class="modal-title">Add Product</h2>
+          <h2 class="modal-title">{{'Add Product' | translate}}</h2>
         </div>
-        <form name="add_crowd_fund_form" [formGroup]="product_form" (ngSubmit)="addProduct()">
+        <form name="add_crowd_fund_form" [formGroup]="product_form" (ngSubmit)="this.data === null ? addProduct() : editProduct()">
           <div class="modal-body custom-scroll ps">
 
             <div class="input-with-icon-left">
-              <input type="text" class="input-text with-border" formControlName="name" name="name" id="name" placeholder="Request Name" required>
+              <input type="text" class="input-text with-border" formControlName="name" name="name" id="name" placeholder="{{'Request Name' | translate}}" required>
             </div>
   
             
             <div class="input-with-icon">
               <div id="autocomplete-container">
-                <input id="autocomplete-input" class="with-border" type="number" formControlName="shipping_days" name="shipping_days" placeholder="Shipping Days" required>
+                <input id="autocomplete-input" class="with-border" type="number" formControlName="shipping_days" name="shipping_days" placeholder="{{'shipping days' | translate}}" required>
               </div>
             </div>
 
             <div class="input-with-icon">
                 <div id="autocomplete-container">
-                    <input id="autocomplete-input" class="with-border" type="number" formControlName="amount" name="amount" placeholder="Expected Amount" required>
+                    <input id="autocomplete-input" class="with-border" type="number" formControlName="amount" name="amount" placeholder="{{'Expected Amount' | translate}}" required>
                 </div>
             </div>
   
             <div class="input-with-icon">
                 <div id="autocomplete-container">
-                    <input id="autocomplete-input" class="with-border" type="number" formControlName="shipping_charges" name="shipping_charges" placeholder="Shipping Charges" required>
+                    <input id="autocomplete-input" class="with-border" type="number" formControlName="shipping_charges" name="shipping_charges" placeholder="{{'Shipping Charges' | translate}}" required>
                 </div>
             </div>
             
             <div class="req_des">
-              <textarea name="share" class="share-field-big custom-scroll ps" formControlName="description" name="description" placeholder="Request Description" required></textarea>
+              <textarea name="share" class="share-field-big custom-scroll ps" formControlName="description" name="description" placeholder="{{'Request Description' | translate}}" required></textarea>
             </div>
   
   
             <div class="uploadButton">
               <input class="uploadButton-input" type="file" accept="image/*, application/pdf" id="upload-cv"  (change)="onMediaSelected($event)">
-              <label class="uploadButton-button ripple-effect" for="upload-cv">Select File</label>
-              <span class="uploadButton-file-name">Attach files if necessary <br> Multimedia file or word, excel,
-                powerpoint, pdf etc</span>
+              <label class="uploadButton-button ripple-effect" for="upload-cv">{{'Select File' | translate}}</label>
+              <span class="uploadButton-file-name">{{'Attach files if necessary' | translate}} <br> {{'Multimedia file or word, excel, powerpoint, pdf etc' | translate}}</span>
             </div>
   
           </div>
           <div class="modal-footer">
-            <button mat-raised-button  class="submit-button post-share-btn" aria-label="Deposit & Publish" [disabled]="product_form.invalid">Publish</button>
+            <button mat-button mat-dialog-close>{{'Cancel' | translate}}</button>
+            <button mat-raised-button  class="submit-button post-share-btn" aria-label="Deposit & Publish" [disabled]="product_form.invalid">{{'Publish' | translate}}</button>
           </div>
         </form>
       </div>

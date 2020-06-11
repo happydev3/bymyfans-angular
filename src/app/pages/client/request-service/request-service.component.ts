@@ -84,7 +84,7 @@ export class RequestServiceComponent implements OnInit {
 
   openDialog() {
     let config = new MatDialogConfig();
-    config.panelClass = 'request-modal';
+    config.panelClass = 'custom-modal';
     config.disableClose = false;
     config.autoFocus = true;
     config.data = this.categoryList;

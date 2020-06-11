@@ -39,6 +39,36 @@ export class SharedService {
     )
   }
 
+  getUserID(): Observable<any> {
+    return this.httpClient.get(`${this.API_URL}/user`, {headers: this.authHeader}).pipe(
+     map((res: Response) => {
+       return res || {}
+     }),
+     catchError(this.handleError)
+    )
+  }
+
+  addFavorite(userID: any, status: any): Observable<any> {
+    let formData = new FormData();
+    formData.append('user_id', userID);
+    formData.append('status', status);
+    return  this.httpClient.post(`${this.API_URL}/add_to_favourite`, formData, {headers: this.authHeader}).pipe(
+      map((res: Response) => {
+        return res || {}
+      })
+    )
+  }
+
+  addBlocklist(blocked_user_id): Observable<any> {
+    let formData = new FormData();
+    formData.append('blocked_user_id', blocked_user_id);
+    return  this.httpClient.post(`${this.API_URL}/add_to_blocklist`, formData, {headers: this.authHeader}).pipe(
+      map((res: Response) => {
+        return res || {}
+      })
+    )
+  }
+
   handleError(error: HttpErrorResponse) {
     let msg = '';
     if (error.error instanceof ErrorEvent) {

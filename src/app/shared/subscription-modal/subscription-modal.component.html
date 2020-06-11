@@ -1,0 +1,33 @@
+  <!-- Modal start -->
+  <div class="request-md">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">{{'Create Subscription Plan' | translate}}</h2>
+        </div>
+        <form name="add_crowd_fund_form" [formGroup]="subscrpition_form" (ngSubmit)="createPlan()">
+          <div class="modal-body custom-scroll ps">
+
+            <div class="input-with-icon-left">
+                <input type="number" class="input-text with-border" formControlName="amount" name="amount" id="amount"  placeholder="{{'Amount' | translate}}" required>
+            </div>
+
+            <div class="input-with-icon-left">
+              <mat-form-field style="width: 100%">
+                <mat-label>{{'category' | translate}}</mat-label>
+                <mat-select formControlName="validity" name="validity" id="validity">
+                    <mat-option *ngFor="let plan of plans" [value]="plan.value">{{plan.name}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button mat-button mat-dialog-close>{{'Cancel' | translate}}</button>
+            <button mat-raised-button  class="submit-button post-share-btn" aria-label="Deposit & Publish" [disabled]="subscrpition_form.invalid">{{'Save' | translate}}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Modal end -->

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { LoadingService } from 'src/app/services/loading.service';
 import { EstoreManagementService } from 'src/app/services/estore-management.service';
-
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-product',
@@ -16,7 +16,8 @@ export class AddProductComponent implements OnInit {
   constructor(
     public formBuilder: FormBuilder,
     private loadingService: LoadingService,
-    public estoreManagementService: EstoreManagementService
+    public estoreManagementService: EstoreManagementService,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) { 
     this.product_form = this.formBuilder.group({
       name: '',
@@ -29,6 +30,7 @@ export class AddProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.data);
     this.product_form = this.formBuilder.group({
       name: ['', Validators.required],
       shipping_days: ['', Validators.required],
@@ -42,6 +44,16 @@ export class AddProductComponent implements OnInit {
   public addProduct(): void {
     this.loadingService.show();
     this.estoreManagementService.addProduct(this.product_form, this.media_file).subscribe((res) => {
+      if(res.success == true) {
+        location.reload();
+      }
+      this.loadingService.hide();
+    })
+  }
+
+  public editProduct(): void {
+    this.loadingService.show();
+    this.estoreManagementService.editProduct(this.product_form, this.media_file, this.data).subscribe((res) => {
       console.log(res);
       if(res.success == true) {
         location.reload();

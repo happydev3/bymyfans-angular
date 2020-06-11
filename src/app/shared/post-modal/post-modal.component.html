@@ -1,17 +1,17 @@
-<div class="modal-dialog" style="width: 500px;">
+<div class="modal-dialog post-modal">
     <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title">New Post</h5>
+            <h5 class="modal-title">{{'New Post' | translate}}</h5>
         </div>
-        <form name="post_form" [formGroup]="post_form" (ngSubmit)="addPost()">
+        <form name="post_form" [formGroup]="post_form" (ngSubmit)="this.data === null ? addPost() : editPost()">
             <div class="modal-body custom-scroll ps">
 
-                    <textarea name="content" class="share-field-big custom-scroll ps" placeholder="Compose New Post" formControlName="content"></textarea>
+                    <textarea name="content" class="share-field-big custom-scroll ps" placeholder="{{'Compose new post' | translate}}" formControlName="content"></textarea>
 
                     <div class="form-group">
                         <div class="remember-forgot-password remember" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center">
                             <mat-checkbox class="remember-me" aria-label="estore_link" formControlName="estore_link" name="estore_link">
-                                Link to personal eStore
+                                {{'Link to personal eStore' | translate}}
                             </mat-checkbox>
                         </div>
                     </div>
@@ -20,7 +20,7 @@
                     <div class="form-group">
                         <div class="remember-forgot-password remember" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center">
                             <mat-checkbox class="remember-me" aria-label="comments_open" formControlName="comments_open" name="comments_open">
-                                Make the comments open
+                                {{'Make the comments open' | translate}}
                             </mat-checkbox>
                         </div>
                     </div>
@@ -29,7 +29,15 @@
                     <div class="form-group">
                         <div class="remember-forgot-password remember" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center">
                             <mat-checkbox class="remember-me" aria-label="public" formControlName="public" name="public">
-                                Make the post public
+                                {{'Make the post public' | translate}}
+                            </mat-checkbox>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="remember-forgot-password remember" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center">
+                            <mat-checkbox class="remember-me" aria-label="public" formControlName="for_favorites" name="for_favorites">
+                                {{'Share with Whom Favorited' | translate}}
                             </mat-checkbox>
                         </div>
                     </div>
@@ -37,10 +45,9 @@
             </div>
             <div class="modal-footer">
                 <div class="uploadButton">
-                    <input class="uploadButton-input" type="file" accept="image/*, application/pdf" id="upload-cv"  (change)="onMediaSelected($event)" multiple>
-                    <label class="uploadButton-button ripple-effect" for="upload-cv">Select File</label>
-                    <span class="uploadButton-file-name">Attach files if necessary <br> Multimedia file or word, excel,
-                      powerpoint, pdf etc</span>
+                    <input class="uploadButton-input" type="file" accept="image/*, application/pdf" id="upload-cv" (change)="onMediaSelected($event)" multiple>
+                    <label class="uploadButton-button ripple-effect" for="upload-cv">{{'Select File' | translate}}</label>
+                    <span class="uploadButton-file-name">{{'Attach files if necessary' | translate}} <br> {{'Multimedia file or word, excel, powerpoint, pdf etc' | translate}}</span>
                 </div>
                 <ul>
                     <li><i class="far fa-image"></i></li>
@@ -48,7 +55,8 @@
                     <li><i class="fas fa-music"></i></li>
                     <li><i class="fas fa-poll"></i></li>
                 </ul>
-                <button mat-raised-button  class="submit-button post-share-btn" aria-label="Deposit & Publish" [disabled]="post_form.invalid">Publish</button>
+                <button mat-button mat-dialog-close>{{'Cancel' | translate}}</button>
+                <button mat-raised-button  class="submit-button post-share-btn" aria-label="Deposit & Publish" [disabled]="post_form.invalid">{{'Publish' | translate}}</button>
             </div>
         </form>
     </div>

@@ -2,61 +2,61 @@
     {
         "id" : 1,
         "name": "Account Settings",
-        "url": "account-settings",
+        "url": "/account-settings",
         "childs": []
     },
     {
         "id" : 2,
         "name": "Referral Program",
-        "url": "referral-program",
+        "url": "/referral-program",
         "childs": []
     },
     {
         "id" : 3,
         "name": "EStore Management",
-        "url": "estore-management",
+        "url": "/estore-management",
         "childs": []
     },
     {
         "id" : 4,
         "name": "Customer Support",
-        "url": "customer-support",
+        "url": "/customer-support",
         "childs": []
     },
     {
         "id" : 5,
         "name": "Purchase History",
-        "url": "purchase-history",
+        "url": "/purchase-history",
         "childs": []
     },
     {
         "id" : 6,
         "name": "Security And Pricacy Settings",
-        "url": "security-privacy",
+        "url": "/security-privacy",
         "childs": []
     },
     {
         "id" : 7,
         "name": "Earning Statement",
-        "url": "earning-statement",
+        "url": "/earning-statement",
         "childs": []
     },
     {
         "id" : 8,
         "name": "Subscription And Tip Management",
-        "url": "subscription-tip-management",
+        "url": "/subscription-tip-management",
         "childs": []
     },
     {
         "id" : 9,
         "name": "Subscriptions",
-        "url": "subscriptions",
+        "url": "/subscriptions",
         "childs": []
     },
     {
         "id" : 10,
         "name": "Favorites",
-        "url": "favorites",
+        "url": "/favorites",
         "childs": []
     }
 ]

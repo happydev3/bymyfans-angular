@@ -23,7 +23,6 @@ export class EstoreManagementService {
   getEstoreManagementItems(pagination): Observable<any> {
     return this.httpClient.get(`${this.startpoint}/my-estore?page=${pagination}`, {headers: this.authHeader}).pipe(
       map((res: Response) => {
-        console.log(res);
         return res || {}
       }),
       catchError(this.handleError)
@@ -33,7 +32,6 @@ export class EstoreManagementService {
   getOtherEstoreManagementItems(pagination, userId): Observable<any> {
     return this.httpClient.get(`${this.startpoint}/estore/${userId}?${pagination}`, {headers: this.authHeader}).pipe(
       map((res: Response) => {
-        console.log(res);
         return res || {}
       }),
       catchError(this.handleError)
@@ -50,7 +48,23 @@ export class EstoreManagementService {
     formData.append('media_file', media);
     return this.httpClient.post(`${this.startpoint}/estore/add_product`, formData, {headers: this.authHeader}).pipe(
       map((res: Response) => {
-        console.log(res);
+        return res || {}
+      }),
+      catchError(this.handleError)
+    )
+  }
+
+  editProduct(formInfo: FormGroup, media: File, productID: any): Observable<any> {
+    let formData = new FormData();
+    formData.append('product_id', productID);
+    formData.append('name', formInfo.value.name);
+    formData.append('shipping_days', formInfo.value.shipping_days);
+    formData.append('amount', formInfo.value.amount);
+    formData.append('shipping_charges', formInfo.value.shipping_charges);
+    formData.append('description', formInfo.value.description);
+    formData.append('media_file', media);
+    return this.httpClient.post(`${this.startpoint}/estore/add_product`, formData, {headers: this.authHeader}).pipe(
+      map((res: Response) => {
         return res || {}
       }),
       catchError(this.handleError)

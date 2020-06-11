@@ -77,7 +77,6 @@ export class ProfileComponent implements OnInit {
     this.sharedService.getTopViews().subscribe((res) => {
       if (res.success) {
         this.topViews = res.data;
-        console.log(this.topViews);
       }
     })
   }
@@ -87,7 +86,6 @@ export class ProfileComponent implements OnInit {
     this.sharedService.getTopSubscribers().subscribe((res) => {
       if (res.success) {
         this.topSubscribers = res.data;
-        console.log(this.topSubscribers);
       }
     })
   }

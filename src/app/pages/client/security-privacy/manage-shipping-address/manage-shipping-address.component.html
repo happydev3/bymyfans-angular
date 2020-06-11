@@ -1,0 +1,50 @@
+  <!-- Modal start -->
+  <div class="request-md">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">{{'Manage Shipping Address' | translate}}</h2>
+        </div>
+        <form name="add_crowd_fund_form" [formGroup]="shipping_form" (ngSubmit)="editShipping()">
+          <div class="modal-body custom-scroll ps">
+
+            <input type="hidden" formControlName="user_id" name="user_id" id="user_id" [(ngModel)]="data">
+
+            <div class="input-with-icon-left">
+                <input type="text" class="input-text with-border" formControlName="ship_to_name" name="ship_to_name" id="ship_to_name"  placeholder="{{'Name' | translate}}" required>
+            </div>
+
+            <div class="input-with-icon-left">
+                <input type="text" class="input-text with-border" formControlName="address_1" name="address_1" id="address_1" placeholder="{{'Address 1' | translate}}" required>
+            </div>
+
+            <div class="input-with-icon-left">
+                <input type="text" class="input-text with-border" formControlName="address_2" name="address_2" id="address_2" placeholder="{{'Address 2' | translate}}" required>
+            </div>
+            
+            <div class="input-with-icon-left">
+                <input type="text" class="input-text with-border" formControlName="city" name="city" id="city" placeholder="{{'City' | translate}}" required>
+            </div>
+
+            <div class="input-with-icon-left">
+                <input type="text" class="input-text with-border" formControlName="state" name="state" id="state" placeholder="{{'State' | translate}}" required>
+            </div>
+
+            <div class="input-with-icon-left">
+                <input type="text" class="input-text with-border" formControlName="country" name="country" id="country" placeholder="{{'Country' | translate}}" required>
+            </div>
+
+            <div class="input-with-icon-left">
+                <input type="text" class="input-text with-border" formControlName="zip_code" name="zip_code" id="zip_code" placeholder="{{'Zip Code' | translate}}" required>
+            </div>
+  
+          </div>
+          <div class="modal-footer">
+            <button mat-button mat-dialog-close>{{'Cancel' | translate}}</button>
+            <button mat-raised-button  class="submit-button post-share-btn" aria-label="Deposit & Publish" [disabled]="shipping_form.invalid">{{'Save' | translate}}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Modal end -->

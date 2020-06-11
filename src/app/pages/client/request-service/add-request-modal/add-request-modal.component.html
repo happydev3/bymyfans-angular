@@ -3,12 +3,12 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h2 class="modal-title">Request for Service</h2>
+          <h2 class="modal-title">{{'REQUEST FOR SERVICE' | translate}}</h2>
         </div>
         <form name="add_request_service_form" [formGroup]="add_request_service_form" (ngSubmit)="addRequestService()">
           <div class="modal-body custom-scroll ps">
             <div class="input-with-icon-left">
-              <input type="text" class="input-text with-border" formControlName="title" name="title" id="title" placeholder="Request Title" required>
+              <input type="text" class="input-text with-border" formControlName="title" name="title" id="title" placeholder="{{'Request Title' | translate}}" required>
             </div>
 
             <select class="form-control" formControlName="category_id" name="category_id">
@@ -22,47 +22,47 @@
               <i class="fas fa-clock"></i>
             </div> -->
   
-            <div class="input-with-icon">
+            <!-- <div class="input-with-icon">
               <div id="autocomplete-container">
-                <input id="autocomplete-input" class="with-border" type="text" formControlName="expiry_date" name="expiry_date" placeholder="Enter Expiry Date" required>
+                <input id="autocomplete-input" class="with-border" type="text" formControlName="expiry_date" name="expiry_date" placeholder="{{'Enter Expiry Date' | translate}}" required>
               </div>
               <i class="fas fa-hourglass-end"></i>
-            </div>
+            </div> -->
   
             <div class="input-with-icon">
               <div id="autocomplete-container">
-                <input id="autocomplete-input" class="with-border" type="text" formControlName="location" name="location" placeholder="Enter Location" required>
+                <input id="autocomplete-input" class="with-border" type="text" formControlName="location" name="location" placeholder="{{'Enter Location' | translate}}" required>
               </div>
               <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
             </div>
   
             <div class="input-with-icon">
               <div id="autocomplete-container">
-                <input id="autocomplete-input" class="with-border" type="number" formControlName="budget" name="budget" placeholder="Budget Offering" required>
+                <input id="autocomplete-input" class="with-border" type="number" formControlName="budget" name="budget" placeholder="{{'Budget Offering' | translate}}" required>
               </div>
               <i class="fas fa-dollar-sign"></i>
             </div>
   
             <div class="req_des">
-              <textarea name="share" class="share-field-big custom-scroll ps" formControlName="description" name="description" placeholder="Request Description" required></textarea>
+              <textarea name="share" class="share-field-big custom-scroll ps" formControlName="description" name="description" placeholder="{{'Request Description' | translate}}" required></textarea>
             </div>
   
             <div class="uploadButton">
               <input class="uploadButton-input" type="file" accept="image/*, application/pdf" id="upload-cv" (change)="onMediaSelected($event)">
-              <label class="uploadButton-button ripple-effect" for="upload-cv">Select File</label>
-              <span class="uploadButton-file-name">Attach files if necessary <br> Multimedia file or word, excel,
-                powerpoint, pdf etc</span>
+              <label class="uploadButton-button ripple-effect" for="upload-cv">{{'Select File' | translate}}</label>
+              <span class="uploadButton-file-name">{{'Attach files if necessary' | translate}} <br> {{'Multimedia file or word, excel, powerpoint, pdf etc' | translate}}</span>
             </div>
   
-            <div class="remember-forgot-password remember u-form-group" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center">
+            <div class="remember-forgot-password remember u-form-group" fxLayout="row" fxLayout.xs="column" style="text-align: left;">
                 <mat-checkbox class="remember-me" aria-label="Remember Me" name="remember_me">
-                  Send the requset in private mode, directly to subscribed creators
+                  {{'Send the requset in private mode, directly to subscribed creators' | translate}}
                 </mat-checkbox>
             </div>
   
           </div>
           <div class="modal-footer">
-            <button mat-raised-button  class="submit-button post-share-btn" aria-label="Deposit & Publish" [disabled]="add_request_service_form.invalid">Deposit & Publish</button>
+            <button mat-button mat-dialog-close>{{'Cancel' | translate}}</button>
+            <button mat-raised-button  class="submit-button post-share-btn" aria-label="Deposit & Publish" [disabled]="add_request_service_form.invalid">{{'Deposit & Publish' | translate}}</button>
           </div>
         </form>
         

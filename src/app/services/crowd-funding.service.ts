@@ -25,7 +25,6 @@ export class CrowdFundingService {
   getCrowdFunding(pagination): Observable<any> {
     return this.httpClient.get(`${this.API_URL}/list?page=${pagination}`, {headers: this.authHeader}).pipe(
       map((res: Response) => {
-        console.log(res);
         return res || {}
       }),
       catchError(this.handleError)
@@ -35,7 +34,6 @@ export class CrowdFundingService {
   getFundingCategory(): Observable<any> {
     return this.httpClient.get(`${this.startpoint}/crowd-funding-category/list`, {headers: this.authHeader}).pipe(
       map((res: Response) => {
-        console.log(res);
         return res || {}
       }),
       catchError(this.handleError)
@@ -54,7 +52,6 @@ export class CrowdFundingService {
     formData.append('media_file', media);
     return this.httpClient.post(`${this.API_URL}/add`, formData, {headers: this.authHeader}).pipe(
       map((res: Response) => {
-        console.log(res);
         return res || {}
       }),
       catchError(this.handleError)

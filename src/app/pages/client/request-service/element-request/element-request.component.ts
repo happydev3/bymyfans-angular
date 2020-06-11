@@ -12,6 +12,7 @@ export class ElementRequestComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

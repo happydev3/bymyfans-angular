@@ -1,5 +1,4 @@
 {
-
     "HOME" : "主界面",
     "1ON1CALL" : "一对一通话",
     "PROFILE" : "轮廓",
@@ -32,6 +31,8 @@
     "share" : "分享",
     "Press Enter to comment" : "按Enter键评论",
     "edit post" : "编辑帖子",
+    "repost post to admins" : "重新发布给管理员",
+    "delete post" : "删除帖子",
     "Most Viewed" : "最多查看",
     "Mutual" : "相互",
     "Most Subscribed" : "订阅最多",
@@ -51,5 +52,128 @@
     "Compose new post" : "撰写新文章",
 
     "Create New" : "创建新的",
-    "View Now" : "现在查看"
+    "View Now" : "现在查看",
+
+    "Request Title" : "要求标题",
+
+    "Refer Friends & Earn Credit" : "推荐朋友并赚取积分",
+    "Referral Page description" : "介绍朋友是我的粉丝，你会被记入5％到您的帐户",
+    "Share referral link with friends" : "与朋友分享推荐链接",
+    "Copy Link" : "复制链接",
+    "Scan QR Code to referral" : "扫描QR码以进行推介",
+
+    "Update cover image" : "更新封面图片",
+    "Update profile photo" : "更新个人资料照片",
+    "Profile Details" : "个人资料详细信息",
+    "Username" : "用户名",
+    "About Yourself" : "关于你自己",
+    "Location" : "位置",
+    "Taobao Wishlist URL" : "淘宝购物清单网址",
+    "Email" : "电邮",
+    "Phone" : "电邮",
+    "Save/Update" : "保存/更新",
+
+    "Security and Privacy Settings" : "安全和隐私设置",
+    "Hide Profile" : "隐藏个人资料",
+    "Off" : "关",
+    "On" : "开",
+    "Blacklist users" : "黑名单用户",
+    "Manage Shipping Address" : "管理送货地址",
+    "Private message notification" : "私人讯息通知",
+    "Accept 1on1 call from others" : "接受其他人的一对一通话",
+    "Set the online status to invisible" : "将在线状态设置为不可见",
+    "Edit" : "编辑",
+
+    "Sales Order" : "销售订单",
+    "Item Management" : "项目管理",
+    "Add Product" : "添加产品",
+    "Delivered" : "交付",
+
+    "Create Group" : "创建组",
+    "Sort by" : "排序方式",
+    "Highest Contribution" : "最高贡献",
+    "Most Recent Contribution" : "最新的贡献",
+
+    "Add to Favourite" : "加入收藏",
+    "Copy link to profile" : "复制链接到个人资料",
+
+    "New Post" : "新帖",
+    "Link to personal eStore" : "链接到个人电子商店",
+    "Make the comments open" : "打开评论",
+    "Make the post public" : "公开发布",
+    "Select File" : "选择档案",
+    "Attach files if necessary" : "如有必要，附加文件",
+    "Multimedia file or word, excel, powerpoint, pdf etc" : "多媒体文件或单词，excel，PowerPoint，pdf等",
+    "Publish" : "发表",
+
+    "Enter Expiry Date" : "输入失效日期",
+    "Enter Location" : "输入位置",
+    "Budget Offering" : "预算提供",
+    "Request Description" : "要求说明",
+    "Deposit & Publish" : "存款+发布",
+    "Send the requset in private mode, directly to subscribed creators" : "直接以私人模式将请求发送给订阅的创建者",
+
+    "Expected Amount" : "预期金额",
+    "Products/Deliverables" : "产品/交付物",
+
+    "Call Description" : "此呼叫的费用将适用于以下情况",
+    "Call Now" : "现在打电话",
+
+    "Enter Tip Amount" : "输入小费金额",
+    "Add A Payment Card" : "添加付款卡",
+    "Minimum $5 USD" : "最低$ 5 USD",
+    "Add a Message" : "添加消息",
+
+    "Request Name" : "要求名称",
+    "shipping days" : "航运天",
+    "Shipping Charges" : "运输费用",
+
+    "delete" : "删除",
+
+    "Email/Chat" : "电子邮件/聊天",
+    "Complaint" : "投诉投诉",
+    "Refund Request" : "退款要求",
+    "Contact Customer support via email or chat" : "通过电子邮件或聊天联系客户支持",
+    "File any complaint here easily on a click" : "在这里轻松地投诉上点击",
+    "File a Refund Request here easily on a click" : "在这里轻松地退款申请上点击",
+    "Click here" : "点击这里",
+
+    "Select period" : "选择时期",
+    "From" : "从",
+    "To" : "至",
+    "Earned from" : "从获得",
+    "Overall Earning" : "整体收益",
+
+    "Subscription package" : "订阅套餐",
+    "Tipping Option" : "小费选项",
+
+    "Cancel" : "取消",
+    "loading" : "装货",
+
+    "Create group" : "创建组",
+    "category" : "类别",
+
+    "Add to Group" : "新增至群组",
+
+    "Request Service Single" : "Request Service Single",
+    "chat" : "聊",
+    "Award" : "奖",
+    "Request Summary" : "请求摘要",
+    "When" : "当",
+
+    "Share with Whom Favorited" : "与最喜欢的人分享",
+
+    "About" : "大约",
+    "Contact us" : "联系我们",
+    "Terms & Conditions" : "条款及细则",
+    "Privacy Policy" : "隐私政策",
+    "All Rights Reserved" : "版权所有",
+
+    "Block Users List" : "阻止用户列表",
+
+    "Make a Bid" : "出价",
+    "Budget" : "预算",
+    "Timeline" : "时间线",
+    "Confirm Bid" : "确认出价",
+    "Description" : "描述"
 }

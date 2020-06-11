@@ -1,0 +1,24 @@
+  <!-- Modal start -->
+  <div class="request-md">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">{{'Create group' | translate}}</h2>
+        </div>
+        <form name="add_crowd_fund_form" [formGroup]="create_group_form" (ngSubmit)="createGroup()">
+          <div class="modal-body custom-scroll ps">
+
+            <div class="input-with-icon-left">
+              <input type="text" class="input-text with-border" formControlName="category" name="category" id="category" placeholder="{{'category' | translate}}" required>
+            </div>
+  
+          </div>
+          <div class="modal-footer">
+            <button mat-button mat-dialog-close>{{'Cancel' | translate}}</button>
+            <button mat-raised-button  class="submit-button post-share-btn" aria-label="Deposit & Publish" [disabled]="create_group_form.invalid">{{'Publish' | translate}}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Modal end -->

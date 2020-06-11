@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { AuthService } from './auth.service';
+import { AuthenticationService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ import { AuthService } from './auth.service';
 export class TokenService {
 
   constructor(
-    public authService: AuthService
+    public authService: AuthenticationService
   ) { }
 
   authHeader() {

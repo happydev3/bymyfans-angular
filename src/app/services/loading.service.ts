@@ -36,7 +36,7 @@ export class LoadingService {
           style({
             opacity: '0',
           }),
-          animate('300ms ease', style({ opacity: '0.8', zIndex: '100000'}))
+          animate('300ms ease', style({ opacity: '1', zIndex: '100000'}))
         ]).create(this.loadingEle);
 
     setTimeout(() => {
@@ -48,7 +48,7 @@ export class LoadingService {
   public hide(): void {
     this.player = this._animationBuilder
       .build([
-        style({ opacity: '0.8' }),
+        style({ opacity: '1' }),
         animate('1000ms ease', style({ opacity: '0',  zIndex: '-120000'}))
       ]).create(this.loadingEle);
     setTimeout(() => {
@@ -60,7 +60,7 @@ export class LoadingService {
   public initialHide(): void {
     this.player = this._animationBuilder
       .build([
-        style({ opacity: '0.8' }),
+        style({ opacity: '1' }),
         animate('0ms ease', style({ opacity: '0',  zIndex: '-120000'}))
       ]).create(this.loadingEle);
     setTimeout(() => {

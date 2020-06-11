@@ -1,0 +1,107 @@
+<div class="main-wrapper request-service">
+
+    <div class="container">
+
+        <div class="row">
+          <div class="col-lg-9">
+            <div class="section-headline">
+              <h3>{{'Request Service Single' | translate}}</h3>
+            </div>
+          </div>
+  
+          <!-- <div class="col-lg-3">
+            <div class="create-btn">
+              <a href="" class="btnw round-btn" data-toggle="modal" data-target="#textboxd"><i
+                  class="fas fa-plus-circle"></i>{{'Create New' | translate}}</a>
+            </div>
+          </div> -->
+        </div>
+
+        <div class="row" *ngIf="singleSerivceInfo !== null && bidderList !== null">
+
+          <div class="col-lg-8 order-2 order-lg-1">
+            <div class="card">
+              <div class="post-title d-flex align-items-center">
+                <div class="ser-listing-details no-pdn">
+
+                  <div class="ser-listing-company-logo">
+                    <img [src]="this.singleSerivceInfo.media_file ? productPhotoUrl : 'assets/client/images/b.png'" alt="">
+                  </div>
+
+                  <div class="ser-listing-description">
+                    <h3 class="ser-listing-title">{{singleSerivceInfo.title}} </h3><span class="categories">{{'category' | translate}}</span>
+                  </div>
+
+                </div>
+
+                <div class="post-settings-bar">
+                  <img src="assets/icons/menu-icon.png" class="menu-icon" [matMenuTriggerFor]="beforeMenu">
+                  <mat-menu #beforeMenu="matMenu" xPosition="before">
+                      <button mat-menu-item>{{'delete post' | translate}}</button>
+                      <button mat-menu-item>{{'edit post' | translate}}</button>
+                      <button mat-menu-item>{{'repost post to admins' | translate}}</button>
+                  </mat-menu>
+                </div>
+
+              </div>
+
+              <div class="post-content">
+
+                <p class="post-desc">{{singleSerivceInfo.description}}</p>
+
+                <div class="post-thumb-gallery">
+                  <figure class="post-thumb img-popup">
+                    <a href="">
+                      <img src="assets/client/images/w.jpg" alt="post image">
+                    </a>
+                  </figure>
+                </div>
+
+                <div class="post-meta">
+                  <div class="pay-btn-sc">
+                      <button class="pay-now" (click)="BidModal()">{{'Make a Bid' | translate}}</button>
+                  </div>
+                </div>
+                
+              </div>
+
+            </div>
+
+            <h3 class="page-sec-hfn">{{'Bidders' | translate}}</h3>
+
+            <app-bidder-list-element [bidder]="bidder" *ngFor="let bidder of bidderList.data"></app-bidder-list-element>
+
+          </div>
+
+          <div class="col-lg-4 order-2 order-lg-1">
+            <div class="card widget-item">
+              <h4 class="widget-title">{{'Request Summary' | translate}}</h4>
+              <div class="widget-body sing_gd">
+
+                <ul>
+                  <li>
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>{{'Budget Offering' | translate}}</span>
+                    <h5>${{singleSerivceInfo.budget}}</h5>
+                  </li>
+                  <li>
+                    <i class="fas fa-clock" aria-hidden="true"></i>
+                    <span>{{'When' | translate}}</span>
+                    <h5>{{singleSerivceInfo.created_at | date: 'medium'}}</h5>
+                  </li>
+                  <li>
+                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                    <span>{{'Location' | translate}}</span>
+                    <h5>{{singleSerivceInfo.location}}</h5>
+                  </li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+    </div>
+    
+</div>

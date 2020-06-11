@@ -4,6 +4,7 @@ import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MaterialModule } from 'src/app/material/material.module';
+import { AuthService } from 'angularx-social-login';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,8 @@ import { MaterialModule } from 'src/app/material/material.module';
     MaterialModule,
     SharedModule
   ],
-  providers: []
+  providers: [
+    AuthService
+  ]
 })
 export class LoginModule { }

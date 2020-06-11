@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, CanActivate, CanDeactivate, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from './auth.service';
+import { AuthenticationService } from './auth.service';
 
 
 export interface ComponentCanDeactivate {
@@ -15,7 +15,7 @@ export interface ComponentCanDeactivate {
 export class AuthGuardService implements CanActivate {
 
   constructor(
-    public authService: AuthService,
+    public authService: AuthenticationService,
     public router: Router
   ) { }
 

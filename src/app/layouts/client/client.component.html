@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="logo">
-                    <a class="navbar-brand" href="#"><img class="img-fluid" src="assets/client/images/logoo.png" alt="Logo"></a>
+                    <a class="navbar-brand" [routerLink]="'/home'"><img class="img-fluid" src="assets/client/images/logoo.png" alt="Logo"></a>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -32,12 +32,12 @@
             </button>
             <div class="collapse navbar-collapse" id="tr-mainmenu" [ngClass]="showMenu == true ? 'show' : ''">
                 <ul class="nav navbar-nav">
-                    <li class=" dropdown" [class]="currentUrl == '/' + menuItem.url ? 'active' : ''" *ngFor="let menuItem of menuItems">
-                        <a *ngIf="menuItem.childs.length == 0" href="{{menuItem.url}}">{{menuItem.name | translate}}</a>
-                        <a *ngIf="menuItem.childs.length != 0" (click)="subMenu(menuItem.id)" class="dropdown-toggle" data-toggle="dropdown">{{menuItem.name | translate}}<span class="caret"></span></a>
-                        <ul *ngIf="menuItem.childs.length != 0" class="dropdown-menu active" id="dropdown-menu{{menuItem.id}}" style="display: none">
-                            <li [class]="currentUrl == '/' + subMenuItem.url ? 'active' : ''" *ngFor="let subMenuItem of menuItem.childs"><a href="{{subMenuItem.url}}">{{subMenuItem.name | translate}}</a></li>
-                        </ul>
+                    <li class="dropdown"  *ngFor="let menuItem of menuItems">
+                        <button mat-button  *ngIf="menuItem.childs.length == 0" [routerLink]="menuItem.url" routerLinkActive="active-link">{{menuItem.name | translate}}</button>
+                        <button  *ngIf="menuItem.childs.length != 0" mat-button [matMenuTriggerFor]="aboveMenu" class="dropdown-toggle" routerLinkActive="active-link">{{menuItem.name | translate}}<span class="caret"></span></button>
+                        <mat-menu #aboveMenu="matMenu">
+                            <button mat-menu-item *ngFor="let subMenuItem of menuItem.childs"><a class="submenuItem" [routerLink]="subMenuItem.url" routerLinkActive="active-link">{{subMenuItem.name | translate}}</a></button>
+                        </mat-menu>
                     </li>
                 </ul>              
             </div>
@@ -54,3 +54,29 @@
     </nav>
 </header>
 <router-outlet></router-outlet>
+
+<div class="footer_links">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+
+                <ul>
+                    <li>{{'About' | translate}}</li>
+                    <li>{{'Contact us' | translate}}</li>
+                    <li>{{'Terms & Conditions' | translate}}</li>
+                    <li>{{'Privacy Policy' | translate}}</li>
+
+                </ul>
+
+            </div>
+
+
+
+
+            <div class="col-lg-4">
+                <p>© {{'All Rights Reserved' | translate}}</p>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -70,7 +70,7 @@ export class EstoreManagementComponent implements OnInit {
   
   openAddProductModal() {
     let config = new MatDialogConfig();
-    config.panelClass = 'request-modal';
+    config.panelClass = 'custom-modal';
     config.disableClose = false;
     config.autoFocus = true;
     const dialogRef = this.dialog.open(AddProductComponent, config);

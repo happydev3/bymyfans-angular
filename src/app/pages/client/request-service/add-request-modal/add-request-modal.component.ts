@@ -26,7 +26,7 @@ export class AddRequestModalComponent implements OnInit {
     this.add_request_service_form = this.formBuilder.group({
       title: '',
       category_id: '',
-      expiry_date: '',
+      // expiry_date: '',
       location: '',
       budget: '',
       description: '',
@@ -38,7 +38,7 @@ export class AddRequestModalComponent implements OnInit {
     this.add_request_service_form = this.formBuilder.group({
       title:          ['', Validators.required],
       category_id:    [''],
-      expiry_date:    ['', Validators.required],
+      // expiry_date:    ['', Validators.required],
       location:       ['', Validators.required],
       budget:         ['', Validators.required],
       description:    ['', Validators.required],

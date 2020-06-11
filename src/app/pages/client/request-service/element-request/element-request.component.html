@@ -1,4 +1,4 @@
-<a href="" class="ser-listing with-apply-button">
+<a class="ser-listing with-apply-button">
 
     <!-- ser Listing Details -->
     <div class="ser-listing-details">
@@ -25,7 +25,10 @@
         </div>
       </div>
 
+      <span class="list-apply-button ripple-effect dzs"><i class="far fa-edit" aria-hidden="true"></i></span>
+
+      <span class="list-apply-button ripple-effect dzs"><i class="far fa-trash-alt" aria-hidden="true"></i></span>
       <!-- Apply Button -->
-      <span class="list-apply-button ripple-effect">{{'View Now' | translate}}</span>
+      <span class="list-apply-button ripple-effect" routerLink="/single-request-service/{{request.id}}">{{'View Now' | translate}}</span>
     </div>
 </a>

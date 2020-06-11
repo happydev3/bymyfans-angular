@@ -27,7 +27,7 @@
                               <div class="col-lg-2 col-md-2">
                                  <div class="profile-picture-box">
                                     <figure class="profile-picture">
-                                       <a href="profile">
+                                       <a [routerLink]="'/profile'">
                                           <img [src]="userInfo && userInfo.profile_pic !== null ? userPhotoUrl : 'assets/client/images/normal.jpg'" alt="profile picture">
                                        </a>
                                     </figure>
@@ -39,11 +39,11 @@
                                  <div class="edit-prof">
                                    <div class="uploadButton">
                                       <input class="uploadButton-input" type="file" accept="image/*, application/pdf" id="upload-cv-1" (change)="onWallSelected($event)">
-                                      <label class="uploadButton-button ripple-effect" for="upload-cv-1">Update cover image</label>
+                                      <label class="uploadButton-button ripple-effect" for="upload-cv-1">{{'Update cover image' | translate}}</label>
                                     </div>
                                     <div class="uploadButton">
                                       <input class="uploadButton-input" type="file" accept="image/*, application/pdf" id="upload-cv-2" (change)="onProfileSelected($event)">
-                                      <label class="uploadButton-button ripple-effect" for="upload-cv-2">Update profile photo</label>
+                                      <label class="uploadButton-button ripple-effect" for="upload-cv-2">{{'Update profile photo' | translate}}</label>
                                     </div>
                                  </div>
    
@@ -54,42 +54,42 @@
    
                      <div class="profile-details section" *ngIf="userInfo">
                         <div class="edit-hdng">
-                           <h3 class="page-sec-hfn">Profile Details</h3>
+                           <h3 class="page-sec-hfn">{{'Profile Details' | translate}}</h3>
                         </div>
                         <!-- form -->
                         <div class="form-group">
-                           <label>Username</label>
+                           <label>{{'Username' | translate}}</label>
                            <input type="text" class="form-control" placeholder="Merry Watson" formControlName="name" name="name" id="name" [(ngModel)]="userInfo.name">
                         </div>
    
                         <div class="form-group">
-                           <label>About Yourself</label>
+                           <label>{{'About Yourself' | translate}}</label>
                            <textarea class="form-control" placeholder="About Yourself" formControlName="about" name="about" id="about" [(ngModel)]="userInfo.about"></textarea>
                         </div>
    
                         <div class="form-group">
-                           <label>Location</label>
+                           <label>{{'Location' | translate}}</label>
                            <input type="text" class="form-control" placeholder="London, England- India" formControlName="location" name="location" id="location" [(ngModel)]="userInfo.location">
                         </div>
    
                         <div class="form-group">
-                           <label>Taobao Wishlist URL</label>
+                           <label>{{'Taobao Wishlist URL' | translate}}</label>
                            <input type="text" class="form-control" placeholder="www.example.com" formControlName="taobao_wishlist_url" name="taobao_wishlist_url" id="taobao_wishlist_url" [(ngModel)]="userInfo.taobao_wishlist_url">
                         </div>
    
                         <div class="form-group">
-                           <label>Email</label>
+                           <label>{{'Email' | translate}}</label>
                            <input type="email" class="form-control" placeholder="merrywatson@gmail.com" formControlName="email" name="email" id="email" [(ngModel)]="userInfo.email">
                         </div>
    
                         <div class="form-group">
-                           <label for="name-three">Phone</label>
+                           <label for="name-three">{{'Phone' | translate}}</label>
                            <input type="text" class="form-control" placeholder="+213 1234 56789" formControlName="mobile" name="mobile" id="mobile" [(ngModel)]="userInfo.mobile">
                         </div>
    
                         <div class="form-group">
                           <div class="account-update">
-                              <button mat-raised-button  class="submit-button post-share-btn" [disabled]="edit_account.invalid" aria-label="Deposit & Publish">Save/Update</button>
+                              <button mat-raised-button  class="submit-button post-share-btn" aria-label="Deposit & Publish">{{'Save/Update' | translate}}</button>
                           </div>
                        </div>
    
